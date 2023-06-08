@@ -3,6 +3,7 @@
 **Rede:** Interconexão de computadores;  
 **Internet:** São os fios e a conexão física de computadores em todo o mundo.  
 > A Internet é composta por uma enorme rede de satélites, redes celulares e cabos físicos sob o solo.  
+
 **Web:** São as informações da Internet;  
 
 > Usamos a web para acessar a internet por um link.
