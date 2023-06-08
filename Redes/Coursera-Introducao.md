@@ -44,4 +44,15 @@ São um conjunto de regras para transferir dados em uma rede. As regras garantem
 ## Web
 
 É possível navegar todos os sites pela Web.  
-**Sites:** São documentos de texto que formatamos com HTML.
+**Sites:** São documentos de texto que formatamos com HTML (linguagem de marcação de hipertexto).
+
+**URL** (Localizador Uniforme de Recursos): É um endereço da web
+
+ex: www.reddit.com - reddit = nome de domínio
+
+Ao garantir um nome de domínio, ele é regristrado na ICANN
+Quando esse nome é registrado, ninguém mais pode usá-lo até que fique disponível novamente
+
+DNS - Sistema de Nomes de Domínio - É um protocolo essencial da internet. Permite usar uma linguagem humana para acessar um site.  
+
+Toda vez que se acessa um site o computador faz uma busca DNS para encontra o número de IP correspondente ao nome do site.
