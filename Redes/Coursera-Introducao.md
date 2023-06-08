@@ -20,3 +20,28 @@ Dipositivos que podem se conectar a redes têm outro identificador chamado **end
 > Quando você envia ou recebe dados através de uma rede, **precisa ter um endereço de IP e MAC**;  
 > Exemplo: Endereço de IP: Endereço da sua casa; Endereço MAC: nome do destinatário da carta;  
 > Dados são enviados em pacotes pela internet; 
+
+## Formas de conectar um computador a uma rede
+1- Cabo Ethernet - Permite se conectar fisicamente a uma rede através de um cabo;  
+2- Wi-fi - Rede sem fio, a conexão é feita usando rádios e antenas;  
+3- Cabos de Fibra Óptica - Mais caro e mais rápido. Os cabos contêm fibras de vidro que movem dados através da luz, não da eletricidade.  
+
+**Roteador:** Conecta diversos dispositivos entre si e ajuda a rotear o tráfego de rede;
+> O roteador segue um conjunto de regras (protocolos de rede) para descobrir para onde enviar dados.
+> roteadores, switches e hubs.
+
+**Pilha de rede:** Conjunto de hardware ou software que fornece a infraestrutura de um computador
+
+## Protocolos de rede
+
+São um conjunto de regras para transferir dados em uma rede. As regras garantem que os pacotes sejam roteados de forma eficiente, não sejam corrompidos, sejam seguros, sigam para a máquina certa e sejam nomeados corretamente.
+
+**Protocolo de Controle de Transmissão e Protocolo da Internet (TCP/IP)**  
+
+**IP:** Responsável por entregar os pacotes aos computadores certos. Também ajuda a rotear informações.  
+**TCP:** Cuida do envio seguro das informações de uma rede a outra.
+
+## Web
+
+É possível navegar todos os sites pela Web.  
+**Sites:** São documentos de texto que formatamos com HTML.
