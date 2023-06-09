@@ -1,16 +1,16 @@
 # Arquitetura Elastic
-## Elasticsearch 
+### Elasticsearch 
 - Também é um banco de dados, mas o foco principal do Elastic não é simplesmente armazenar o dado, mas sim bucar o dado;  
 - É um banco de dados orientado a documento;
 - O foco do Elastic é ser um motor de busca eficiente;
-## Logstash 
+### Logstash 
 Transporte entre a origem e destino. Ou seja, sempre que quiser enviar um dado para salvar no Elasticsearch, vai ser usado o Logstash para isso. Ele vai pegar o dado, enviar armazenar no Elasticsearch;  
-## Beats 
+### Beats 
 - Também é possível usar o Beats para fazer isso que o Logstash faz;  
 - O Beats fica do lado do cliente e não do servidor;  
 - É mais leve para coletar os dados, mas o Logstash tem mais opções;  
 - Tanto o Beats quanto o Logstash são para enviar informações para o Elasticsearch.  
-## Kibana
+### Kibana
 - É a interface gráfica do Elastic;  
 - Não é uma interface só para visualizar os dados, nele tem todo o gerenciamento do Cluster também.
 
@@ -31,12 +31,12 @@ Coluna = Atributo
 
 - É onde vão ficar todas as informações;  
 - É dividido por **Shards** e é nos Shards que os dados ficarão armazenados;  
-## Alias
+### Alias
 - É um link virtual para um índice real (apelido);
 - É possível associar um Alias a mais de um índice (grupo);
-## Analyzer
+### Analyzer
 - Busca por Full Text e Valores Exatos;
-## Mapping (= Schema)
+### Mapping (= Schema)
 - Definição da estrutura do índice;
 
 # Comunicação com Elasticsearch
@@ -45,11 +45,41 @@ Coluna = Atributo
 - São feitas requisições HTTP para a API de Elasticsearch por meio do envio de objetos JSON;
 - A resposta sempre será no formato JSON;
 
-## Estrutura de uma requisição HTTP
+### Estrutura de uma requisição HTTP
 ```
 <ação> endereço_api:porta/índice/<opções>
 ```
 Exemplo:
 ```
 PUT localhost:9200/cliente/_create
+```
+
+# Operações Básicas
+
+### CRUD
+
+- **C**reate;  
+- **R**ead;  
+- **U**pdate;  
+- **D**elete.  
+
+### CRUD HEAD
+- Retorna apenas o cabeçalho do HTTP;
+- Útil para verificar se o documento existe;  
+
+**Ex:**  
+
+***Curl***  
+- É uma ferramente de linha de comando;
+- É uma biblioteca para transferir dados com URLs;
+- Ex:
+```
+curl -XHEAD -v http://localhost:9200/cliente/_doc/1
+```
+
+***Kibana***  
+- Opção: Dev Tools
+- Ex:
+```
+HEAD cliente/_doc/1
 ```
