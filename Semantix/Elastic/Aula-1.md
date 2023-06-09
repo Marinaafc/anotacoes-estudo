@@ -38,3 +38,18 @@ Coluna = Atributo
 - Busca por Full Text e Valores Exatos;
 ## Mapping (= Schema)
 - Definição da estrutura do índice;
+
+# Comunicação com Elasticsearch
+- A comunicação com o Elasticsearch é feita através de Protocolo HTTP;
+- Então se tem uma API Rest com comandos como HEAD, GET, POST, PUT, DELETE;
+- São feitas requisições HTTP para a API de Elasticsearch por meio do envio de objetos JSON;
+- A resposta sempre será no formato JSON;
+
+## Estrutura de uma requisição HTTP
+```
+<ação> endereço_api:porta/índice/<opções>
+```
+Exemplo:
+```
+PUT localhost:9200/cliente/_create
+```
