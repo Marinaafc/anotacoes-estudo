@@ -64,8 +64,38 @@ PUT cliente/_create/1
 - *PUT cliente/_doc/1 = Inserindo documento 1*
 - Executando o comando **PUT cliente/_doc/1** novamente vai inserir o documento, mas vai vir com um atributo _version que vai mudar para 2 (2ª versão);
 - Se não quiser inserir o documento novamente, tem que usar o comando **PUT cliente/_create/1**;
-- _create: se o docummento já existir, ele não vai criar, vai dar um aviso que já existe;
+- _create: se o documento já existir, ele não vai criar, vai dar um aviso que já existe;
 - Se mudar a idade de 20 para 21 usando _doc, não vai atualizar o documento, mas vai reindexá-lo, ou seja, vai inserir o documento todo novamente e alterar de 20 para 21;
 
 ### CRUD POST
 - Utilizado para criar um documento com _id ou atualizar um documento parcial;
+- No primeiro exemplo, vai atualizar o documento que foi criado em PUT sem precisar reindexar novamente;
+- Em _update, tem que colocar "doc" para falar qual documento quer atualizar e quais campos quer modificar;
+- Ex:
+```
+POST cliente/_update/1
+{
+    "doc":{
+            "nome":"João"
+    }
+}
+POST cliente/_doc
+{
+    "nome":"Marcos"
+}
+```
+
+***OBS: Com o POST, quando não coloca o /1, automaticamente o Elastic vai inserir o _id. Ou seja, não precisa colocar o _id com o POST, mas com o PUT precisa.***
+
+### CRUD DELETE
+
+- Deletar um documento;
+```
+DELETE cliente/_doc/1
+```
+- Deletar um índice;
+```
+DELETE cliente
+```
+### CRUD GET
+- Informações sobre o nó do Elasticsearch
