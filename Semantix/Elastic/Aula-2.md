@@ -43,3 +43,29 @@ curl -XHEAD -v http://localhost:9200/cliente/_doc/1
 HEAD cliente/_doc/1
 ```
 
+### CRUD PUT
+- Criar ou reindexar um documento inteiro (_version);
+- Inserir documento = Indexar na Elasticsearch;
+- Ex:
+```
+PUT cliente/_doc/1
+{
+    "nome":"Lucas",
+    "idade": 20,
+    "conhecimento": "Windows, Office, Hadoop, Elastic"
+}
+PUT cliente/_create/1
+{
+    "nome":"Lucas",
+    "idade": 20,
+    "conhecimento": "Windows, Office, Hadoop, Elastic"
+}
+```
+- *PUT cliente/_doc/1 = Inserindo documento 1*
+- Executando o comando **PUT cliente/_doc/1** novamente vai inserir o documento, mas vai vir com um atributo _version que vai mudar para 2 (2ª versão);
+- Se não quiser inserir o documento novamente, tem que usar o comando **PUT cliente/_create/1**;
+- _create: se o docummento já existir, ele não vai criar, vai dar um aviso que já existe;
+- Se mudar a idade de 20 para 21 usando _doc, não vai atualizar o documento, mas vai reindexá-lo, ou seja, vai inserir o documento todo novamente e alterar de 20 para 21;
+
+### CRUD POST
+- Utilizado para criar um documento com _id ou atualizar um documento parcial;
