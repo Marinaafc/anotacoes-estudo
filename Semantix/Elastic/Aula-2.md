@@ -98,4 +98,25 @@ DELETE cliente/_doc/1
 DELETE cliente
 ```
 ### CRUD GET
-- Informações sobre o nó do Elasticsearch
+- Informações sobre o nó do Elasticsearch (http://localhost:9200/)
+```
+GET /
+```
+- Buscar todos os documentos em um índice
+```
+GET cliente/_search
+```
+- Buscar um documento em um índice
+```
+GET cliente/_doc/1
+```
+- Buscar a quantidade de documentos em um índice
+```
+GET cliente/_count
+```
+- Buscar os dados de um documento em um índice
+```
+GET cliente/_source/1
+```
+> É como se fosse em SQL -> select * from cliente where id=1;
+> Ele busca só os dados do documento, sem os dados que a Elastic gera.
