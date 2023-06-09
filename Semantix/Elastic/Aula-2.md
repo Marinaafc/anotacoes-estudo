@@ -118,5 +118,5 @@ GET cliente/_count
 ```
 GET cliente/_source/1
 ```
-> É como se fosse em SQL -> select * from cliente where id=1;
+> É como se fosse em SQL -> select * from cliente where id=1;  
 > Ele busca só os dados do documento, sem os dados que a Elastic gera.
