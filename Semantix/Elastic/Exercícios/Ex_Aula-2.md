@@ -1,4 +1,4 @@
-1. Criar o índice produto e inserir os seguintes documentos:
+### 1. Criar o índice produto e inserir os seguintes documentos:
 
 - _id: 1, "nome": "mouse", "qtd": 50, "descricao": "com fio USB, compatível com Windows, Mac e Linux"
 - _id: 2, "nome": "hd", "qtd": 20, "descricao": "Interface USB 2.0, 500GB, Sistema: Windows 10, Windows 8, Windows 7 "
@@ -35,13 +35,13 @@ POST produto/_doc/4
 }
 ```
 
-2. Verificar se existe o documento com  id 3
+### 2. Verificar se existe o documento com  id 3
 
 ```
 HEAD produto/_doc/3
 ```
 
-3. Alterar o valor do atributo qtd para 30 do documento com id 3
+### 3. Alterar o valor do atributo qtd para 30 do documento com id 3
 
 ```
 POST produto/_update/3
@@ -52,19 +52,19 @@ POST produto/_update/3
 }
 ```
 
-4. Buscar o documento com id 1
+### 4. Buscar o documento com id 1
 
 ```
 GET produto/_doc/1
 ```
 
-5. Deletar o documento com id 4
+### 5. Deletar o documento com id 4
 
 ```
 DELETE produto/_doc/4
 ```
 
-6. Contar quantos documentos tem o índice produto
+### 6. Contar quantos documentos tem o índice produto
 
 ```
 GET produto/_count
