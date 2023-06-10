@@ -85,7 +85,7 @@ POST cliente/_doc
 }
 ```
 
-***OBS: Com o POST, quando não coloca o /1, automaticamente o Elastic vai inserir o _id. Ou seja, não precisa colocar o _id com o POST, mas com o PUT precisa.***
+***OBS: Com o POST, quando não coloca o /1, automaticamente o Elastic vai inserir o _id.***
 
 ### CRUD DELETE
 
