@@ -37,12 +37,36 @@ POST produto/_doc/4
 
 2. Verificar se existe o documento com  id 3
 
+```
+HEAD produto/_doc/3
+```
+
 3. Alterar o valor do atributo qtd para 30 do documento com id 3
+
+```
+POST produto/_update/3
+{
+  "doc":{
+    "qtd":30
+  }
+}
+```
 
 4. Buscar o documento com id 1
 
+```
+GET produto/_doc/1
+```
+
 5. Deletar o documento com id 4
+
+```
+DELETE produto/_doc/4
+```
 
 6. Contar quantos documentos tem o índice produto
 
+```
+GET produto/_count
+```
 
