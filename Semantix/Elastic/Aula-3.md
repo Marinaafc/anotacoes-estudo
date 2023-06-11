@@ -48,4 +48,28 @@ GET cliente/_search?q=Hadoop
   - **Hits**: Informação do resultado
     - Total: Quantidade de documentos encontrados;
     - Max_score: Valor de semelhança da consulta (0 a 1);
+      - Ex: Buscar palavras contidas em um comentário (não é exato);
+      - 0 = não encontrado, 1 = tem semelhança;
+      - O número não vai de 0 a 1, pode passar de 1;
+      - Tem como dar um boost para forçar o valor do score a ser maior;
       - Score é calculado com uso do algoritmo BM25.  
+
+### Pesquisa Múltiplos Índices
+
+- Pesquisar em todos os índices
+  - Cuidado para não fazer consultas lentas!
+```
+GET _all/_search?q=Windows
+```
+
+- Pesquisar em índices específicos
+```
+GET produto,cliente/_search?q=Windows
+```
+```
+GET produto,cliente/_count?q=Windows
+```
+- Caso o índice não exista
+```
+index_not_found_exception
+```
