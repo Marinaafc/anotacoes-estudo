@@ -250,3 +250,18 @@ GET cliente/_mapping/field/nome,conhecimento
 ```
 GET _mapping
 ```
+### Mapeamento Exemplo
+- OBS: recomendado criar o documento e usar o mapeamento automático do Elastic para depois copiar o mapeamento, colar, alterar o que for preciso e depois inserir os dados.
+```
+PUT cliente1
+{}
+
+PUT cliente1/_mapping/
+{
+  "properties":{
+    "nome":{"type":"text"},
+    "idade":{"type":"long"},
+    "conhecimento":{"type":"keyword"}
+  }
+}
+```
