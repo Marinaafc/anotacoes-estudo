@@ -22,7 +22,7 @@ GET produto/_search?q=nome:hd&q=descricao:windows
 
 e) Nome = memória e descrição = GB
 ```
-GET produto/_search?q=nome:memoria&q=descricao:GB
+GET produto/_search?q=nome:memoria&q=descricao:*GB
 ```
 
 ### 2. Pesquisar todos os índices, limitando a pesquisa em 5 documentos em cada página e visualizar a 4 página (Documentos entre 16 á 20 )
