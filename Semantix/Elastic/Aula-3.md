@@ -166,3 +166,40 @@ PUT teste
 
 - Verificar se o índice existe
   - HEAD teste
+
+### Índice Remoção
+
+- Deletar um índice
+```
+PUT teste1
+DELETE teste1
+```
+- Deletar múltiplos índices
+```
+PUT indice1
+PUT indice2
+PUT indice3
+PUT indice4
+GET ind*
+
+DELETE ind*
+
+HEAD ind*
+```
+
+### Índice Fechamento e Abertura
+
+- Fechar índice
+  - Diminui a sobrecarga no cluster
+    - Mantém metadados (mapping, settings) quando fecha
+    - Ex: Não dá para fazer get search quando está fechado, mas get mapping e settings sim
+  - Bloqueia leitura e gravação (ex: PUT, POST)
+  - Não é recomendado manter fechado por muito tempo
+    - Pode acontecer de por algum motivo o nó deixar o cluster e se o índice estiver fechado não vai ser possível reconstruir as cópias. Então as cópias serão perdidas 
+  - Solução: Frozen Index (Congela o Index)
+    - Não tem perigo de perder as cópias com o Frozen Index
+  - Exemplo:
+    - POST teste/_close
+    - POST teste/_open
+    - POST test*/_close
+   
