@@ -120,3 +120,35 @@ GET cliente/_source/1
 ```
 > É como se fosse em SQL -> select * from cliente where id=1;  
 > Ele busca só os dados do documento, sem os dados que a Elastic gera.
+
+# Múltiplas Operações Simultâneas
+
+- Como fazer operações de CRUD de forma simultânea.
+
+### Bulk API
+
+- Execução de várias operações de indexação / exclusão em uma única chamada de API;
+- Isso aumenta a velocidade de indexação;
+- Comandos:
+```
+POST _bulk
+{"index":{"_index":"test","_id":"1"}}
+{"field1":"value1"}
+{"delete":{"_index":"test","_id":"2"}}
+{"create":{"_index":"test","_id":"3"}}
+{"field1":"value3"}
+{"update":{"_id":"1","_index":"test"}}
+{"doc":{"field2":"value2"}}
+```
+> **"index":** Não força com o _create. Pode inserir várias informações com o mesmo id que vai substituir e criar novas versões.
+> Com o index, se tentar indexar novamente o mesmo id, ele vai permitir. Já com o create vai dar erro, pois ele só permite 1 versão.
+
+- Ex:
+```
+POST concessionaria/_bulk
+{"create":{"_id":"1"}}
+{"nome":"carro"}
+{"create":{"_id":"2"}}
+{"nome":"automovel"}
+...
+```
