@@ -202,4 +202,51 @@ HEAD ind*
     - POST teste/_close
     - POST teste/_open
     - POST test*/_close
-   
+
+# Mapeamento
+
+- O Elasticsearch define automaticamente no índice os tipos dos campos;
+- Mapeamento é como se fosse a mesma coisa do schema da tabela (SQL);
+- Ex:
+  - GET cliente/_mapping
+  - Não é possível alterar o tipo de dado;
+    - Reindex (Para alterar, precisa reindexar o documento)
+  - É possível criar novos atributos;
+
+### Tipo de dados que o Elastic aceita
+
+- Core
+  - Texto
+    - text and keyword
+  - Numérico
+    - long, integer, short, byte, double, float
+  - Date
+  - Binary
+  - Boolean
+  - Ip
+- Complexos
+  - Object
+  - Nested
+
+### Mapeamento Pesquisa
+- Mapeamento pelo índice
+```
+GET cliente/_mapping
+```
+```
+GET client*/_mapping
+```
+- Mapeamento pelo atributo
+```
+GET cliente/_mapping/field/conhecimento
+```
+```
+GET cliente/_mapping/field/conhe*
+```
+```
+GET cliente/_mapping/field/nome,conhecimento
+```
+- Mapeamento de todos os índices
+```
+GET _mapping
+```
