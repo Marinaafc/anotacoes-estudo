@@ -38,3 +38,14 @@ GET cliente/_search?q=Hadoop
   }
 }
 ```
+### Pesquisa Cabeçalho
+
+- Quando se busca um documento, é criada uma estrutura de JSON, que pode ser observada na saída;
+- Estrutura do json de busca
+  - **Took**: Tempo em milissegundo que a consulta demorou;
+  - **Timed_out**: Tempo de limite excedido;
+  - **_shards**: Quantidade de shards usadas (sucesso e falha). Se aparecer falha, a busca pode estar errada, porque em algum nó foi feita uma busca e nesse nó houve uma falha;
+  - **Hits**: Informação do resultado
+    - Total: Quantidade de documentos encontrados;
+    - Max_score: Valor de semelhança da consulta (0 a 1);
+      - Score é calculado com uso do algoritmo BM25.  
