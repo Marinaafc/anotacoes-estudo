@@ -265,3 +265,23 @@ PUT cliente1/_mapping/
   }
 }
 ```
+
+# Reindex
+
+- Alterar o mapeamento
+- Forma básica para reindexar
+  - Configura o novo índice;
+  - Indexa o índice de entrada (source) para o destino (dest);
+  - Vai indexar todos os dados do índice de entrada no índice de destino, mas não vai pegar os metadados (settings, mapping,...);
+- Exemplo:
+```
+POST _reindex
+{
+  "source":{
+  "index":"teste1"
+},
+  "dest":{
+  "index":"new_teste"
+  }
+}
+```
