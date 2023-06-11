@@ -10,6 +10,6 @@ GET cliente/_search
 ```
 GET cliente/_search?q=hadoop
 ```  
-> Está pesquisando a palavra "hadoop";  
-> Faz uso do campo "_all" (pesquisa o valor "hadoop" em todos os campos);  
+> - Está pesquisando a palavra "hadoop";  
+> - Faz uso do campo "_all" (pesquisa o valor "hadoop" em todos os campos);  
   
