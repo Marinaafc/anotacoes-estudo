@@ -140,7 +140,7 @@ POST _bulk
 {"update":{"_id":"1","_index":"test"}}
 {"doc":{"field2":"value2"}}
 ```
-> **"index":** Não força com o _create. Pode inserir várias informações com o mesmo id que vai substituir e criar novas versões.
+> **"index":** Não força com o _create. Pode inserir várias informações com o mesmo id que vai substituir e criar novas versões.  
 > Com o index, se tentar indexar novamente o mesmo id, ele vai permitir. Já com o create vai dar erro, pois ele só permite 1 versão.
 
 - Ex:
