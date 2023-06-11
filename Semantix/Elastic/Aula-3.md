@@ -73,3 +73,25 @@ GET produto,cliente/_count?q=Windows
 ```
 index_not_found_exception
 ```
+
+# Limitação e Paginação
+- Para pesquisas com muitos documentos
+  - Difícil visualização (por padrão, mostra 10 documentos);
+  - Limitar a quantidade de documentos;
+    - Size = nº de documentos
+  - Paginação
+    - Quando você não quer ver todos os documentos de uma vez só, pode criar páginas de 100 em 100 por exemplo; 
+    - From = A partir de qual documento que irá visualizar (Exemplo: Ver dos 200 documentos para frente)
+  - Resposta máxima
+    - from + size <= index.max_result_window(10.000);
+    - O from + o size não pode ultrapassar esse atributo;
+    - Scroll (para respostas que retornam mais de 10.000 documentos)
+- Limitar o nº de documentos
+```
+GET cliente/_search?q=hadoop&size=100
+```
+- Paginação, visualizar x documentos por paginação
+```
+GET cliente/_search?q=hadoop&size=100&from=500
+```
+                
