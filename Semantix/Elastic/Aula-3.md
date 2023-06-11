@@ -94,4 +94,32 @@ GET cliente/_search?q=hadoop&size=100
 ```
 GET cliente/_search?q=hadoop&size=100&from=500
 ```
-                
+### Exemplos
+
+- Mostrar os 10 primeiros documentos (1ª página)
+```
+GET _search?&size=10
+{
+"query":{
+  "match_all":{}
+  }
+}
+```
+- Mostrar todos os documentos de 31 a 40 (4ª página)
+```
+GET _search?&size=10&from=30
+{
+"query":{
+  "match_all":{}
+  }
+}
+```
+- Exemplo com paginação de 10 documentos
+  - 1ª página - size=10 & from=0 (Default);
+  - 2ª página - size=10 & from=10;
+  - 10ª página - size=10 & from=90;
+
+- Fórmula
+  - 1º documento da busca = From + 1;
+  - Último documento da busca = From + Size;
+  - Página = (From/Size)+1
