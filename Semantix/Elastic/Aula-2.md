@@ -152,3 +152,10 @@ POST concessionaria/_bulk
 {"nome":"automovel"}
 ...
 ```
+
+# Importação de Dados com Kibana
+
+- Home
+- Menu/Kibana/Machine Learning
+    - Import data
+        - Upload file  
