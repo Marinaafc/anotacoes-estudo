@@ -123,3 +123,46 @@ GET _search?&size=10&from=30
   - 1º documento da busca = From + 1;
   - Último documento da busca = From + Size;
   - Página = (From/Size)+1
+
+# Gerenciamento de Índices
+
+- Create Index
+- Get Index ("Buscar o Índice)
+- Indices Exists
+- Delete Index
+- Open / Close Index API
+
+### Índice Criação
+
+- Configuração básica (Default)
+
+```
+PUT teste
+{
+  "settings":{
+    "index":{
+      "number_of_shards":1,
+      "number_of_replicas":1
+    }
+},
+  "mappings":{...},
+  "aliases":{...}
+}
+```
+- Boa prática, cada shard ter entre 20GB a 50GB (Não é uma regra, para encontrar o valor ideal, precisa testar o índice);
+- Nº de shards 1 vai ficar no nó do container do Elasticsearch e Nº de réplicas não vai salvar em local nenhum, porque não tem outro nó;
+- Como configurou 1 replica e só tem 1 nó, não vai salvar nenhuma réplica e vai gerar um estado de alerta para o cluster;
+- Estados - verde: tudo ok, amarelo: quando uma replica não está alocada em algum nó, vermelho: quando um shard não está alocado em algum nó;
+
+### Índice Busca
+
+- Consultar índice
+  - GET teste
+  - GET teste/_search
+  - GET teste/_settings
+  - GET teste/_mapping
+  - GET teste/_alias
+  - GET teste/_stats (vai retornar estatíscas do nó: quantos documentos tem, qual o tamanho do índice, etc)
+
+- Verificar se o índice existe
+  - HEAD teste
