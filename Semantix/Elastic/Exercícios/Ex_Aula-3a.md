@@ -17,7 +17,7 @@ GET produto/_search?q=descricao:USB
 
 d) Nome = hd e descrição = windows
 ```
-GET produto/_search?q=nome:hd&q=decricao:windows
+GET produto/_search?q=nome:hd&q=descricao:windows
 ```
 
 e) Nome = memória e descrição = GB
