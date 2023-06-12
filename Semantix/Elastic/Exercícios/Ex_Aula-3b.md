@@ -33,6 +33,18 @@ PUT produto/_doc/6
 ```
 ### 6. Reindexar o índice produto para produto2, com o campo quantidade para o tipo short
 ```
+PUT produto2
+{
+
+}
+```
+```
+PUT produto2/_mapping
+{
+
+}
+```
+```
 POST _reindex
 {
   "source":{
@@ -40,12 +52,7 @@ POST _reindex
 },
   "dest":{
   "index":"produto2"
-  },
-{
-  "properties":{
-    "qtd":{"type":"short"},
   }
-}
 ```
 ### 7. Visualizar o mapeamento do índice produto2
 ```
