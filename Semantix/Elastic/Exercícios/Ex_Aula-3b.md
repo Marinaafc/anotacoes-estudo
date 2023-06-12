@@ -23,15 +23,13 @@ PUT produto/_mapping/
 
 _id: 6, "nome": "teclado", "qtd": 100, "descricao": "USB", "data":"2020-09-18"
 ```
-POST produto/_doc/6
+PUT produto/_doc/6
 {
-  "doc": {
-    "nome": "teclado",
-    "qtd": 100,
-    "descricao": "USB",
-    "data":"2020-09-18"
+  "nome": "teclado",
+  "qtd": 100,
+  "descricao": "USB",
+  "data":"2020-09-18"
   }
-}
 ```
 ### 6. Reindexar o índice produto para produto2, com o campo quantidade para o tipo short
 ```
