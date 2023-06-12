@@ -41,7 +41,32 @@ PUT produto2
 ```
 PUT produto2/_mapping
 {
-
+  "properties": {
+    "data": {
+      "type": "date"
+    },
+    "descricao": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "nome": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "qtd": {
+      "type": "short"
+    }
+  }
 }
 ```
 ```
