@@ -12,7 +12,7 @@ GET produto/_mapping/field/nome
 ```
 ### 4. Inserir o campo data do tipo date no índice produto
 ```
-PUT produto/_mapping/
+PUT produto/_mapping
 {
   "properties":{
     "data":{"type":"date"}
