@@ -15,7 +15,7 @@ GET produto/_mapping/field/nome
 PUT produto/_mapping/
 {
   "properties":{
-    "data":{"type":"date"},
+    "data":{"type":"date"}
   }
 }
 ```
