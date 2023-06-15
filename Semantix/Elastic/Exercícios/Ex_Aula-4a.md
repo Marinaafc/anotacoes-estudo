@@ -59,8 +59,8 @@ GET produto/_search
 GET produto/_search
 {
   "query":{
-  "match":{
-    "descricao":"USB"
+    "match":{
+      "descricao":"USB"
     }
   }
 }
