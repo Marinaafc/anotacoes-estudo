@@ -169,3 +169,4 @@ GET cliente/_search
   }
 }
 ```
+> O should é usado muito quando se quer aumentar o score de uma busca, porque sempre que encontra a busca do should, dá um up no score
