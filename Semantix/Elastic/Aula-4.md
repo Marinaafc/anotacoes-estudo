@@ -96,3 +96,47 @@ GET cliente/_search
   }
 }
 ```
+# Bool Query
+
+- Consultas Booleanas;
+- São usadas para filtrar um dataset grande, porque normalmente com um dataset grande se tem a necessidade de fazer várias consultas distintas (pra isso é necessária uma estrutura flexível);
+- Tem uma estrutura flexível;
+- Atributos:
+  - Must = And (Usa score)
+  - Should = Or (Usa score)
+  - Must_not = Not and (Usa score)
+  - Filter = Filtrar mais dados antes de atender as outras cláusulas (Não usa score)
+- Normalmente os dados são filtrados para depois fazer uma query calculando score nos dados necessários;
+- Ex:
+
+```
+GET cliente/_search
+{
+  "query":{
+    "bool":{
+      "must":[{...}],
+      "must_not":[{...}],
+      "should":[{...}],
+      "filter":[{...}]
+    }
+  }
+}
+```
+- Ex 1 Consulta booleana com 1 atributo (não faz sentido usar bool, é só um exemplo)
+```
+GET cliente/_search
+{
+  "query":{
+    "bool":{
+      "should":{
+        "term":{
+          "idade":"30"
+        }
+      }
+    }
+  }
+}
+```
+> Vai retornar todos os documentos com idade = 30
+
+- Ex 1 Consulta booleana com N atributos
