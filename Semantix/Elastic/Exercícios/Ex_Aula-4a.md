@@ -5,8 +5,8 @@ Realizar todas as buscas a seguir no índice produto
 GET produto/_search
 {
   "query":{
-  "term":{
-    "nome":"mouse"
+    "term":{
+      "nome":"mouse"
     }
   }
 }
@@ -17,8 +17,8 @@ GET produto/_search
 GET produto/_search
 {
   "query":{
-  "terms":{
-    "nome":["mouse","teclado"]
+    "terms":{
+      "nome":["mouse","teclado"]
     }
   }
 }
