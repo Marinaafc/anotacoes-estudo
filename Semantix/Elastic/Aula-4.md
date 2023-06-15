@@ -146,7 +146,7 @@ GET cliente/_search
     "bool":{
       "must":[
         {"match":{"estado":"sp"}},
-        {"match":{"ativo":"sim"}},
+        {"match":{"ativo":"sim"}}
       ]
     }
   }
