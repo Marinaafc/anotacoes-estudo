@@ -2,14 +2,56 @@ Realizar todas as buscas a seguir no índice produto
 
 ### 1. Buscar no termo nome o valor mouse
 ```
+GET cliente/_search
+{
+  "query":{
+  "term":{
+    "nome":"mouse"
+    }
+  }
+}
 ```
 
 ### 2. Buscar no termo nome os valores mouse e teclado
 ```
+GET cliente/_search
+{
+  "query":{
+  "terms":{
+    "nome":["mouse","teclado"]
+    }
+  }
+}
 ```
 
 ### 3. Realizar a mesma busca do item 1 e 2, desconsiderando o score
 ```
+GET cliente/_search
+{
+  "query":{
+    "constant_score":{
+      "filter":{
+        "term":{
+          "nome":"mouse"
+        }
+      }
+    }
+  }
+}
+```
+```
+GET cliente/_search
+{
+  "query":{
+    "constant_score":{
+      "filter":{
+        "terms":{
+          "nome":["mouse","teclado"]
+        }
+      }
+    }
+  }
+}
 ```
 
 ### 4. Buscar os documentos que contenham a palavra “USB” no atributo descrição
