@@ -140,3 +140,32 @@ GET cliente/_search
 > Vai retornar todos os documentos com idade = 30
 
 - Ex 1 Consulta booleana com N atributos
+```
+{
+  "query":{
+    "bool":{
+      "must":[
+        {"match":{"estado":"sp"}},
+        {"match":{"ativo":"sim"}},
+      ]
+    }
+  }
+}
+```
+> "match" é muito parecido com "terms", mas faz uma análise um pouco maior, enquanto o terms faz uma busca mais específica. Por exemplo, não vai diferenciar maiúsculo com minúsculo. Não faz diferença pesquisar "sp" ou "SP", já com o terms faria diferença.
+
+- Ex N consultas booleanas com N atributos
+```
+{
+  "query":{
+    "bool":{
+      "must":{"match":{"setor":"vendas"}},
+      "should":[
+        {"match":{"tags":"imutabilidade"}},
+        {"match":{"tags":"larga escala"}}
+      ],
+      "must_not":{"match":{"nome":"inativo"}}
+    }
+  }
+}
+```
