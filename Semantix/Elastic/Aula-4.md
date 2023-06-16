@@ -256,3 +256,17 @@ GET cliente/_search
 }
 ```
 - OBS: Não pode usar junto com operador e minimum_should_match.
+- Ex - Forma que permite usar operador e minimum_should_match:
+```
+{
+  "query":{
+    "bool":{
+      "should":[
+        {"match":{"endereco":"pinheiros"}},
+        {"match":{"cidade":"pinheiros"}},
+        {"match":{"estado":"pinheiros"}}
+      ]
+    }
+  }
+}
+```
