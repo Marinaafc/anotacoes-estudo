@@ -170,3 +170,89 @@ GET cliente/_search
 }
 ```
 > O should é usado muito quando se quer aumentar o score de uma busca, porque sempre que encontra a busca do should, dá um up no score
+
+# Ordem de Busca
+
+- Para calcular a ordem de busca, é considerado:
+  - Quantas vezes o termo aparece no atributo (se é um atributo que aparece mais vezes, vai ter uma relevância/score maior);
+  - Tamanho do atributo (quanto menor, maior a relevância/score);
+  - Tamanho do termo (quanto menor, maior a relevância/score);
+  - Quantas vezes o termo aparece em todos os documentos (quanto menos aparecer, maior o boost na busca);
+  - Exemplo:
+```
+GET cliente/_search
+{
+  "query":{
+    "match":{
+      "conhecimento":"sqoop hive impala elk"
+    }
+  }
+}
+```
+> Quando o documento tiver mais do atributo que eu estou buscando, ele vai ficar em 1º lugar;
+
+### Operador Busca
+- Padrão é o "or";
+- "operator":"and";
+
+```
+GET cliente/_search
+{
+  "query":{
+    "match":{
+      "conhecimento":{
+        "query":"sqoop hive",
+        "operator":"and"
+      }
+    }
+  }
+}
+```
+> Tem que ter a palavra sqoop e palavra hive no atributo conhecimento.
+
+- Definir o mínimo de % que estejam na consulta
+  - "minimum_should_match":"valor em %"
+```
+GET cliente/_search
+{
+  "query":{
+    "match":{
+      "Hobby":{
+        "query":"sqoop hive impala",
+        "minimum_should_match":"50%"
+      }
+    }
+  }
+}
+```
+
+- Definir o mínimo de % que estejam na consulta
+  - "minimum_should_match":Número
+```
+GET cliente/_search
+{
+  "query":{
+    "match":{
+      "Hobby":{
+        "query":"sqoop hive impala",
+        "minimum_should_match":2
+      }
+    }
+  }
+}
+```
+
+### Múltiplos Atributos
+- "multi_match" permite pesquisar em múltiplos campos
+```
+{
+  "query":{
+    "multi_match":{
+      "query":"pinheiros",
+      "type":"most_fields",
+      "fields":["endereco", "cidade", "estado"]
+    }
+  }
+}
+```
+- OBS: Não pode usar junto com operador e minimum_should_match.
