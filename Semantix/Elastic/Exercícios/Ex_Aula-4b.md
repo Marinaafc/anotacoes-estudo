@@ -54,3 +54,4 @@ GET produto/_search
   }
 }
 ```
+> Como tem 3 nomes na pesquisa (Windows,Linux e USB) e só encontrou 1, já é considerado como 50%, pois metade de 3 é 1,5 e não é considerado esse 0,5. Logo, 1 já é considerado 50%. Se fossem 4 termos, teria que encontrar pelo menos 2. 
