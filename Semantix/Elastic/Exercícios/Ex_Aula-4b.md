@@ -25,6 +25,7 @@ GET produto/_search
   }
 }
 ```
+> É a mesma coisa de utilizar o "descricao":{"query":"Windows Linux USB", "operator":"or"}
 ### 3. Buscar os documentos que contenham pelo menos 2 palavras da seguinte lista de palavras: “Windows”; “Linux” e “USB” no atributo descrição
 ```
 GET produto/_search
