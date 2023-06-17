@@ -288,12 +288,12 @@ GET cliente/_search
 ```
 GET cliente/_search
 {
-    "query":{
-        "range":{
-            "idade":{
-                "gte":10
-            }
-        }
+  "query":{
+    "range":{
+      "idade":{
+        "gte":10
+      }
     }
+  }
 }
 ```
