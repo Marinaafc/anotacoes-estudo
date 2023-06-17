@@ -270,3 +270,5 @@ GET cliente/_search
   }
 }
 ```
+
+# Consultas por Intervalo
