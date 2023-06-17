@@ -276,3 +276,4 @@ GET cliente/_search
 ### Range Query
 
 - Atributos para controlar o intervalo:
+ - gte
