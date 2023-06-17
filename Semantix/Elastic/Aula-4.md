@@ -276,10 +276,10 @@ GET cliente/_search
 ### Range Query
 
 - Atributos para controlar o intervalo:
-    - gte - maior que ou igual a;
-    - gt - maior que;
-    - lte - menor que ou igual a;
-    - lt - menor que
+  - gte - maior que ou igual a;
+  - gt - maior que;
+  - lte - menor que ou igual a;
+  - lt - menor que
 
 ### Exemplo Range Query
 
