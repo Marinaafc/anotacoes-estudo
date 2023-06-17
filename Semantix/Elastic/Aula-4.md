@@ -271,4 +271,8 @@ GET cliente/_search
 }
 ```
 
-# Consultas por Intervalo
+# Consultas por Intervalo de Dados
+
+### Range Query
+
+- Atributos para controlar o intervalo:
