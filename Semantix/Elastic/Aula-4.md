@@ -276,4 +276,24 @@ GET cliente/_search
 ### Range Query
 
 - Atributos para controlar o intervalo:
-    - gte
+    - gte - maior que ou igual a;
+    - gt - maior que;
+    - lte - menor que ou igual a;
+    - lt - menor que
+
+### Exemplo Range Query
+
+- Consultar o campo idade maior ou igual a 10
+
+```
+GET cliente/_search
+{
+    "query":{
+        "range":{
+            "idade":{
+                "gte":10
+            }
+        }
+    }
+}
+```
