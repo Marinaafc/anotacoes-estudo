@@ -20,9 +20,7 @@ GET produto/_search
 {
   "query":{
     "match":{
-      "descricao":{
-        "query":"Windows Linux USB"
-      }
+      "descricao":"Windows Linux USB"
     }
   }
 }
