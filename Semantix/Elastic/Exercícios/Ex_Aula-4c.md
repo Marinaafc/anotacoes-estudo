@@ -23,13 +23,62 @@ GET populacao/_search
 ```
 
 b) Mostrar os documentos com o atributo "Median Age" maior que 70
-
+```
+GET populacao/_search
+{
+  "query":{
+    "range":{
+      "Median Age":{
+        "gt":70
+      }
+    }
+  }
+}
+```
 c) Mostrar os documentos 50 (Zip Code: 90056) à 60 (Zip Code: 90067) do índice de populacao
 
+```
+GET populacao/_search
+{
+  "query":{
+    "range":{
+      "Zip Code":{
+        "gte":90056,
+        "lte":90067
+      }
+    }
+  }
+}
+```
 ### 3. Importar através do Kibana o arquivo weekly_MSFT.csv (Guia Arquivos/dataset/weekly_MSFT.csv) com o índice bolsa
 
 ### 4. Executar as consultas no índice bolsa
 
 a) Visualizar os documentos do dia 2019-01-01 à 2019-03-01. (hits = 9)
 
-b) Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
+
+```
+GET bolsa/_search
+{
+  "query":{
+    "range":{
+      "data":{
+        "gte":"2019-01-01",
+        "lte":"2019-03-01",
+        "format_date":"dd/MM/yyyy||yyyy"
+      }
+    }
+  }
+}
+```b) Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
+{
+  "query":{
+    "range":{
+      "data":{
+        "gte":"2019-04-01",
+        "lte":"now",
+        "format_date":"dd/MM/yyyy||yyyy"
+      }
+    }
+  }
+}
