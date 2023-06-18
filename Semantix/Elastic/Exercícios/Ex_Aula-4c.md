@@ -23,7 +23,7 @@ GET populacao/_search
 ```
 
 b) Mostrar os documentos com o atributo "Median Age" maior que 70
-```keyvalue
+```nosql
 GET populacao/_search
 {
   "query":{
