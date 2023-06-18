@@ -72,7 +72,8 @@ GET bolsa/_search
 }
 ```
 b) Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
-```query
+```json
+GET bolsa/_search
 {
   "query":{
     "range":{
