@@ -312,3 +312,10 @@ GET cliente/_search
   }
 }
 ```
+### Consultas por Intervalo de Tempo
+
+- Propriedades com data
+  - "format":"dd/MM/yyyy||yyyy"
+    - define o formato da data
+  - "time_zone":"+03:00"
+    - altera hora configurada no cluster, altera como vai retornar a data se estiver em formato de horas
