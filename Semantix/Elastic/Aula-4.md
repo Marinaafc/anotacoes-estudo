@@ -368,3 +368,34 @@ GET cliente/_search
 }
 ```
 > - Vai mostrar tudo que é de ontem até hoje. É usado muito com filtro
+```
+GET cliente/_search
+{
+  "query":{
+    "range":{
+      "timestamp":{
+        "gte":"2015-01-01 00:00:00",
+        "lte":"now",
+        "time_zone":"+03:00"
+      }
+    }
+  }
+}
+```
+> o timestamp é um atributo, assim como o data do exemplo anterior
+- Campo padrão de tempo criado pela Elastic - **@timestamp**
+  - Usado por exemplo na inserção de dados automaticamente;
+  - Para fazer pesquisa nesse campo, precisa colocar o @
+```
+GET cliente/_search
+{
+  "query":{
+    "range":{
+      "@timestamp":{
+        "gte":"2015-08-04T11:00:00",
+        "lt":"2015-08-04T12:00:00"
+      }
+    }
+  }
+}
+```
