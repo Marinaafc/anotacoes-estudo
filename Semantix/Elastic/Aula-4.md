@@ -338,6 +338,7 @@ GET cliente/_search
   - -1M: Subtrai 1 mês 
 
 ### Exemplo Range de Data
+- Intervalo com diferentes formatos
 ```
 GET cliente/_search
 {
@@ -352,3 +353,4 @@ GET cliente/_search
   }
 }
 ```
+> - O formato tem que ser dia mês e ano, mas também aceita somente o ano ("dd/MM/yyyy||yyyy")
