@@ -320,5 +320,6 @@ GET cliente/_search
   - "time_zone":"+03:00"
     - altera hora configurada no cluster, altera como vai retornar a data se estiver em formato de horas
 
-| m | minuto |
-| s | segundo|
+|---||---|
+| m ||minuto|
+|s||segundo|
