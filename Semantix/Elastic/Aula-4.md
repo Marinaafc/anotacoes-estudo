@@ -361,7 +361,7 @@ GET cliente/_search
     "range":{
       "data":{
         "gte":"now-1d",
-        "lte":"now"
+        "lt":"now"
       }
     }
   }
