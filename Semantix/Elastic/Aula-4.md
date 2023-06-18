@@ -318,7 +318,7 @@ GET cliente/_search
   - "format":"dd/MM/yyyy||yyyy"
     - define o formato da data
   - "time_zone":"+03:00"
-    - altera hora configurada no cluster, altera como vai retornar a data se estiver em formato de horas
+    - altera a hora configurada no cluster, altera como vai retornar a data se estiver em formato de horas
 
 | Abreviação | Legenda |
 |--- |--- |
@@ -354,3 +354,17 @@ GET cliente/_search
 }
 ```
 > - O formato tem que ser dia mês e ano, mas também aceita somente o ano ("dd/MM/yyyy||yyyy")
+```
+GET cliente/_search
+{
+  "query":{
+    "range":{
+      "data":{
+        "gte":"now-1d",
+        "lte":"now"
+      }
+    }
+  }
+}
+```
+> - Vai mostrar tudo que é de ontem até hoje. É usado muito com filtro
