@@ -1,9 +1,26 @@
 
 ### 1. Verificar se existe o índice populacao
 
+```
+HEAD populacao
+```
+
 ### 2. Executar as consultas no índice populacao
 
 a) Mostrar os documentos com o atributo "Total Population" menor que 100
+
+```
+GET populacao/_search
+{
+  "query":{
+    "range":{
+      "Total Population":{
+        "lt":100
+      }
+    }
+  }
+}
+```
 
 b) Mostrar os documentos com o atributo "Median Age" maior que 70
 
