@@ -322,7 +322,7 @@ GET cliente/_search
 
 | Abreviação | Legenda |
 |--- |--- |
-| Y | Anos |
+| y | Anos |
 | M | Meses |
 | w | Semanas |
 | d | Dias |
@@ -330,3 +330,9 @@ GET cliente/_search
 | h | Horas |
 | m | Minutos |
 | s | Segundos |
+
+- Exemplos 
+  - Now: Agora
+    - Vai pegar a data e hora de agora do cluster
+  - +1d: Adiciona 1 dia
+  - -1M: Subtrai 1 mês 
