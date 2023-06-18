@@ -70,7 +70,9 @@ GET bolsa/_search
     }
   }
 }
-```b) Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
+```
+b) Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
+```
 {
   "query":{
     "range":{
@@ -82,3 +84,4 @@ GET bolsa/_search
     }
   }
 }
+```
