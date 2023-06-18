@@ -297,3 +297,18 @@ GET cliente/_search
   }
 }
 ```
+- Consultar o campo idade entre 10 e 25
+
+```
+GET cliente/_search
+{
+  "query":{
+    "range":{
+      "idade":{
+        "gte":10,
+        "lte":25
+      }
+    }
+  }
+}
+```
