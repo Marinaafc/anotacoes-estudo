@@ -9,7 +9,7 @@ HEAD populacao
 
 a) Mostrar os documentos com o atributo "Total Population" menor que 100
 
-```
+```sql
 GET populacao/_search
 {
   "query":{
@@ -23,7 +23,7 @@ GET populacao/_search
 ```
 
 b) Mostrar os documentos com o atributo "Median Age" maior que 70
-```
+```keyvalue
 GET populacao/_search
 {
   "query":{
@@ -37,7 +37,7 @@ GET populacao/_search
 ```
 c) Mostrar os documentos 50 (Zip Code: 90056) à 60 (Zip Code: 90067) do índice de populacao
 
-```
+```kibana
 GET populacao/_search
 {
   "query":{
@@ -57,7 +57,7 @@ GET populacao/_search
 a) Visualizar os documentos do dia 2019-01-01 à 2019-03-01. (hits = 9)
 
 
-```
+```elasticsearch
 GET bolsa/_search
 {
   "query":{
@@ -85,9 +85,4 @@ GET bolsa/_search
     }
   }
 }
-```
-
-```javascript
-function test() {
- console.log("notice the blank line before this function?");
 ```
