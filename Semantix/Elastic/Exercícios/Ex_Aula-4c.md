@@ -62,7 +62,7 @@ GET bolsa/_search
 {
   "query":{
     "range":{
-      "data":{
+      "timestamp":{
         "gte":"2019-01-01",
         "lte":"2019-03-01",
         "format_date":"dd/MM/yyyy||yyyy"
@@ -77,7 +77,7 @@ GET bolsa/_search
 {
   "query":{
     "range":{
-      "data":{
+      "timestamp":{
         "gte":"2019-04-01",
         "lte":"now",
         "format_date":"dd/MM/yyyy||yyyy"
