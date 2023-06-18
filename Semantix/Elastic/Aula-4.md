@@ -336,3 +336,19 @@ GET cliente/_search
     - Vai pegar a data e hora de agora do cluster
   - +1d: Adiciona 1 dia
   - -1M: Subtrai 1 mês 
+
+### Exemplo Range de Data
+```
+GET cliente/_search
+{
+  "query":{
+    "range":{
+      "data":{
+        "gte":"01/01/2012",
+        "lte":"2013",
+        "format":"dd/MM/yyyy||yyyy"
+      }
+    }
+  }
+}
+```
