@@ -64,12 +64,14 @@ GET bolsa/_search
     "range":{
       "timestamp":{
         "gte":"2019-01-01",
-        "lte":"2019-03-01"
+        "lte":"2019-03-01",
+        "format":"yyyy-MM-dd"
       }
     }
   }
 }
 ```
+*OBS: É recomendado semre usar o format pra data
 b) Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
 ```json
 GET bolsa/_search
@@ -78,9 +80,11 @@ GET bolsa/_search
     "range":{
       "timestamp":{
         "gte":"2019-04-01",
-        "lt":"now"
+        "lt":"now",
+        "format":"yyyy-MM-dd"
       }
     }
   }
 }
 ```
+*OBS: É recomendado semre usar o format pra data
