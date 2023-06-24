@@ -224,7 +224,7 @@ PUT cliente3
         "type":"text",
         "analyzer":"whitespace",
         "fields":{
-          "raw":{"type":keyword"}
+          "raw":{"type":"keyword"}
         }
       }
     }
