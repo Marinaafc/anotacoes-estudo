@@ -79,3 +79,4 @@ POST _analyze
     {"token":"data"}
 }
 ```
+> A única diferença é que o simple tira os números. Como na frase não tinha números, o resultado foi o mesmo.
