@@ -82,3 +82,25 @@ POST _analyze
 > A única diferença é que o simple tira os números. Como na frase não tinha números, o resultado foi o mesmo.  
 
 *** Anotação para mim: Acho que esse "são" está errado, deveria ser "sao", testar no kibana depois.
+
+- Analyzer whitespace
+```json
+POST _analyze
+{
+  "analyzer":"whitespace",
+  "text":"Elasticsearch e Hadoop são ferramentas de Big Data"
+}
+```
+```json
+{
+  "tokens":{
+    {"token":"Elasticsearch"},
+    {"token":"e"},
+    {"token":"Hadoop"},
+    {"token":"são"}, 
+    {"token":"ferramentas"}, 
+    {"token":"de"},
+    {"token":"Big"},
+    {"token":"Data"}
+}
+```
