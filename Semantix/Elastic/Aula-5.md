@@ -44,4 +44,4 @@ Como funciona o Analyzer?
 > OBS: Por isso que mesmo quando foi cadastrado o dado "USB" em maiúsculo, teve que buscar esse dado em minúsculo. Porque o padrão do Elastic é indexar o dado em lowercase
 
 - Idioma: brazilian,english
-  - remover acentos, gêneros e plural
+  - remover acentos, gêneros e plural (deixa a palavra na forma raiz)
