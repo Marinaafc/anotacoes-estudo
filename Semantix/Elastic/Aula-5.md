@@ -130,3 +130,26 @@ POST _analyze
 }
 ```
 > Tem coisas que dá pra configurar e especificar. Ex: retornar "data" com o "a", sem ser "data".
+
+- Analyzer English
+
+```json
+POST _analyze
+{
+  "analyzer":"english",
+  "text":"Elasticsearch and Hadoop are Big Data tools"
+}
+```
+```json
+{
+  "tokens":[
+    {"token":"elasticsearch"},
+    {"token":"hadoop"},
+    {"token":"sao"}, 
+    {"token":"ferrament"}, 
+    {"token":"big"},
+    {"token":"data"},
+    {"token":"tool"}
+  ]
+}
+```
