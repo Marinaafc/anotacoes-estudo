@@ -36,3 +36,10 @@ Como funciona o Analyzer?
   - Remover espaços e pontuação ('!@#$%"&*-+`~^/:;><,)
   - Somente texto
   - Texto em lowercase
+
+- Padrão: standard
+  - Remover espaços e pontuação
+  - Texto em lowercase 
+
+- Idioma: brazilian,english
+  - remover acentos, gêneros e plural
