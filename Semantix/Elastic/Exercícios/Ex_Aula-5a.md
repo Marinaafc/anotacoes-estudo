@@ -33,8 +33,43 @@ POST _analyze
 
 a) Criar um analyzer brazilian para o atributo descricao
 
+```json
+POST _reindex
+{
+  "source":{
+  "index":"produto"
+},
+  "dest":{
+  "index":"produto1"
+  }
+}
+```
+
 b) Para o atributo descricao aplicar o analzyer brazilian para o tipo de campo text e criar o atributo descricao.original com o dado do tipo keyword
+
+```json
+PUT produto1
+{
+  "mappings":{
+    "properties":{
+      "descricao":{
+        "type":"text",
+        "analyzer":"brazilian",
+        "fields":{"original":{"type":"keyword"}}
+      }
+    }
+  }
+}
+```
 
 c) Buscar a palavra “compativel” no campo descricao.original (hits = 0)
 
+```json
+GET produto1/_search?q=decricao.original:compativel
+```
+
 d) Buscar a palavra “compativel” no campo descricao
+
+```json
+GET produto1/_search?q=decricao:compativel
+```
