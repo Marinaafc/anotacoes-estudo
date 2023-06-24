@@ -41,5 +41,7 @@ Como funciona o Analyzer?
   - Remover espaços e pontuação
   - Texto em lowercase 
 
+> OBS: Por isso que mesmo quando foi cadastrado o dado "USB" em maiúsculo, teve que buscar esse dado em minúsculo. Porque o padrão do Elastic é indexar o dado em lowercase
+
 - Idioma: brazilian,english
   - remover acentos, gêneros e plural
