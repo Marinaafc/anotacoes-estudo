@@ -151,4 +151,4 @@ POST _analyze
   ]
 }
 ```
-> O dicionário do inglês é melhor formatado do que o brazillian.
+> O dicionário do inglês é melhor formatado do que o brazillian. Por exemplo, não tem necessidade do "são".
