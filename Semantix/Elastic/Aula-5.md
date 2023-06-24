@@ -79,5 +79,6 @@ POST _analyze
     {"token":"data"}
 }
 ```
-> A única diferença é que o simple tira os números. Como na frase não tinha números, o resultado foi o mesmo.
+> A única diferença é que o simple tira os números. Como na frase não tinha números, o resultado foi o mesmo.  
+
 *** Anotação para mim: Acho que esse "são" está errado, deveria ser "sao", testar no kibana depois.
