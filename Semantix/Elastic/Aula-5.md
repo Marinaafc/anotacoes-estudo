@@ -20,4 +20,4 @@ Como funciona o Analyzer?
 - Índice Invertido
   - Quebra em tokens;
   - Insere numa tabela;
-  - Ex: ```.```
+  - Ex: ```_search?cidade="São Paulo"```
