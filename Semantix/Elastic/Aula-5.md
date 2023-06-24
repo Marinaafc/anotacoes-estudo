@@ -19,5 +19,7 @@ Como funciona o Analyzer?
 
 - Índice Invertido
   - Quebra em tokens;
-  - Insere numa tabela;
+  - Insere numa tabela (vai ter uma referência de onde se localiza cada token);
   - Ex: ```_search?cidade="São Paulo"```
+    - Vai separar em tokens: "São" vai ser um token e "Paulo" vai ser outro token
+  - É com base nesses tokens que se trabalha em cima dos Analyzers
