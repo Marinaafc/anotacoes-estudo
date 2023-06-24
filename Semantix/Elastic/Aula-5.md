@@ -45,3 +45,24 @@ Como funciona o Analyzer?
 
 - Idioma: brazilian,english
   - remover acentos, gêneros e plural (deixa a palavra na forma raiz)
+
+# Analyzer Exemplos
+
+Formas de testar o Analyzer:
+
+- Analyzer Standard ou Simples
+
+```json
+POST _analyze
+{
+  "analyzer":"standard",
+  "text":"Elasticsearch e Hadoop são ferramentas de Big Data"
+}
+```
+```json
+POST _analyze
+{
+  "analyzer":"simple",
+  "text":"Elasticsearch e Hadoop são ferramentas de Big Data"
+}
+```
