@@ -151,3 +151,4 @@ POST _analyze
   ]
 }
 ```
+> O dicionário do inglês é melhor formatado do que o brazillian.
