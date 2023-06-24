@@ -128,3 +128,4 @@ POST _analyze
   ]
 }
 ```
+> Tem coisas que dá pra configurar e especificar. Ex: retornar "data" com o "a", sem ser "data".
