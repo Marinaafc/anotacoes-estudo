@@ -50,7 +50,7 @@ Como funciona o Analyzer?
 
 Formas de testar o Analyzer:
 
-- Analyzer Standard ou Simples
+### Analyzer Standard ou Simples
 
 ```json
 POST _analyze
@@ -84,7 +84,7 @@ POST _analyze
 
 *** Anotação para mim: Acho que esse "são" está errado, deveria ser "sao", testar no kibana depois.
 
-- Analyzer whitespace
+### Analyzer whitespace
 ```json
 POST _analyze
 {
@@ -108,8 +108,8 @@ POST _analyze
 ```
 > Neste caso, se pesquisar "Elasticsearch", vai encontrar. Se pesquisar "elasticsearch", não vai encontrar.
 
-- Analyzer em português
-  - Como tem menos tokens, a busca é mais rápida, porque tem menos coisa para buscar.
+### Analyzer em português
+- Como tem menos tokens, a busca é mais rápida, porque tem menos coisa para buscar.
 ```json
 POST _analyze
 {
@@ -131,7 +131,7 @@ POST _analyze
 ```
 > Tem coisas que dá pra configurar e especificar. Ex: retornar "data" com o "a", sem ser "data".
 
-- Analyzer English
+### Analyzer English
 
 ```json
 POST _analyze
