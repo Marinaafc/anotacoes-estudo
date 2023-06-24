@@ -32,3 +32,7 @@ Como funciona o Analyzer?
   - Separa as palavras por espaço
 
 - Simples: simple
+  - Remover números
+  - Remover espaços e pontuação ('!@#$%"&*-+`~^/:;><,)
+  - Somente texto
+  - Texto em lowercase
