@@ -68,7 +68,7 @@ POST _analyze
 ```
 ```json
 {
-  "tokens":{
+  "tokens":[
     {"token":"elasticsearch"},
     {"token":"e"},
     {"token":"hadoop"},
@@ -77,6 +77,7 @@ POST _analyze
     {"token":"de"},
     {"token":"big"},
     {"token":"data"}
+  ]
 }
 ```
 > A única diferença é que o simple tira os números. Como na frase não tinha números, o resultado foi o mesmo.  
@@ -93,7 +94,7 @@ POST _analyze
 ```
 ```json
 {
-  "tokens":{
+  "tokens":[
     {"token":"Elasticsearch"},
     {"token":"e"},
     {"token":"Hadoop"},
@@ -102,6 +103,7 @@ POST _analyze
     {"token":"de"},
     {"token":"Big"},
     {"token":"Data"}
+  ]
 }
 ```
 > Neste caso, se pesquisar "Elasticsearch", vai encontrar. Se pesquisar "elasticsearch", não vai encontrar.
