@@ -109,7 +109,7 @@ POST _analyze
 > Neste caso, se pesquisar "Elasticsearch", vai encontrar. Se pesquisar "elasticsearch", não vai encontrar.
 
 - Analyzer em português
-  - Como tem menos tokens, a busca é mais rápida, porque tem menos tokens para buscar.
+  - Como tem menos tokens, a busca é mais rápida, porque tem menos coisa para buscar.
 ```json
 POST _analyze
 {
