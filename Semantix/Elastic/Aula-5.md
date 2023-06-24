@@ -145,8 +145,6 @@ POST _analyze
   "tokens":[
     {"token":"elasticsearch"},
     {"token":"hadoop"},
-    {"token":"sao"}, 
-    {"token":"ferrament"}, 
     {"token":"big"},
     {"token":"data"},
     {"token":"tool"}
