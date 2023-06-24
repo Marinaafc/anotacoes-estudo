@@ -64,12 +64,12 @@ PUT produto1
 
 c) Buscar a palavra “compativel” no campo descricao.original (hits = 0)
 
-```json
+```
 GET produto1/_search?q=decricao.original:compativel
 ```
 
 d) Buscar a palavra “compativel” no campo descricao
 
-```json
+```
 GET produto1/_search?q=decricao:compativel
 ```
