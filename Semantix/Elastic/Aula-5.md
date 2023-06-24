@@ -104,4 +104,4 @@ POST _analyze
     {"token":"Data"}
 }
 ```
-> Neste caso, se pesquisar"Elasticsearch", vai encontrar. Se pesquisar"elasticsearch", não vai encontrar.
+> Neste caso, se pesquisar "Elasticsearch", vai encontrar. Se pesquisar "elasticsearch", não vai encontrar.
