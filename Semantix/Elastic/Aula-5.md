@@ -25,3 +25,10 @@ Como funciona o Analyzer?
   - É com base nesses tokens que se trabalha em cima dos Analyzers para dizer como que quer que salve;
     - Ex: Se quer que só separe por espaço, se quer que tire acentuação, que deixe tudo minúsculo, etc...
   - Analyzers estão na parte de como os tokens serão gerados
+
+### Analyzers Principais
+
+- Espaço em branco: whitespace
+  - Separa as palavras por espaço
+
+- Simples: simple
