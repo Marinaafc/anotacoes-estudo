@@ -152,3 +152,82 @@ POST _analyze
 }
 ```
 > O dicionário do inglês é melhor formatado do que o brazillian. Por exemplo, não tem necessidade do "são".
+
+# Aplicação de Analyzer em atributos
+
+### Adicionar em um atributo
+```json
+PUT cliente1
+{
+  "mappings":{
+    "properties":{
+      "conhecimento":{
+        "type":"text",
+        "analyzer":"standard"
+      }
+    }
+  }
+}
+```
+- Para alterar o analyzer de um atributo que já existe, precisa fazer o mesmo processo de mudar o tipo do dado: **reindexar tudo**;
+- Por isso que é importante sempre testar o analyzer para quando ter que fazer esse processo, fazer só uma vez e não ter que ficar reindexando sempre.
+
+### Analyzer - Boas Práticas
+
+- Um campo pode ter diferentes atributos para diferentes fins;
+- Indexar o mesmo campo de maneiras diferentes para fins diferentes
+- Geralmente, quando se tem um campo que se faz busca, ele não é apenas de um tipo, normalmente ele vai ter 2 tipos (boa prática):
+  - Tipo Keyword (É a palavra inteira, ex: "São Paulo")
+  - Usado para:
+    - Classificação e
+    - Agregação dos dados
+  - Tipo Text (Utilizado para busca)
+    - Pesquisa Fulltext
+   
+- Manter 2 versões do atributo com analyzer (boa prática)
+  - Tipo Keyword
+    - Dado original
+  - Tipo Text
+    - Dado com analisador
+   
+### Analyzer Exemplo - Campo de 2 Tipos
+```json
+PUT cliente2
+{
+  "mappings":{
+    "properties":{
+      "conhecimento":{
+        "type":"text",
+        "analyzer":"standard",
+        "fields":{"raw":{"type":"keyword"}}
+      }
+    }
+  }
+}
+```
+> raw = dado bruto
+
+### Exemplo: Criação de índice com settings e mappings
+```json
+PUT cliente3
+{
+  "settings":{
+    "index":{
+      "number_of_shards":1,
+      "number_of_replicas":0
+    }
+  },
+  "mappings":{
+    "properties":{
+      "nome":{"type":"text"},
+      "conhecimento":{
+        "type":"text",
+        "analyzer":"whitespace",
+        "fields":{
+          "raw":{"type":keyword"}
+        }
+      }
+    }
+  }
+}
+```
