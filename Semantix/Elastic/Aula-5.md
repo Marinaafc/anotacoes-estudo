@@ -23,5 +23,5 @@ Como funciona o Analyzer?
   - Ex: ```_search?cidade="São Paulo"```
     - Vai separar em tokens: "São" vai ser um token e "Paulo" vai ser outro token
   - É com base nesses tokens que se trabalha em cima dos Analyzers para dizer como que quer que salve;
-    - Ex: Se quer que só separe o espaço, se quer que tire acentuação, que deixe tudo minúsculo, etc...
+    - Ex: Se quer que só separe por espaço, se quer que tire acentuação, que deixe tudo minúsculo, etc...
   - Analyzers estão na parte de como os tokens serão gerados
