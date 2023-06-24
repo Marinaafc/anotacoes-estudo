@@ -105,3 +105,24 @@ POST _analyze
 }
 ```
 > Neste caso, se pesquisar "Elasticsearch", vai encontrar. Se pesquisar "elasticsearch", não vai encontrar.
+
+- Analyzer em português
+```json
+POST _analyze
+{
+  "analyzer":"brazillian",
+  "text":"Elasticsearch e Hadoop são ferramentas de Big Data"
+}
+```
+```json
+{
+  "tokens":[
+    {"token":"elasticsearch"},
+    {"token":"hadoop"},
+    {"token":"sao"}, 
+    {"token":"ferrament"}, 
+    {"token":"big"},
+    {"token":"dat"}
+  ]
+}
+```
