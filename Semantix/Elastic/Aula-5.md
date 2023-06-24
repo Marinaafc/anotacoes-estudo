@@ -66,3 +66,16 @@ POST _analyze
   "text":"Elasticsearch e Hadoop são ferramentas de Big Data"
 }
 ```
+```json
+{
+  "tokens":{
+    {"token":"elasticsearch"},
+    {"token":"e"},
+    {"token":"hadoop"},
+    {"token":"são"}, 
+    {"token":"ferramentas"}, 
+    {"token":"de"},
+    {"token":"big"},
+    {"token":"data"}
+}
+```
