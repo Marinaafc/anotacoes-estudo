@@ -113,7 +113,7 @@ POST _analyze
 ```json
 POST _analyze
 {
-  "analyzer":"brazillian",
+  "analyzer":"brazilian",
   "text":"Elasticsearch e Hadoop são ferramentas de Big Data"
 }
 ```
