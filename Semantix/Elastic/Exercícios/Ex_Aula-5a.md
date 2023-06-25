@@ -122,12 +122,11 @@ POST _reindex
 ```
 
 c) Buscar a palavra “compativel” no campo descricao.original (hits = 0)
-
 ```
-GET produto1/_search?q=decricao.original:compativel
+GET produto1/_search?q=descricao.original:compativel
 ```
 ```json
-GET produto1/_search
+GET produto/_search
 {
   "query":{
     "match":{
@@ -138,12 +137,11 @@ GET produto1/_search
 ```
 
 d) Buscar a palavra “compativel” no campo descricao
-
 ```
-GET produto1/_search?q=decricao:compativel
+GET produto/_search?q=descricao:compativel
 ```
 ```json
-GET produto1/_search
+GET produto/_search
 {
   "query":{
     "match":{
