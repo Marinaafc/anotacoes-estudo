@@ -4,6 +4,17 @@ HEAD bolsa
 ```
 ### 1. Calcular a média do campo volume
 ```json
+GET bolsa/_search
+{
+  "size":0,
+  "aggs":{
+    "media":{
+      "avg":{
+        "field":"volume"}
+    }
+  }
+}
+
 ```
 ### 2. Calcular a estatística do campo close
 ```json
