@@ -18,6 +18,7 @@ GET bolsa/_search
 ```
 ### 2. Calcular a estatística do campo close
 ```json
+GET bolsa/_search
 {
   "size":0,
   "aggs":{
