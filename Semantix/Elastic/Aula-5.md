@@ -389,8 +389,9 @@ GET cliente/_search
 
 - Contar valores únicos
   - O resultado pode não ser preciso para grandes datasets
-    - HyperLogLog++algoritmo
-    - Precisão x Velocidade
+    - Pois utiliza o HyperLogLog++ algorithm, e esse algoritmo serve para tornar a conta mais rápida;
+    - Precisão x Velocidade (tem como controlar isso)
+- Então não necessariamente vai retornar todos os valores únicos, pode faltar algum.
 ```json
 GET cliente/_search
 {
@@ -399,6 +400,24 @@ GET cliente/_search
     "quantidade_cidades":{
       "cartinality":{
         "field":"cidade.keyword"
+      }
+    }
+  }
+}
+```
+
+### Exemplo - Mediana
+
+- Mediana do campo qtd
+
+```json
+GET cliente/_search
+{
+  "query":{...},
+  "aggs":{
+    "mediana":{
+      "median":{**ERRO: NÃO EXISTE ESSA OPERAÇÃO
+        "field":"qtd"
       }
     }
   }
