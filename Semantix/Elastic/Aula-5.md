@@ -397,4 +397,10 @@ GET cliente/_search
   "size":0,
   "aggs":{
     "quantidade_cidades":{
+      "cartinality":{
+        "field":"cidade.keyword"
+      }
+    }
+  }
+}
 ```
