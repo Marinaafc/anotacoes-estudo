@@ -424,3 +424,80 @@ GET cliente/_search
 }
 ```
 - Para fazer isso, precisa utilizar ciclos de consulta de buckets.
+
+# Agregações de Buckets
+
+### Exemplo - Separar em porcentagem
+
+- Mediana do campo qtd
+
+```json
+GET cliente/_search
+{
+  "aggs":{
+    "mediana":{
+     "percentiles":{
+       "field":"qtd"
+     }
+    }
+  }
+}
+```
+- Resposta do Elasticsearch:
+```json
+{
+  ...
+  "aggregations":{
+    "load_time_outlier":{
+      "values":{
+        "1.0":5.0,
+        "5.0":25.0,
+        "25.0":165.0,
+        **"50.0":445.0,**
+        "75.0":725.0,
+        "95.0":945.0,
+        "99.0":985.0
+} } } }
+```
+- Mediana é 50% dos dados
+- **Median is 445.0**
+
+#### Exemplo - Definindo as porcentagens
+
+```json
+GET cliente/_search
+{
+  "aggs":{
+    "media":{
+     "percentiles":{
+       "field":"qtd",
+       "percents":[25,50,75,100]
+     }
+    }
+  }
+}
+```
+- **Median is 445.0**
+
+### Exemplo - Tempo
+
+- Agrupar valores por um intervalo
+  - date_histogram
+- Opções:
+  - "calendar_interval":"month"
+  - "fixed_interval":"10m"
+    - Medidas:
+      - ms, s, m, h, d, w, M, q, y
+
+```json
+GET logs_servico/_search
+{
+  "size":0,
+  "aggs":{
+    "logs_por_dia":{
+      "date_histogram":{
+        "field":"@timestamp",
+        "calendar_interval":"day"
+      }
+}  }  }
+```
