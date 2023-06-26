@@ -49,23 +49,23 @@ GET bolsa/_search
 ```json
 GET bolsa/_search
 {
-  "query":{
-    "range":{
-      "timestamp":{
-        "gte":"2019-04-01",
-        "lt":"now",
-        "format":"yyyy-MM-dd"
+  "query": {
+    "range": {
+      "timestamp": {
+        "gte": "2019-04-01",
+        "lt": "now",
+        "format": "yyyy-MM-dd"
       }
     }
   },
-    "aggs":{
-      "estatistica":{
-        "stats":{
-          "field":"open"
-          }
-        }
+  "aggs": {
+    "estatistica": {
+      "stats": {
+        "field": "open"
       }
     }
+  }
+}
 ```
 ### 5. Calcular a mediana do campo open
 ```json
