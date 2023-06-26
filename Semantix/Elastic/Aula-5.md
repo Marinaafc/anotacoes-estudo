@@ -552,3 +552,24 @@ GET logs_servico/_search
   }
 }
 ```
+- Para data é "date_range".
+
+### Exemplo - Atributo
+
+- Especificar o campo e a quantidade de valores
+  - Valores com a maior relevância
+- Ex: As 5 maiores cidades que visitaram o site
+```json
+GET logs_servico/_search
+{
+  "size":0,
+  "aggs":{
+    "cidades_views":{
+      "terms":{
+        "field":"cidade.keyword",
+        "size":5
+      }
+    }
+  }
+}
+```
