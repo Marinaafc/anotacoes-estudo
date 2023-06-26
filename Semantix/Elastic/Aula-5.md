@@ -365,6 +365,7 @@ GET cliente/_search
     }
   }
 }
+```
 > Em "estatistica", pode ser qualquer nome.
 
 ### Exemplo - Min e Max
