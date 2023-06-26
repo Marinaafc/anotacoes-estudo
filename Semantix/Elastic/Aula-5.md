@@ -275,3 +275,28 @@ GET <index>/_search
 - Ex:
   - Range
   - Date_range
+  - Ip_ranges
+  - Geo_distance
+  - Significant_terms
+  - Etc
+
+### Métricas
+
+- Operações matemáticas
+  - Um valor de saída
+- Ex:
+  - Avg
+  - Sim
+  - Min
+  - Max
+  - Cardinality
+  - Value_count
+  - Etc
+
+- Operações matemáticas
+  - N valores de saída
+- Ex:
+  - Stats
+  - Percentiles
+  - Percentile_ranks
+  - Etc
