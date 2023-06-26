@@ -32,9 +32,39 @@ GET bolsa/_search
 ```
 ### 3. Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
 ```json
+GET bolsa/_search
+{
+  "query":{
+    "range":{
+      "timestamp":{
+        "gte":"2019-04-01",
+        "lt":"now",
+        "format":"yyyy-MM-dd"
+      }
+    }
+  }
+}
 ```
 ### 4. Calcular a estatística do campo open do período do dia 2019-04-01 até agora
 ```json
+{
+  "query":{
+    "range":{
+      "timestamp":{
+        "gte":"2019-04-01",
+        "lt":"now",
+        "format":"yyyy-MM-dd"
+      }
+    }
+  },
+    "aggs":{
+      "estatistica":{
+        "stats":{
+          "field":"open"
+          }
+        }
+      }
+    }
 ```
 ### 5. Calcular a mediana do campo open
 ```json
