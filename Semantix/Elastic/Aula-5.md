@@ -231,3 +231,18 @@ PUT cliente3
   }
 }
 ```
+
+# Conceitos de Agregações
+
+- **Agregação** é uma forma de analisar os dados indexados;
+- Sempre vai seguir a seguinte estrutura:
+```json
+GET <index>/_search
+{
+  "aggs":{
+    "<nomeAgregação>":{
+      "<TipoAgregação>":{}
+    }
+  }
+}
+```
