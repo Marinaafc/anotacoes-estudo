@@ -85,4 +85,20 @@ GET bolsa/_search
 ```
 ### 7. Contar a quantidade de documentos de 2 anos atrás até hoje
 ```json
+{
+  "query":{
+    "range":{
+      "timestamp":{
+        "gte":"now-2y",
+        "lt":"now",
+        "format":"yyyy-MM-dd"
+      }
+    }
+  },
+    "aggs":{
+      "qtd_documentos":{
+        "count"
+        }
+      }
+    }
 ```
