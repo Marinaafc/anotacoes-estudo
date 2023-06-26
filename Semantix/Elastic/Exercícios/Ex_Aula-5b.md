@@ -47,6 +47,7 @@ GET bolsa/_search
 ```
 ### 4. Calcular a estatística do campo open do período do dia 2019-04-01 até agora
 ```json
+GET bolsa/_search
 {
   "query":{
     "range":{
@@ -85,6 +86,7 @@ GET bolsa/_search
 ```
 ### 7. Contar a quantidade de documentos de 2 anos atrás até hoje
 ```json
+GET bolsa/_search
 {
   "query":{
     "range":{
