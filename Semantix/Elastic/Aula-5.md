@@ -340,4 +340,5 @@ GET cliente/_search
 }
 ```
 - Sempre vai mostrar primeiro todo o resultado da query para depois mostrar o resultado da agregação;
-- Até quando não tem a query, o Elastic mostra por padrão os 10 primeiros documentos. 
+- Até quando não tem a query, o Elastic mostra por padrão os 10 primeiros documentos;
+- Para mostrar apenas agregação, deve colocar o size=0
