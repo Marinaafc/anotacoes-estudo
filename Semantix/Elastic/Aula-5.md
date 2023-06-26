@@ -317,3 +317,4 @@ GET cliente/_search
   }
 }
 ```
+> Neste exemplo, "media" é o nome da agregação. Pode escolher qualquer um nome.
