@@ -247,3 +247,21 @@ GET <index>/_search
 }
 ```
 > Pode ser usado em cima do "aggs" tudo que já foi visto, como query, size, etc
+
+
+### Tipos de Agregações
+
+- **Bucket**
+  - Combinam os documentos resultantes em buckets
+    - Buckets são criados
+
+- **Metric**
+  - Cálculos matemáticos feitos nos campos de documentos
+    - São calculados em buckets
+
+- **Matrix**
+  - Operam em diversos campos, produzindo uma matriz de resultado (matrix_stats)
+
+- **Pipeline**
+  - Agrega a saída de outras agregações 
+  
