@@ -317,4 +317,6 @@ GET cliente/_search
   }
 }
 ```
-> Neste exemplo, "media" é o nome da agregação. Pode escolher qualquer um nome.
+> - Neste exemplo, "media" é o nome da agregação (pode escolher qualquer um nome);
+  - Não é obrigado colocar uma query. A query é usada para caso queira filtrar em quais documentos do índice vai ser realizada a agregação;
+  - Se não for colocada uma query, a agregação será realizada em todos os documentos do índice.
