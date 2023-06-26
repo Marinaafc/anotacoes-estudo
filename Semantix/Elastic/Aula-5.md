@@ -519,3 +519,36 @@ GET logs_servico/_search
   }
 }
 ```
+### Exemplo - Intervalo
+```json
+{
+  "query":{...},
+  "aggs":{
+    "intervalo":{
+      "range":{
+        "field":"qtd",
+        "ranges":[
+        {"to":5},
+        {"from":5, "to":20},
+        {"from":20}
+      ]
+    }
+  }
+}}
+```
+### Exemplo - Intervalo de Data
+```json
+{
+  "query":{...},
+  "aggs":{
+    "intervalo_data":{
+      "date_range":{
+        "field":"data",
+        "ranges":[
+          {"from":2019-01-01, "to":2019-05-01}
+        ]
+      }
+    }
+  }
+}
+```
