@@ -501,3 +501,21 @@ GET logs_servico/_search
       }
 }  }  }
 ```
+
+- Agrupar valores por um valor específico
+  - histogram
+ 
+```json
+GET logs_servico/_search
+{
+  "size":0,
+  "aggs":{
+    "logs_cada_100ms":{
+      "histogram":{
+        "field":"runtime_ms",
+        "interval":100
+      }
+    }
+  }
+}
+```
