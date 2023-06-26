@@ -38,6 +38,17 @@ GET bolsa/_search
 ```
 ### 5. Calcular a mediana do campo open
 ```json
+GET bolsa/_search
+{
+  "size":0,
+  "aggs":{
+    "mediana":{
+      "percentiles":{
+        "field":"open"
+      }
+    }
+  }
+}
 ```
 ### 6. Contar a quantidade de documentos agrupados por ano
 ```json
