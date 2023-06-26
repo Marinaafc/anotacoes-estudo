@@ -408,7 +408,7 @@ GET cliente/_search
 
 ### Exemplo - Mediana
 
-- Mediana do campo qtd
+- Mediana do campo qtd **(ERRO)**
 
 ```json
 GET cliente/_search
