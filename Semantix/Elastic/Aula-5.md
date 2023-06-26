@@ -365,3 +365,21 @@ GET cliente/_search
     }
   }
 }
+> Em "estatistica", pode ser qualquer nome.
+
+### Exemplo - Min e Max
+
+- Valor mínimo e máximo do campo qtd
+```json
+GET cliente/_search
+{
+  "aggs":{
+    "minimo":{
+      "min":{"field":"qtd"}
+    },
+    "maximo":{
+      "max":{"field":"qtd"}
+    }
+  }
+}
+```
