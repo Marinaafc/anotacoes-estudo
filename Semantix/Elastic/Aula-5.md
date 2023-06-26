@@ -391,3 +391,10 @@ GET cliente/_search
   - O resultado pode não ser preciso para grandes datasets
     - HyperLogLog++algoritmo
     - Precisão x Velocidade
+```json
+GET cliente/_search
+{
+  "size":0,
+  "aggs":{
+    "quantidade_cidades":{
+```
