@@ -100,19 +100,21 @@ GET bolsa/_search
 ```json
 GET bolsa/_search
 {
-  "query":{
-    "range":{
-      "timestamp":{
-        "gte":"now-2y",
-        "lt":"now",
-        "format":"yyyy-MM-dd"
+  "query": {
+    "range": {
+      "timestamp": {
+        "gte": "now-2y",
+        "lt": "now",
+        "format": "yyyy-MM-dd"
       }
     }
   },
-    "aggs":{
-      "qtd_documentos":{
-        "count"
-        }
+  "aggs": {
+    "qtd_documentos": {
+      "value_count": {
+        "field": "open"
       }
     }
+  }
+}
 ```
