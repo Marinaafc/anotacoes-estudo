@@ -423,3 +423,4 @@ GET cliente/_search
   }
 }
 ```
+- Para fazer isso, precisa utilizar ciclos de consulta de buckets.
