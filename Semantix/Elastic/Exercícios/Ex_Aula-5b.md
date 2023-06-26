@@ -83,6 +83,18 @@ GET bolsa/_search
 ```
 ### 6. Contar a quantidade de documentos agrupados por ano
 ```json
+GET bolsa/_search
+{
+  "size":0,
+  "aggs":{
+    "docs_por_ano":{
+      "date_histogram":{
+        "field":"@timestamp",
+        "calendar_interval":"year"
+      }
+    }
+  }
+}
 ```
 ### 7. Contar a quantidade de documentos de 2 anos atrás até hoje
 ```json
