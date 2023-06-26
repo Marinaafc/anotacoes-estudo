@@ -326,4 +326,16 @@ GET cliente/_search
 - Visualizar apenas o resultado da agregação ou uma parte dos resultados
   - **size**
 ```json
-**oi**
+GET cliente/_search
+{
+  "query":{...},
+  "size":0,
+  "aggs":{
+    "soma":{
+      "sum":{
+        "field":"qtd"
+      }
+    }
+  }
+}
+```
