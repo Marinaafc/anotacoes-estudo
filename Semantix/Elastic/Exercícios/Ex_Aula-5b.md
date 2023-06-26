@@ -34,6 +34,7 @@ GET bolsa/_search
 ```json
 GET bolsa/_search
 {
+  "size":0,
   "query":{
     "range":{
       "timestamp":{
@@ -49,6 +50,7 @@ GET bolsa/_search
 ```json
 GET bolsa/_search
 {
+  "size":0,  
   "query": {
     "range": {
       "timestamp": {
@@ -100,6 +102,7 @@ GET bolsa/_search
 ```json
 GET bolsa/_search
 {
+  "size":0,  
   "query": {
     "range": {
       "timestamp": {
