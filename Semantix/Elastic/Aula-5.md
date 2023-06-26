@@ -384,3 +384,10 @@ GET cliente/_search
   }
 }
 ```
+
+### Exemplo - Cardinalidade
+
+- Contar valores únicos
+  - O resultado pode não ser preciso para grandes datasets
+    - HyperLogLog++algoritmo
+    - Precisão x Velocidade
