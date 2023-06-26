@@ -10,14 +10,24 @@ GET bolsa/_search
   "aggs":{
     "media":{
       "avg":{
-        "field":"volume"}
+        "field":"volume"
+      }
     }
   }
 }
-
 ```
 ### 2. Calcular a estatística do campo close
 ```json
+{
+  "size":0,
+  "aggs":{
+    "estatistica":{
+      "stats":{
+        "field":"close"
+      }
+    }
+  }
+}
 ```
 ### 3. Visualizar os documentos do dia 2019-04-01 até agora. (hits = 3)
 ```json
