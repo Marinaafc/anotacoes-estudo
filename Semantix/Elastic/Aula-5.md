@@ -276,8 +276,8 @@ GET <index>/_search
   - Range
   - Date_range
   - Ip_ranges
-  - Geo_distance
-  - Significant_terms
+  - Geo_distance (latitude, longitude)
+  - Significant_terms (os termos mais significantes)
   - Etc
 
 ### Métricas
@@ -286,11 +286,11 @@ GET <index>/_search
   - Um valor de saída
 - Ex:
   - Avg
-  - Sim
+  - Sum
   - Min
   - Max
   - Cardinality
-  - Value_count
+  - Value_count (conta todos os documentos)
   - Etc
 
 - Operações matemáticas
