@@ -246,3 +246,4 @@ GET <index>/_search
   }
 }
 ```
+> Pode ser usado em cima do "aggs" tudo que já foi visto, como query, size, etc
