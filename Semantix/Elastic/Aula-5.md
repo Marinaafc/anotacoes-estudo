@@ -300,3 +300,20 @@ GET <index>/_search
   - Percentiles
   - Percentile_ranks
   - Etc
+
+# Agregações de Métricas
+
+### Exemplo - Avg
+```json
+GET cliente/_search
+{
+  "query":{...},
+  "aggs":{
+    "media":{
+      "avg":{
+        "field":"qtd"
+      }
+    }
+  }
+}
+```
