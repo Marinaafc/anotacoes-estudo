@@ -325,3 +325,5 @@ GET cliente/_search
 
 - Visualizar apenas o resultado da agregação ou uma parte dos resultados
   - **size**
+```json
+**oi**
