@@ -264,4 +264,14 @@ GET <index>/_search
 
 - **Pipeline**
   - Agrega a saída de outras agregações 
-  
+  - A saída de uma agregação é outra agregação
+
+### Buckets
+
+- Conjunto de documento formado por critérios
+  - Data
+  - Intervalo
+  - Atributo
+- Ex:
+  - Range
+  - Date_range
