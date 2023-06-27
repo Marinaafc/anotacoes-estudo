@@ -102,6 +102,25 @@ GET bolsa/_search
 ```json
 GET bolsa/_search
 {
+  "size": 0,
+  "aggs": {
+    "doc_anos": {
+      "date_range": {
+        "field": "@timestamp",
+        "ranges": [
+          {
+            "from": "now-2y",
+            "to": "now"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+```json
+GET bolsa/_search
+{
   "size":0,  
   "query": {
     "range": {
