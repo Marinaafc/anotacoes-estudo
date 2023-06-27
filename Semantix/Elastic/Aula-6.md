@@ -56,3 +56,7 @@ $ ./filebeat test config
 $ ./filebeat test output
 ```
 > - Testa a conexão. Vai ver se está fazendo a comunicação com o beat, com o elasticsearch, etc
+
+### Configuração
+
+- Configurar o arquivo: filebeat.yml
