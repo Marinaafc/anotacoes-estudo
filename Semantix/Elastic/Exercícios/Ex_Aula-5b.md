@@ -99,6 +99,7 @@ GET bolsa/_search
 }
 ```
 ### 7. Contar a quantidade de documentos de 2 anos atrás até hoje
+**FORMA IDEAL:**
 ```json
 GET bolsa/_search
 {
@@ -118,6 +119,7 @@ GET bolsa/_search
   }
 }
 ```
+**OU outra forma que eu fiz**
 ```json
 GET bolsa/_search
 {
