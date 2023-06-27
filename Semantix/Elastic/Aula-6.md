@@ -60,3 +60,11 @@ $ ./filebeat test output
 ### Configuração
 
 - Configurar o arquivo: filebeat.yml
+
+# Metricbeat
+
+### Conceitos
+- Módulos de Metricbeat
+  - Fazem leitura de medidas quantitativas (quanto de cpu/ram/armazenamento/temperatura está gastando no serviço)
+ 
+# Heartbeat
