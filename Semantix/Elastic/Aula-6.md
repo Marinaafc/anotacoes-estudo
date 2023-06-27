@@ -41,11 +41,11 @@
 ```
 $ ./filebeat modules list
 ```
-  - Mostra todos os módulos que o fillebeat consegue se comunicar
+> Mostra todos os módulos que o fillebeat consegue se comunicar
 ```
 $ ./filebeat modules enable <módulo>
 ```
-  - Escolhe qual módulo deseja utilizar
+> Escolhe qual módulo deseja utilizar
 - Testar Beat
 ```
 $ ./filebeat test config
