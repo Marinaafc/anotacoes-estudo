@@ -36,3 +36,22 @@
 
 ### Instalação e Configuração
 - É preciso sempre verificar a versão do Elasticsearch que está sendo utilizada para poder instalar o beat com a versão correspondente;
+
+- Usar módulo de comunicação
+```
+$ ./filebeat modules list
+```
+  - Mostra todos os módulos que o fillebeat consegue se comunicar
+```
+$ ./filebeat modules enable <módulo>
+```
+  - Escolhe qual módulo deseja utilizar
+- Testar Beat
+```
+$ ./filebeat test config
+```
+- 
+```
+$ ./filebeat test output
+```
+- 
