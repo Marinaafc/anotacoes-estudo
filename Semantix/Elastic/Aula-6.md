@@ -23,3 +23,16 @@
   - **Functionbeat**
     - Agente de envio sem servidor
     - Ex: Vai pegar algum serviço de cloud e fazer o monitoramento
+
+# Filebeat
+
+### Conceitos
+- O filebeat serve para fazer leitura de logs;
+  - Tanto de 0, 1 ou vários arquivos de log
+- Quando se faz a leitura de log, é possível escolher um módulo;
+  - Existem vários módulos de Filebeats
+#### O que são esses módulos?
+- São os arquivos de configuração para fazer leitura de uma aplicação específica
+
+### Instalação e Configuração
+- É preciso sempre verificar a versão do Elasticsearch que está sendo utilizada para poder instalar o beat com a versão correspondente;
