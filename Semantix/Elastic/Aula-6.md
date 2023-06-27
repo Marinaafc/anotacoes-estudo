@@ -5,6 +5,7 @@
   - Logstash
   - ou o Elasticsearch
 - Dentro do Logstash é possível fazer algumas transformações a mais que o Beat não consegue;
+
 - Tipos de Famílias de Beats:
   - **Filebeat**
     - Arquivos de log
