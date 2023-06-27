@@ -68,3 +68,15 @@ $ ./filebeat test output
   - Fazem leitura de medidas quantitativas (quanto de cpu/ram/armazenamento/temperatura está gastando no serviço)
  
 # Heartbeat
+
+### Conceitos
+- Não tem módulo;
+- Utilizado para ver monitoramento e disponibilidade de algum link;
+- Pings via:
+  - ICMP
+  - TCP
+  - HTTP,
+- Configuração
+  - TLS
+  - Autenticação
+  - Proxies
