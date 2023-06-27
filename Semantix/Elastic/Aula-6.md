@@ -41,17 +41,18 @@
 ```
 $ ./filebeat modules list
 ```
-> Mostra todos os módulos que o fillebeat consegue se comunicar
+> - Mostra todos os módulos que o fillebeat consegue se comunicar
 ```
 $ ./filebeat modules enable <módulo>
 ```
-> Escolhe qual módulo deseja utilizar
+> - Escolhe qual módulo deseja utilizar
 - Testar Beat
 ```
 $ ./filebeat test config
 ```
-- 
+> - Mostra se tem erros na configuração do arquivo de configuração
+> - Ex: Espaço a mais, tab sem necessidade, ou apóstrofo errado, etc
 ```
 $ ./filebeat test output
 ```
-- 
+> - Testa a conexão. Vai ver se está fazendo a comunicação com o beat, com o elasticsearch, etc
