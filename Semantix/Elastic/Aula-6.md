@@ -1,1 +1,24 @@
+# Família de Beats (Ingestão de Dados)
 
+- Existem vários tipos de Beats que podem ser utilizados;
+- Os Beats enviam dados de centenas ou milhares de máquinas e sistemas para o:
+  - Logstash
+  - ou o Elasticsearch
+- Dentro do Logstash é possível fazer algumas transformações a mais que o Beat não consegue;
+- Tipos de Beats:
+  - **Filebeat**
+    - Arquivos de log
+  - **Metricbeat**
+    - Métricas
+    - Ex: pega medidas quantitativas - quanto de cpu, ram está sendo usada em uma aplicação
+  - **Packetbeat**
+    - Dados de rede
+  - **Winlogbeat**
+    - Logs de evento do Windows
+  - **Auditbeat**
+    - Dados de auditoria
+  - **Heartbeat**
+    - Monitoramento de disponibilidade
+  - **Functionbeat**
+    - Agente de envio sem servidor
+    - Ex: Vai pegar algum serviço de cloud e fazer o monitoramento
