@@ -119,7 +119,7 @@ GET bolsa/_search
   }
 }
 ```
-**OU outra forma que eu fiz**
+**OU outra forma que eu fiz:**
 ```json
 GET bolsa/_search
 {
