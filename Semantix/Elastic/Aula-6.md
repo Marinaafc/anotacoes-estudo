@@ -36,7 +36,13 @@
 
 ### Instalação e Configuração
 - É preciso sempre verificar a versão do Elasticsearch que está sendo utilizada para poder instalar o beat com a versão correspondente;
+- *Versão do curso: 7.9.2*
+- Documentação da Elastic: https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-getting-started.html
 
+- Download
+```
+$ curl -L -O 
+```
 - Usar módulo de comunicação
 ```
 $ ./filebeat modules list
