@@ -71,11 +71,34 @@ $ ./filebeat test output
 
 - Configurar o arquivo: filebeat.yml
 
+### Inicialização
+
+- Inicializar de modo simples
+```
+$ chown root filebeat.yml
+```
+```
+$ chown root modules.d/system.yml
+```
+> - Apenas para os módulos habilitados
+```
+$ ./filebeat –e
+```
+> - Exibir a configuração e saída do beat
+
+- Inicializar como serviço
+  - $ service filebeat start
+  - $ service filebeat status
+  - $ service filebeat stop
+  - $ service filebeat restart
+
 # Metricbeat
 
 ### Conceitos
 - Módulos de Metricbeat
   - Fazem leitura de medidas quantitativas (quanto de cpu/ram/armazenamento/temperatura está gastando no serviço)
+ 
+### Configuração
  
 # Heartbeat
 
