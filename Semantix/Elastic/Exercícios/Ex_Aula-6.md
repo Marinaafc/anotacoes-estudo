@@ -34,3 +34,16 @@ GET filebeat-7.9.2-2023.06.28-000001/_count
 ```
 GET filebeat-7.9.2-2023.06.28-000001/_search
 ```
+
+# Metricbeat
+
+### 3. Monitorar as métricas do docker
+
+Referência:
+https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-docker.html (Links para um site externo.)
+
+Encontrar o socket do Docker
+$ sudo find / -name docker.sock
+
+### 4. Verificar a quantidade de documentos do índice criado pelo Metricbeat e visualizar seus 10 primeiros documentos
+
