@@ -37,6 +37,14 @@ GET filebeat-7.9.2-2023.06.28-000001/_search
 
 # Metricbeat
 
+- Download
+```
+$ curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.9.2-linux-x86_64.tar.gz
+```
+- Descompactar
+```
+$ tar xzvf metricbeat-7.9.2-linux-x86_64.tar.gz
+```
 ### 3. Monitorar as métricas do docker
 
 Referência:
