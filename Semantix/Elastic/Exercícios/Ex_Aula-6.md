@@ -79,7 +79,10 @@ cat docker.yml
 find / -name docker.sock
 ```
 ```
-copiar o caminho "/mnt/wsl/docker-desktop/shared-sockets/guest-services/docker.sock"
+copiar o caminho que aparecer, no caso: "/mnt/wsl/docker-desktop/shared-sockets/guest-services/docker.sock"
 ```
+> - É um caminho diferente do que normalmente vem configurado, porque está se usando wsl e não só o linux. Portanto, deve-se alterar essa informação no arquivo de configuração
+
+
 ### 4. Verificar a quantidade de documentos do índice criado pelo Metricbeat e visualizar seus 10 primeiros documentos
 
