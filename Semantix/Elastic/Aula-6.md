@@ -98,7 +98,58 @@ $ ./filebeat –e
 - Módulos de Metricbeat
   - Fazem leitura de medidas quantitativas (quanto de cpu/ram/armazenamento/temperatura está gastando no serviço)
  
+### Instalação e Configuração
+- É preciso sempre verificar a versão do Elasticsearch que está sendo utilizada para poder instalar o beat com a versão correspondente;
+- *Versão do curso: 7.9.2*
+- Documentação da Elastic: https://www.elastic.co/guide/en/beats/metricbeat/master/metricbeat-getting-started.html
+
+- Download
+```
+$ curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.9.2-linux-x86_64.tar.gz
+```
+- Descompactar
+```
+$ tar xzvf metricbeat-7.9.2-linux-x86_64.tar.gz
+```
+- Usar módulo de comunicação
+```
+$ ./metricbeat modules list
+```
+```
+$ ./metricbeat modules enable <módulo>
+```
+> - Escolhe qual módulo deseja utilizar
+- Testar Beat
+```
+$ ./metricbeat test config
+```
+```
+$ ./metricbeat test output
+```
 ### Configuração
+
+- Configurar o arquivo: metricbeat.yml
+
+### Inicialização
+
+- Inicializar de modo simples
+```
+$ chown root metricbeat.yml
+```
+```
+$ chown root modules.d/system.yml
+```
+> - Apenas para os módulos habilitados
+```
+$ ./metricbeat –e
+```
+> - Exibir a configuração e saída do beat
+
+- Inicializar como serviço
+  - $ service metricbeat start
+  - $ service metricbeat status
+  - $ service metricbeat stop
+  - $ service metricbeat restart
  
 # Heartbeat
 
