@@ -98,4 +98,5 @@ cat metricbeat.yml
 ```
 
 ### 4. Verificar a quantidade de documentos do índice criado pelo Metricbeat e visualizar seus 10 primeiros documentos
-
+GET metricbeat-7.9.2-2023.06.28-000001/_count
+GET metricbeat-7.9.2-2023.06.28-000001/_search
