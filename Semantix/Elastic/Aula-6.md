@@ -99,7 +99,6 @@ $ ./filebeat –e
   - Fazem leitura de medidas quantitativas (quanto de cpu/ram/armazenamento/temperatura está gastando no serviço)
  
 ### Instalação e Configuração
-- É preciso sempre verificar a versão do Elasticsearch que está sendo utilizada para poder instalar o beat com a versão correspondente;
 - *Versão do curso: 7.9.2*
 - Documentação da Elastic: https://www.elastic.co/guide/en/beats/metricbeat/master/metricbeat-getting-started.html
 
@@ -118,7 +117,6 @@ $ ./metricbeat modules list
 ```
 $ ./metricbeat modules enable <módulo>
 ```
-> - Escolhe qual módulo deseja utilizar
 - Testar Beat
 ```
 $ ./metricbeat test config
@@ -164,3 +162,49 @@ $ ./metricbeat –e
   - TLS
   - Autenticação
   - Proxies
+
+### Instalação e Configuração
+- *Versão do curso: 7.9.2*
+- Documentação da Elastic: https://www.elastic.co/guide/en/beats/heartbeat/master/heartbeat-installation-configuration.html
+
+- Download
+```
+$ curl -L -O https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-7.9.2-linux-x86_64.tar.gz
+```
+- Descompactar
+```
+$ tar xzvf heartbeat-7.9.2-linux-x86_64.tar.gz
+```
+- Testar Beat
+```
+$ ./heartbeat test config
+```
+```
+$ ./heartbeat test output
+```
+### Configuração
+
+- Configurar o arquivo: heartbeat.yml
+
+### Inicialização
+
+- Inicializar de modo simples
+```
+$ chown root heartbeat.yml
+```
+```
+$ chown root modules.d/system.yml
+```
+> - Apenas para os módulos habilitados
+```
+$ ./heartbeat –e
+```
+> - Exibir a configuração e saída do beat
+
+- Inicializar como serviço
+  - $ service heartbeat start
+  - $ service heartbeat status
+  - $ service heartbeat stop
+  - $ service heartbeat restart
+
+
