@@ -58,8 +58,28 @@ cd metricbeat-7.9.2-linux-x86_64/
 ```
 ./metricbeat modules enable docker
 ```
+```
+./metricbeat test config
+```
+```
+./metricbeat test output
+```
+> - OBS: Pro "metricbeat test output" funcionar, é preciso usar o docker-compose start ou up -d antes e verificar se todos os containers estão rodando.
+
 Encontrar o socket do Docker
 $ sudo find / -name docker.sock
 
+```
+cd modules.d
+```
+```
+cat docker.yml
+```
+```
+find / -name docker.sock
+```
+```
+copiar o caminho "/mnt/wsl/docker-desktop/shared-sockets/guest-services/docker.sock"
+```
 ### 4. Verificar a quantidade de documentos do índice criado pelo Metricbeat e visualizar seus 10 primeiros documentos
 
