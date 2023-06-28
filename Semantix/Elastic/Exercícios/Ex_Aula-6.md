@@ -82,7 +82,9 @@ find / -name docker.sock
 copiar o caminho que aparecer, no caso: "/mnt/wsl/docker-desktop/shared-sockets/guest-services/docker.sock"
 ```
 > - É um caminho diferente do que normalmente vem configurado, porque está se usando wsl e não só o linux. Portanto, deve-se alterar essa informação no arquivo de configuração
-
-
+```
+vi docker.yml
+```
+> - Deve-se na edição, além de mudar o caminho pro docker.sock, habilitar as métricas que deseja monitorar, tirando o "#" da frente.
 ### 4. Verificar a quantidade de documentos do índice criado pelo Metricbeat e visualizar seus 10 primeiros documentos
 
