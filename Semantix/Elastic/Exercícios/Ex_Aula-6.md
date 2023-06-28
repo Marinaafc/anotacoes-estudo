@@ -49,7 +49,15 @@ $ tar xzvf metricbeat-7.9.2-linux-x86_64.tar.gz
 
 Referência:
 https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-docker.html (Links para um site externo.)
-
+```
+cd metricbeat-7.9.2-linux-x86_64/
+```
+```
+./metricbeat modules list
+```
+```
+./metricbeat modules enable docker
+```
 Encontrar o socket do Docker
 $ sudo find / -name docker.sock
 
