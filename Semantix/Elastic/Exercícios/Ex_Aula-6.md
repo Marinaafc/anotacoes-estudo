@@ -107,6 +107,15 @@ GET metricbeat-7.9.2-2023.06.28-000001/_search
 
 # Heartbeat
 
+- Download
+```
+$ curl -L -O https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-7.9.2-linux-x86_64.tar.gz
+```
+- Descompactar
+```
+$ tar xzvf heartbeat-7.9.2-linux-x86_64.tar.gz
+```
+
 ### 5. Monitorar o site https://www.elastic.co/pt/ (Links para um site externo.) com uso do Heartbeat
 
 ### 6. Verificar a quantidade de documentos do índice criado pelo Heartbeat e visualizar seus 10 primeiros documentos
