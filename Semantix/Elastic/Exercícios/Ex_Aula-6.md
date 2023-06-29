@@ -128,10 +128,13 @@ vi heartbeat.yml
 ./heartbeat test config
 ```
 ```
+./heartbeat test output
+```
+```
 chown root heartbeat.yml
 ```
 ```
-./heartbeat test output
+./heartbeat -e
 ```
 ### 6. Verificar a quantidade de documentos do índice criado pelo Heartbeat e visualizar seus 10 primeiros documentos
 ```
