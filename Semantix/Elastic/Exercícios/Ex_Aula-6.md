@@ -117,5 +117,26 @@ $ tar xzvf heartbeat-7.9.2-linux-x86_64.tar.gz
 ```
 
 ### 5. Monitorar o site https://www.elastic.co/pt/ (Links para um site externo.) com uso do Heartbeat
-
+```
+cd heartbeat-7.9.2-linux-x86_64/
+```
+```
+vi heartbeat.yml
+```
+- Mudar a "urls" para https://www.elastic.co/pt/
+```
+./heartbeat test config
+```
+```
+chown root heartbeat.yml
+```
+```
+./heartbeat test output
+```
 ### 6. Verificar a quantidade de documentos do índice criado pelo Heartbeat e visualizar seus 10 primeiros documentos
+```
+GET heartbeat-7.9.2-2023.06.29-000001/_count
+```
+```
+GET heartbeat-7.9.2-2023.06.29-000001/_search
+```
