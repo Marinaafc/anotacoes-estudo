@@ -85,18 +85,28 @@ copiar o caminho que aparecer, no caso: "/mnt/wsl/docker-desktop/shared-sockets/
 ```
 vi docker.yml
 ```
-> - Deve-se na edição, além de mudar o caminho pro docker.sock, habilitar as métricas que deseja monitorar, tirando o "#" da frente.
+> - Deve-se na edição, além de mudar o caminho pro docker.sock, habilitar as métricas que deseja monitorar, tirando o "#" da frente;
+> - Precisa tirar a "#" da frente do "metricsets", colocar "enabled:true" embaixo de "hosts" e colocar "unix://" na frente do caminho do lado de "hosts";
 > - Sempre que fizer uma alteração no arquivo de configuração, é bom sempre utilizar o "./metricbeat test config" e o "./metricbeat test output".
+
 ```
 cat metricbeat.yml
 ```
 > - Só para dar uma olhada nas configurações.
-
-- Vai dar erro, precisa tirar a "#" da frente do "metricsets", colocar enabled:true embaixo de hosts e colocar "unix://" na frente do caminho do lado de hosts
 ```
 ./metricbeat -e
 ```
 
 ### 4. Verificar a quantidade de documentos do índice criado pelo Metricbeat e visualizar seus 10 primeiros documentos
+```
 GET metricbeat-7.9.2-2023.06.28-000001/_count
+```
+```
 GET metricbeat-7.9.2-2023.06.28-000001/_search
+```
+
+# Heartbeat
+
+### 5. Monitorar o site https://www.elastic.co/pt/ (Links para um site externo.) com uso do Heartbeat
+
+### 6. Verificar a quantidade de documentos do índice criado pelo Heartbeat e visualizar seus 10 primeiros documentos
