@@ -72,3 +72,25 @@ http.host:"0.0.0.0"
 xpack.monitoring.elasticsearch.hosts:[
 "http://elasticsearch:9200"]
 ```
+# Plugins de Entrada
+
+- É o que vai permitir que uma fonte específica de eventos seja lida pelo Logstash;
+- Vai apontar qual entrada e dados o Logstash está lendo;
+- Plugins de entrada:
+  - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/eca40ed3-8c8b-4618-baf2-b22ebd4e5faf)
+
+### Plugin Entrada - Exemplo
+- pipeline/logstash.conf
+
+```
+input {
+  file {
+    id => "test_log_sem_gz"
+    path => "/var/log/*.log"
+    exclude => "*.gz"
+  }
+}
+```
+> - "id" nome que vai dar ao pipeline;
+> - "path" vai ler todo mundo que estiver no diretório especificado;
+> - "exclude" não vai fazer a leitura de quem for "*.gz".
