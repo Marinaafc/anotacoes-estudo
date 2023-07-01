@@ -13,3 +13,6 @@
     - Input - Entrada de dados
     - Filter - Transformações nos dados
     - Output - Para qual saída os dados serão enviados
+
+- Boa prática:
+  - Enviar os Beats para o Logstash, onde irá passar pelo Logstash Pipeline, em que terá a entrada dos dados, as transformações e saída que geralmente é para o Elasticsearch;
