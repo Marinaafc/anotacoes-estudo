@@ -116,3 +116,9 @@ output {
 }
 ```
 > - saída do tipo json pelo próprio elasticsearch
+
+# Plugins de Filtro
+
+- Permite o processamento intermediário em um evento;
+- Plugins de Filtro:
+  - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f8b91ca2-da01-419e-a585-876a8866fdbb)
