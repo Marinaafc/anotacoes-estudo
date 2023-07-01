@@ -122,3 +122,16 @@ output {
 - Permite o processamento intermediário em um evento;
 - Plugins de Filtro:
   - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f8b91ca2-da01-419e-a585-876a8866fdbb)
+> - "**grok**" - consegue separar os campos e aplicar regex por cima das mensagens
+> - "**mutate**" - aplica várias transformações em cima do dado (ex: deixar tudo em minúsculo/maiúsculo, substituir, etc);
+> - "**split**" - para separar as palavras
+
+### Plugin Filtro - Exemplo
+- pipeline/logstash.conf
+```
+filter {
+  mutate {"convert"=>["bytes","integer"]}
+  mutate {"convert"=>["duration","float"]}
+```
+> - Converteu o campo bytes para inteiro e o campo duration para float;
+> - Fazendo as modificações do schema pelo filter, não é preciso reindexar os documentos no Elasticsearch.
