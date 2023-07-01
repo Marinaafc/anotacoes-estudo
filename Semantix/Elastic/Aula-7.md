@@ -25,7 +25,7 @@
 - Para fazer o pipeline (Inputs > Filters > Outputs), precisa configurar o arquivo "**logstash.conf**";
  
 - Estrutura do json
-```json
+```
 input{
 }
 filter{
