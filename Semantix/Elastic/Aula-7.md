@@ -75,7 +75,7 @@ xpack.monitoring.elasticsearch.hosts:[
 # Plugins de Entrada
 
 - É o que vai permitir que uma fonte específica de eventos seja lida pelo Logstash;
-- Vai apontar qual entrada e dados o Logstash está lendo;
+- Vai apontar qual entrada de dados o Logstash está lendo;
 - Plugins de entrada:
   - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/eca40ed3-8c8b-4618-baf2-b22ebd4e5faf)
 
@@ -94,3 +94,25 @@ input {
 > - "id" nome que vai dar ao pipeline;
 > - "path" vai ler todo mundo que estiver no diretório especificado;
 > - "exclude" não vai fazer a leitura de quem for "*.gz".
+
+# Plugins de Saída
+
+- Permite o envio de dados de evento para um destino específico;
+- Plugins de saída:
+  - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/fc8526bf-df99-4bb1-a179-d418d7d75d6d)
+> - **stdout** - vai exibir informações pelo próprio terminal
+
+### Plugin Saída - Exemplo
+- pipeline/logstash.conf
+```
+output {
+  stdout {
+    codec => json
+  }
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    index => "testes-%{+YYYY.MM.dd}"
+  }
+}
+```
+> - saída do tipo json pelo próprio elasticsearch
