@@ -33,3 +33,42 @@ filter{
 output{
 }
 ```
+
+### Instalação e Configuração
+
+- Estrutura das pastas
+- docker-compose.yml
+- pipeline/logstash.conf
+- settings
+  - elasticsearch.yml
+  - kibana.yml
+  - logstash.yml
+ 
+- Os beats vão enviar os dados para o Logstash através da porta 5044:5044;
+
+### Configuração
+
+- pipeline/logstash.conf
+```
+input{
+    beats{
+    port => 5044
+    }
+}
+output{
+    stdout{
+    codec => "json"
+    }
+    elasticsearch{
+          hosts=>["elasticsearch:9200"]
+    }
+}
+```
+
+- settings/logstash.yml
+
+```
+http.host:"0.0.0.0"
+xpack.monitoring.elasticsearch.hosts:[
+"http://elasticsearch:9200"]
+```
