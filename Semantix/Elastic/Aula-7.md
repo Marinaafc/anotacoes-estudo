@@ -16,3 +16,20 @@
 
 - Boa prática:
   - Enviar os Beats para o Logstash, onde irá passar pelo Logstash Pipeline, em que terá a entrada dos dados, as transformações e saída que geralmente é para o Elasticsearch;
+  - Os Beats não têm Filter, ou seja, não é possível fazer transformações nos dados;
+  - É possível até fazer algumas modificações em alguns Beats, mas é muito limitado. Por isso até que o Beats é bem mais leve que o Logstash;
+  - Sempre é uma boa prática o Logstash ser o centralizador;
+  - Ex: 1.000 serviços vão enviar dados para o Elasticsearch, não vai ser usado 1.000 Logstashs e sim 1.000 Beats e esses Beats vão enviar para 1 ou mais Logstashs que vão ser os centralizadores;
+  - Esse(s) Logstash(s) vão enviar os dados para o Elasticsearch ou outro lugar.
+
+- Para fazer o pipeline (Inputs > Filters > Outputs), precisa configurar o arquivo "**logstash.conf**";
+ 
+- Estrutura do json
+```json
+input{
+}
+filter{
+}
+output{
+}
+```
