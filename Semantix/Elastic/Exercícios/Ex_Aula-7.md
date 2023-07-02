@@ -41,4 +41,21 @@ docker-compose down
 ```
 docker-compose up -d
 ```
+- Precisa inicializar o beats para o logstash poder receber os dados
+```
+cd filebeat-7.9.2-linux-x86_64/
+```
+```
+./filebeat test config
+```
+```
+./filebeat test output
+```
+- Precisa remover as pastas data e logs para poder enviar o arquivo paris novamente
+```
+rm -rf data/
+```
+```
+rm -rf logs/
+```
 ### 3. Verificar a quantidade de documentos do índice criado pelo Logstash e visualizar seus 10 primeiros documentos
