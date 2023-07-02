@@ -58,4 +58,7 @@ rm -rf data/
 ```
 rm -rf logs/
 ```
+```
+./filebeat -e
+```
 ### 3. Verificar a quantidade de documentos do índice criado pelo Logstash e visualizar seus 10 primeiros documentos
