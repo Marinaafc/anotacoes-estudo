@@ -118,3 +118,8 @@
  
 - Configurações do kibana
 - Segurança e regras de usuário (tem que habilitar o expec)
+
+# Bônus
+
+- https://demo.elastic.co/
+- Para testar ferramentas que são pagas ou que dependem de Beats para serem utilizadas no Kibana
