@@ -104,3 +104,17 @@
 -  Pode monitorar o Kibana pelo Metricbeat também, alterando o arquivo de configuração. Mas é mais fácil monitorar localmente, habilitando o Expec.monitoring quando o Kibana solicitar
 
 ### Guia Management
+- Gestão dos índices
+  -  Saúde
+  -  Configurações
+  -  Ciclo de Vida
+  -  Backup
+ 
+- Index para visualizações
+  - Index pattern (só pode fazer as visualizações do discover nos índices que têm index pattern -aparece a opção de habilitar isso quando importa os dados pelo Kibana)
+  - Se criou pelo Dev Tools, não tem o Index Pattern;
+  - Para habilitar, tem que ir na guia do Kibana (em management), depois em Index Patterns, depois clicar em "Create index pattern" e colocar o índice que foi criado
+  - Por exemplo, coloca "produto" ou "produto*" para incluir produto1, produto2, etc  
+ 
+- Configurações do kibana
+- Segurança e regras de usuário (tem que habilitar o expec)
