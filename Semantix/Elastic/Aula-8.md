@@ -86,3 +86,21 @@
   - Procura de Ameaças
  
 # Menu Management
+
+### Guia Dev Tools
+
+- Digitar request e enviá-las ao Elasticsearch
+
+### Guia Stack Monitoring
+
+- Monitorar
+  - Armazenamento
+    - Disco
+    - Memória
+    - Heap
+  - Saúde
+    - Shards Primários
+    - Shards Réplicas
+-  Pode monitorar o Kibana pelo Metricbeat também, alterando o arquivo de configuração. Mas é mais fácil monitorar localmente, habilitando o Expec.monitoring quando o Kibana solicitar
+
+### Guia Management
