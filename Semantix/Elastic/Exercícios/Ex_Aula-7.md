@@ -27,4 +27,12 @@ elasticsearch {
 
         }
 ```
+### Resposta:
+```
+cd ../
+```
+```
+vi pipeline/logstash.conf
+```
+- Mudar "testes" para seu-nome
 ### 3. Verificar a quantidade de documentos do índice criado pelo Logstash e visualizar seus 10 primeiros documentos
