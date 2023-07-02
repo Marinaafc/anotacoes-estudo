@@ -62,3 +62,9 @@ rm -rf logs/
 ./filebeat -e
 ```
 ### 3. Verificar a quantidade de documentos do índice criado pelo Logstash e visualizar seus 10 primeiros documentos
+```
+GET marina-2023.07.02/_count
+```
+```
+GET marina-2023.07.02/_search
+```
