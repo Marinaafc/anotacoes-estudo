@@ -47,3 +47,9 @@ if(idade < 18 || idade > 60 || (ehAdulta && temCarteirinha)) {
 ...
 }
 ```
+```javascript 
+for(const elemento of coleção);
+}
+```
+- está declarando uma variável dentro da expressão
+- se a variável for declarada dentro do laço, não vai ser possível usá-la fora da repetição
