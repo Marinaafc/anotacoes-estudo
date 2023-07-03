@@ -13,3 +13,16 @@ let nome = marina;
 const idade = 20;
 ```
 - const - atribui uma variável que não pode ser alterada
+```javascript 
+let nome = marina;
+console.log("Olá,", nome);
+console.log("Olá, " + nome);
+let nome = rodrigo;
+```
+- vai exibir "marina", porque o código é executado por ordem de linha
+- toda const precisa ter um valor inicial declarado, mas o let não precisa e se não declarar um valor no let e imprimir, aparece undefined
+- ** - potencia (elevado a...)
+- % - restante da divisão
+- quando soma texto com numero, o resultado é texto
+- typeof variavel - mostra o tipo da variável
+- === operador de igualdade
