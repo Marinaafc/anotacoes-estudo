@@ -28,3 +28,15 @@ let nome = rodrigo;
 - === operador de igualdade
 - !== é diferente de
 - == é parecido com
+```javascript 
+const condição = true;
+if(condição){
+  console.log("É verdade!");
+} else {
+console.log("É falso!");
+}
+
+console.log("acabou");
+```
+- && - e
+- ! - ex: !temCarteirinha = não tem carteirinha
