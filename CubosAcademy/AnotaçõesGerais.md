@@ -26,3 +26,5 @@ let nome = rodrigo;
 - quando soma texto com numero, o resultado é texto
 - typeof variavel - mostra o tipo da variável
 - === operador de igualdade
+- !== é diferente de
+- == é parecido com
