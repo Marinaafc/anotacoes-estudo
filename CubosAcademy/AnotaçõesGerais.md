@@ -41,3 +41,9 @@ console.log("acabou");
 - && - e
 - ! - ex: !temCarteirinha = não tem carteirinha
 - || - ou
+
+```javascript 
+if(idade < 18 || idade > 60 || (ehAdulta && temCarteirinha)) {
+...
+}
+```
