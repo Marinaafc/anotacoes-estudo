@@ -40,3 +40,4 @@ console.log("acabou");
 ```
 - && - e
 - ! - ex: !temCarteirinha = não tem carteirinha
+- || - ou
