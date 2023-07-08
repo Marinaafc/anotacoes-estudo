@@ -75,3 +75,44 @@ rdd.collect()
 rdd.foreach(println)
 ```
 - No Jupyter com Python, já mostra em um visual mais agradável. Em Scala vai mostrar tudo em Array, por isso precisa usar o foreach para um visual mais agradável
+
+# Transformações de Map e FlatMap
+- Scala
+```scala
+rdd.take(2)
+```
+```res1: Array[String] = Array(Big Data, Semantix SP)```  
+```scala
+val palavras = rdd.flatMap(x => x.split(" "))
+//OperadorCoringa
+val palavras = rdd.flatMap(_.split(" "))
+```
+```scala
+//Entrada
+palavras.foreach(println)
+```
+//Saída
+```
+'Big',
+'Data',
+'Semantix',
+'SP'
+```
+- Python
+```python
+rdd.take(2)
+```
+```['Big Data', 'Semantix SP']```
+```python
+palavras = rdd.flatMap(lambda x: x.split(" "))
+```
+```python
+# Entrada
+palavras.collect()
+```
+# Saída
+```
+['Big',
+'Data',
+'Semantix',
+'SP']
