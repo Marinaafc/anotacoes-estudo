@@ -124,3 +124,4 @@ palavras.collect()
 ```
 ## Função Anônima
 ### Python
+- Lambda é utilizado para usar uma função dentro de outra função
