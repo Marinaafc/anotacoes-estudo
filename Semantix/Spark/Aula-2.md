@@ -37,3 +37,21 @@
   - Pode ser utilizado para testes ou para não precisar baixar o Jupyter em algum computador diferente
 
 # Sessão no Spark
+
+- Criar sessão no Spark
+  - Configurar nós (o que vai precisar de alocação de RAM e de Core, min, max)
+  - Configurar o projeto (nome do projeto, etc)
+ 
+- Classe SparkSession fornece o acesso às funcionalidades do spark
+  - sql - Executa as consultas Spark SQL
+  - catalog - Gerenciar tabelas
+  - read - função para ler dados de um arquivo ou outra fonte de dados
+  - conf - objeto para gerenciar configurações de Spark
+  - sparkContext - Core Spark API
+ 
+```
+spark = SparkSession \
+  .builder \
+  .appName("Python") \
+  .getOrCreate()
+```
