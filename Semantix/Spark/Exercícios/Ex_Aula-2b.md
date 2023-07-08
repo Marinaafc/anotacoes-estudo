@@ -1,4 +1,8 @@
+http://localhost:8889/
+
 ### 1. Criar o arquivo do notebook com o nome teste_spark.ipynb
+- clicar em "new"
+- clicar no título e renomear para "teste_spark"
 
 ### 2. Obter as informações da sessão de spark (spark)
 
