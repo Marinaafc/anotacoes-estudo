@@ -74,3 +74,5 @@ spark = SparkSession \
  
 - Setar o nível do log
   - spark.sparkContext.setLogLevel("INFO")
+
+> Dica do professor: Estudar o log4j para se aprofundar
