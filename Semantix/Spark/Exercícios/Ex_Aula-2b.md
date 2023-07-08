@@ -14,10 +14,19 @@ http://localhost:8889/
 - b
 
 ### 4. Setar o log como INFO.
+- spark.sparkContext.setLogLevel("INFO")
+- shift tab - mostra descrição
 
 ### 5. Visualizar todos os banco de dados com o catalog
+- spark.catalog.listDatabases()
+- quando tem [*] quer dizer que está carregando
 
 ### 6. Ler os dados "hdfs://namenode:8020/user/rodrigo/data/juros_selic/juros_selic.json“ com uso de Dataframe
+```scala
+leitura_juros = spark.read.json("hdfs://namenode:8020/user/marina/data/juros_selic/juros_selic.json")
+
+leitura_juros.show(5)
+```
 
 ### 7. Salvar o Dataframe como juros no formato de tabela Hive
 
