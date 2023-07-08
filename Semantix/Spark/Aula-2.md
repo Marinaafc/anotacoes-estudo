@@ -29,3 +29,5 @@
   - Deletar uma célula: ```dd```
   - Desfazer o deletar a célula: ```z```
   - Ajuda: ```h```
+  - Criar uma célula acima: ```a```
+  - Criar uma célula abaixo: ```b```
