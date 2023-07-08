@@ -61,7 +61,8 @@ rdd.count()
 rdd.first()
 ```
 ```res3: String = Big Data``` *(resposta do SparkShell)*  
-```scala
+```python
+# Não necessariamente irá mostrar os 5 primeiros. São os 5 primeiros na posição da memória
 rdd.take(5)
 ```
 ```res1: Array[String] = Array(Big Data, 2019, Semantix, Hadoop, Semantix SP)``` *(resposta do SparkShell)*  
