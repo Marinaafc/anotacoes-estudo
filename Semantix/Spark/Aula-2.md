@@ -76,3 +76,36 @@ spark = SparkSession \
   - spark.sparkContext.setLogLevel("INFO")
 
 > Dica do professor: Estudar o log4j para se aprofundar
+
+# API Catalog
+
+Comandos iguais entre Scala e Python:
+
+- Scala
+  - spark.catalog
+    - listDatabases
+    - setCurrentDatabase(nomeBD)
+    - listTables
+    - listColumns(nomeTabela)
+    - dropTempView(nomeView)
+   
+- Python
+  - spark.catalog
+    - listDatabases
+    - setCurrentDatabase(nomeBD)
+    - listTables
+    - listColumns(nomeTabela)
+    - dropTempView(nomeView)
+   
+### API Catalog - Exemplos (o que muda de Scala para Python)
+
+- Scala
+
+```scala
+scala> val tabDF = spark.sql("select * from bdtest.user").show(10)
+
+scala> spark.catalog.listDatabases.show()
+scala> spark.catalog.setCurrentDatabase("bdtest")
+scala> spark.catalog.listTables.show()
+scala> val tabDF = spark.sql("select * from user").show(10)
+```
