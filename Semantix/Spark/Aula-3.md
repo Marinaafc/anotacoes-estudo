@@ -34,3 +34,21 @@
   - GroupByKey
   - ReduceByKey
   - AggregateByKey
+ 
+# Leitura e Visualização de Dados (Ações)
+### Exemplo 2 arquivos:
+
+entrada1.txt | entrada2.txt
+------------ | ------------
+Big Data     | Curso Hadoop
+2019         | Data
+Semantix     | Hadoop
+Hadoop       | Semantix
+Semantix SP  | SP
+Hadoop 2019  | Data
+
+```scala
+rdd = sc.textFile("entrada*")
+```
+```rdd: org.apache.spark.rdd.RDD[String]``` *(resposta do SparkShell)*  
+- Quando se usa o sc (SparkContext), provavelmente está se aplicando alguma função de RDD, mas tem outras coisas no sc além do RDD
