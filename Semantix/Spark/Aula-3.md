@@ -51,4 +51,5 @@ Hadoop 2019  | Data
 rdd = sc.textFile("entrada*")
 ```
 ```rdd: org.apache.spark.rdd.RDD[String]``` *(resposta do SparkShell)*  
-- Quando se usa o sc (SparkContext), provavelmente está se aplicando alguma função de RDD, mas tem outras coisas no sc além do RDD
+- Quando se usa o sc (SparkContext), provavelmente está se aplicando alguma função de RDD, mas tem outras coisas no sc além do RDD;
+- Explicação da resposta: ele vai no org.apache.spark.rdd e cria um objeto RDD que salva um array de String [String]
