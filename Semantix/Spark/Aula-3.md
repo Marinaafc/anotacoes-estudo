@@ -110,8 +110,8 @@ palavras = rdd.flatMap(lambda x: x.split(" "))
 # Entrada
 palavras.collect()
 ```
+```python
 # Saída
-```
 ['Big',
 'Data',
 'Semantix',
