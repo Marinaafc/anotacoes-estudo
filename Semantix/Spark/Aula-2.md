@@ -31,3 +31,7 @@
   - Ajuda: ```h```
   - Criar uma célula acima: ```a```
   - Criar uma célula abaixo: ```b```
+
+### Google Colab - Alternativa para Jupyter Notebook
+- Não tem a mesma performance do Jupyter Notebook, mas tem suas vantagens
+  - Pode ser utilizado para testes ou para não precisar baixar o Jupyter em algum computador diferente
