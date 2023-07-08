@@ -7,13 +7,13 @@
 - cd input
 - sudo git clone https://github.com/rodrigo-reboucas/exercises-data.git . (deu erro, fiz manualmente)
 ### 3. Verificar o envio dos dados para o namenode
-ls
-docker exec -it namenode ls /input
+```ls```  
+```docker exec -it namenode ls /input```
 
 ### 4. Criar no hdfs a seguinte estrutura: /user/rodrigo/data
-docker exec -it namenode bash
-hdfs dfs -mkdir -p /user/marina/data (-p é usado para criar mais de uma pasta)
+```docker exec -it namenode bash```  
+```hdfs dfs -mkdir -p /user/marina/data``` (-p é usado para criar mais de uma pasta)
 
 ### 5. Enviar todos os dados do diretório input para o hdfs em /user/rodrigo/data
-hdfs dfs -put /input/* /user/marina/data
-hdfs dfs -ls /user/marina/data
+```hdfs dfs -put /input/* /user/marina/data```  
+```hdfs dfs -ls /user/marina/data```
