@@ -121,3 +121,6 @@ palavras.collect()
 'Data',
 'Semantix',
 'SP']
+```
+## Função Anônima
+### Python
