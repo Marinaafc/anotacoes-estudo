@@ -74,3 +74,4 @@ rdd.collect()
 # Mostrar os valores sem Array em Scala
 rdd.foreach(println)
 ```
+- No Jupyter com Python, já mostra em um visual mais agradável. Em Scala vai mostrar tudo em Array, por isso precisa usar o foreach para um visual mais agradável
