@@ -80,8 +80,8 @@ rdd.foreach(println)
 ### Scala
 ```scala
 rdd.take(2)
+//res1: Array[String] = Array(Big Data, Semantix SP)
 ```
-```res1: Array[String] = Array(Big Data, Semantix SP)```  
 ```scala
 val palavras = rdd.flatMap(x => x.split(" "))
 //OperadorCoringa
