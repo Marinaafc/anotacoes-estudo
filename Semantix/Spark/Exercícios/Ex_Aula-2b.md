@@ -33,11 +33,22 @@ leitura_juros.show(5)
 - em alguns projetos, é preciso especificar o caminho completo
 
 ### 7. Salvar o Dataframe como juros no formato de tabela Hive
+- padrão: formato parquet com compressão snappy
+- leitura_juros.write.saveAsTable("juros")
 
 ### 8. Visualizar todas as tabelas com o catalog
+- spark.catalog.listTables()
+- "isTemporaty=False" quer dizer que não é uma view
 
 ### 9. Visualizar no hdfs o formato e compressão que está a tabela juros do Hive
+- !hdfs dfs -ls /user/hive/warehouse/juros
 
 ### 10. Ler e visualizar os dados da tabela juros, com uso de Dataframe no formato de Tabela Hive
+- spark.read.table("juros").show(5)
 
 ### 11. Ler e visualizar os dados da tabela juros , com uso de Dataframe no formato Parquet
+- spark.read.parquet("/user/hive/warehouse/juros").show(5)
+- no caso de parquet, precisa especificar o caminho
+- /user/hive/warehouse/ é diretório padrão para tabelas hives. especificar só o nome da tabela só é válido com tabelas hive, por isso que com parquet precisa especificar
+
+### Ao finalizar, é preciso clicar em "Kernel" e depois em "Shutdown", pois deixar 2 sessões abertas resultará em erro ou conflito
