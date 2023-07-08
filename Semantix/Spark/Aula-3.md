@@ -105,8 +105,8 @@ palavras.foreach(println)
 ### Python
 ```python
 rdd.take(2)
+# ['Big Data', 'Semantix SP']
 ```
-```['Big Data', 'Semantix SP']```
 ```python
 palavras = rdd.flatMap(lambda x: x.split(" "))
 ```
@@ -125,3 +125,23 @@ palavras.collect()
 ## Função Anônima
 ### Python
 - Lambda é utilizado para usar uma função dentro de outra função
+```python
+rdd.take(2)
+# ['Big Data', 'Semantix SP']
+palavras = rdd.flatMap(lambda x: x.split(" "))
+minuscula = palavras.map(lambda linha: linha.lower())
+minuscula.collect()
+# ['big',
+#  'data',
+#  'semantix',
+#  'sp']
+```
+- Lambda é a mesma coisa que declarar uma função. O ":" seria o "return" como no exemplo abaixo:
+```python
+def Func(linha):
+  return linha.lower()
+
+minuscula = palavras.map(Func)
+
+minuscula.collect()
+```
