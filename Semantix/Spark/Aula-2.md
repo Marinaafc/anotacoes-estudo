@@ -116,6 +116,6 @@ tab_df = spark.sql("select * from bdtest.user").show(10)
 
 spark.catalog.listDatabases()
 spark.catalog.setCurrentDatabase("bdtest")
-spark.catalog.listTables.show()
+spark.catalog.listTables()
 tab_df = spark.sql("select * from user").show(10)
 ```
