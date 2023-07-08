@@ -1,4 +1,5 @@
 ```docker-compose -f docker-compose-parcial.yml up -d```  
+```docker-compose -f docker-compose-parcial.yml stop```  
 http://localhost:8889/
 
 ### 1. Criar o arquivo do notebook com o nome teste_spark.ipynb
