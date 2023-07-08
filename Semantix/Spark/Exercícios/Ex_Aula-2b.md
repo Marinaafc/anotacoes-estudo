@@ -5,8 +5,13 @@ http://localhost:8889/
 - clicar no título e renomear para "teste_spark"
 
 ### 2. Obter as informações da sessão de spark (spark)
+- clicar na célula e digitar "spark"
+- shift enter
 
 ### 3. Obter as informações do contexto do spark (sc)
+- "sc"
+- ctrl enter
+- b
 
 ### 4. Setar o log como INFO.
 
