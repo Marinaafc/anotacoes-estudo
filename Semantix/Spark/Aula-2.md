@@ -109,3 +109,13 @@ scala> spark.catalog.setCurrentDatabase("bdtest")
 scala> spark.catalog.listTables.show()
 scala> val tabDF = spark.sql("select * from user").show(10)
 ```
+- Python
+
+```python
+tab_df = spark.sql("select * from bdtest.user").show(10)
+
+spark.catalog.listDatabases()
+spark.catalog.setCurrentDatabase("bdtest")
+spark.catalog.listTables.show()
+tab_df = spark.sql("select * from user").show(10)
+```
