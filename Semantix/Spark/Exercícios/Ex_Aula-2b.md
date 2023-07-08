@@ -1,4 +1,4 @@
-docker-compose -f docker-compose-parcial.yml up -d  
+```docker-compose -f docker-compose-parcial.yml up -d```  
 http://localhost:8889/
 
 ### 1. Criar o arquivo do notebook com o nome teste_spark.ipynb
@@ -15,11 +15,11 @@ http://localhost:8889/
 - b
 
 ### 4. Setar o log como INFO.
-- spark.sparkContext.setLogLevel("INFO")
+- ```spark.sparkContext.setLogLevel("INFO")```
 - shift tab - mostra descrição
 
 ### 5. Visualizar todos os banco de dados com o catalog
-- spark.catalog.listDatabases()
+- ```spark.catalog.listDatabases()```
 - quando tem [*] quer dizer que está carregando
 
 ### 6. Ler os dados "hdfs://namenode:8020/user/rodrigo/data/juros_selic/juros_selic.json“ com uso de Dataframe
@@ -34,20 +34,20 @@ leitura_juros.show(5)
 
 ### 7. Salvar o Dataframe como juros no formato de tabela Hive
 - padrão: formato parquet com compressão snappy
-- leitura_juros.write.saveAsTable("juros")
+- ```leitura_juros.write.saveAsTable("juros")```
 
 ### 8. Visualizar todas as tabelas com o catalog
-- spark.catalog.listTables()
+- ```spark.catalog.listTables()```
 - "isTemporaty=False" quer dizer que não é uma view
 
 ### 9. Visualizar no hdfs o formato e compressão que está a tabela juros do Hive
-- !hdfs dfs -ls /user/hive/warehouse/juros
+- ```!hdfs dfs -ls /user/hive/warehouse/juros```
 
 ### 10. Ler e visualizar os dados da tabela juros, com uso de Dataframe no formato de Tabela Hive
-- spark.read.table("juros").show(5)
+- ```spark.read.table("juros").show(5)```
 
 ### 11. Ler e visualizar os dados da tabela juros , com uso de Dataframe no formato Parquet
-- spark.read.parquet("/user/hive/warehouse/juros").show(5)
+- ```spark.read.parquet("/user/hive/warehouse/juros").show(5)```
 - no caso de parquet, precisa especificar o caminho
 - /user/hive/warehouse/ é diretório padrão para tabelas hives. especificar só o nome da tabela só é válido com tabelas hive, por isso que com parquet precisa especificar
 
