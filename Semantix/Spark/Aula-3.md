@@ -77,7 +77,7 @@ rdd.foreach(println)
 - No Jupyter com Python, já mostra em um visual mais agradável. Em Scala vai mostrar tudo em Array, por isso precisa usar o foreach para um visual mais agradável
 
 # Transformações de Map e FlatMap
-- Scala
+### Scala
 ```scala
 rdd.take(2)
 ```
@@ -98,7 +98,7 @@ palavras.foreach(println)
 'Semantix',
 'SP'
 ```
-- Python
+### Python
 ```python
 rdd.take(2)
 ```
