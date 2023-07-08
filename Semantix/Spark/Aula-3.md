@@ -90,6 +90,7 @@ val palavras = rdd.flatMap(_.split(" "))
 - Como em transformação é retornado um RDD, então este precisa ser salvo em algum lugar. Por isso é criada uma variável para armazená-lo;
 - Para cada elemento vai fazer alguma alteração (flatMap). No exemplo, para cada elemento com espaço, haverá separação;
 - (x => x.split(" ")) - função anônima. x é o argumento, para cada argumento que passar vai separar por espaço.
+- "_" - "para cada elemento"
 ```scala
 //Entrada
 palavras.foreach(println)
