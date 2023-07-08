@@ -55,3 +55,22 @@ spark = SparkSession \
   .appName("Python") \
   .getOrCreate()
 ```
+> Exemplo mínimo de uma sessão
+
+### Log
+
+- Spark usa log4j para logging
+  - Configurações do log em conf/log4j.properties
+  - *Se tiver, apagar o .template*
+ 
+- Avaliação dos níveis de log
+  - TRACE
+  - DEBUG
+  - INFO (default level in Spark applications)
+  - WARN (default level in Spark shell)
+  - ERROR
+  - FATAL
+  - OFF
+ 
+- Setar o nível do log
+  - spark.sparkContext.setLogLevel("INFO")
