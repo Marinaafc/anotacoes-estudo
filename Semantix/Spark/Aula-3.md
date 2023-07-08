@@ -15,3 +15,22 @@
 - Tipos de operações
   - Ação
   - Transformação
+
+### RDD - Operações
+
+- Ação: Retorna um valor
+  - **Collect** - conta os dados
+  - **Count** - conta os registros
+  - **First** - retorna o primeiro
+  - **Take** - retorna os valores escolhidos
+  - **Reduce** - redução dos dados
+  - **CountByKey** - contar pela chave
+  - **Foreach** - escolher o que fazer para cada elemento
+ 
+- Transformação: Retorna um RDD
+  - Map
+  - Filter
+  - FlatMap
+  - GroupByKey
+  - ReduceByKey
+  - AggregateByKey
