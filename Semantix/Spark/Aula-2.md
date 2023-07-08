@@ -16,10 +16,10 @@
 ### Jupyter Notebook
 
 - Projeto PySpark, executa:
-  - Comandos em Python: print("seja bem vindo")
-  - Comandos em Spark: spark
-  - Comandos em Linux: !pwd *(tem que colocar a "!" antes)*
-  - Extensão do arquivo: .ipynb *(IPython Notebook)*
+  - Comandos em Python: ```print("seja bem vindo")```
+  - Comandos em Spark: ```spark```
+  - Comandos em Linux: ```!pwd``` *(tem que colocar a "!" antes)*
+  - Extensão do arquivo: ```.ipynb``` *(IPython Notebook)*
  
 - Atalhos
   - Executar a célula: ```ctrl Enter```
