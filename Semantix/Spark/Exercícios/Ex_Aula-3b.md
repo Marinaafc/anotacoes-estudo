@@ -29,3 +29,4 @@ palavras_particoes_linha = log_particoes.flatMap(lambda linha: linha.split(" "))
 palavras_particoes_linha.count()
 ```
 #### Não é possível alterar as partições no map e flatMap, porque nesses só está mapeando os dados
+#### RDD é utilizado para varreção de bits, ou seja, tratar palavra por palavra ou letra por letra
