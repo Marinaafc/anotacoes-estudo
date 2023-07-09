@@ -1,16 +1,20 @@
 ### 1. Ler com RDD os arquivos localmente do diretório “/opt/spark/logs/” ("file:///opt/spark/logs/")
+```python
 !ls /opt/spark/logs
-SAÍDA: spark--org.apache.spark.deploy.master.Master-1-jupyter-notebook.out
+#spark--org.apache.spark.deploy.master.Master-1-jupyter-notebook.out
 !cat /opt/spark/logs/spark--org.apache.spark.deploy.master.Master-1-jupyter-notebook.out
+```
 - é um arquivo de texto com logs do spark
-log = sc.textFile(""file:///opt/spark/logs/"")
+```python
+log = sc.textFile("file:///opt/spark/logs/")
+```
 ### 2. Com uso de RDD faça as seguintes operações
 a) Contar a quantidade de linhas
-log.count()
+```log.count()```
 b) Visualizar a primeira linha
-log.first()
+```log.first()```
 c) Visualizar todas as linhas
-log.collect()
+```log.collect()```
 d) Contar a quantidade de palavras
 contar_palavras = log.flatMap(lambda palavra: palavra.split(" "))
 contar_palavras.count()
