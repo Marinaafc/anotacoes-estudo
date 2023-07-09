@@ -206,6 +206,7 @@ pReduce = pChaveValor.reduceByKey(_+_)
 pReduce.take(3)
 //res4: Array[(String, Int)] = Array((big, 1), (2019, 2), (hadoop, 4))
 ```
+- reduceByKey - (2019,1) + (2019,1) = (2019,2)
 ```python
 p_chave_valor = p_minuscula.map(lambda palavra: (palavra,1))
 p_reduce = p_chave_valor.reduceByKey(lambda key1, key2: key1 + key2)
