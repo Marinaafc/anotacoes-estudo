@@ -282,3 +282,15 @@ p_ordena.saveAsTextFile("saida")
 $ hdfs dfs -ls /user/root/saida
 #part-00000 part-00001 part-00002 _SUCCESS
 ```
+# Partições
+- Spark armazena os dados do RDD em diferentes partições
+- Minímo de partições é 2 (não é possível ser menos que isso)
+- Definir partições manualmente na leitura e redução do dado
+```python
+rdd = sc.textFile("entrada*", 6)
+palavras = rdd.flatMap(lambda linha: linha.split(" "), 3) #ERRO
+p_chave_valor = palavras.map(lambda palavra: (palavra,1), 20) #ERRO
+p_reduce = p_chave_valor.reduceByKey(lambda key1, key2: key1 + key2, 10)
+p_reduce5 = p_reduce.repartition(5)
+pReduce.getNumPartitions()
+```
