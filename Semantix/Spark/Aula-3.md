@@ -228,6 +228,8 @@ pOrdena.take(4)
 - _._1 - ordena pelo 1º elemento (string, ordena em ordem alfabética)
 - _._2 - ordena pelo 2º elemento (int, ordena em ordem crescente)
 - -_._2 - ordena pelo 2º elemento em ordem decrescente
+
+### Python
 ```python
 p_ordena = p_reduce.sortBy(lambda palavra: palavra[1], False)
 
@@ -239,3 +241,30 @@ p_ordena.take(4)
 ```
 - Diferente do Scala, a primeira posição do Python é 0, então o "1" é o 2º elemento e "false" quer dizer que vai deixar em ordem descrescente;
 - "lambda palavra: -palavra[1]" também funciona igual
+
+# Armazenamento e Visualização de Dados
+## Visualização
+### Scala
+```scala
+pOrdena.foreach(y => println(y._1 + "-" + y._2))
+//hadoop - 4
+//semantix - 3
+//data - 3
+//2019 - 2
+//sp - 2
+//big - 1
+//curso - 1
+```
+### Python
+```python
+lista = p_ordena.collect()
+for row in lista:
+  print(row[0],"-",row[1])
+#hadoop - 4
+#semantix - 3
+#data - 3
+#2019 - 2
+#sp - 2
+#big - 1
+#curso - 1
+```
