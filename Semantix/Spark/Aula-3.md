@@ -268,3 +268,17 @@ for row in lista:
 #big - 1
 #curso - 1
 ```
+- Em produção, evita-se usar o collect, pois é uma operação muito custosa, porque tem que trazer todas as partições em 1 único nó. Por isso também que não utiliza-se muito visualização
+
+## Salvar dados
+- Como solução pra situação acima, geralmente se salva os dados e as partições continuam separadas, porque salva os arquivos já separados, não sendo tão custoso
+```python
+p_ordena.getNumPatitions
+#3
+
+p_ordena.saveAsTextFile("saida")
+```
+```python
+$ hdfs dfs -ls /user/root/saida
+#part-00000 part-00001 part-00002 _SUCCESS
+```
