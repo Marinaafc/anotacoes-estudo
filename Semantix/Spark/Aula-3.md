@@ -237,4 +237,5 @@ p_ordena.take(4)
 # ('data', 3),
 # ('2019', 2)]
 ```
-- Diferente do Scala, a primeira posição do Python é 0, então o "1" é o 2º elemento e "false" quer dizer que vai deixar em ordem descrescente. "lambda palavra: -palavra[1]" também funciona igual
+- Diferente do Scala, a primeira posição do Python é 0, então o "1" é o 2º elemento e "false" quer dizer que vai deixar em ordem descrescente;
+- "lambda palavra: -palavra[1]" também funciona igual
