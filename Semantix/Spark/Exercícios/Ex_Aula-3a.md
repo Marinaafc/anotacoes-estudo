@@ -10,11 +10,17 @@ log = sc.textFile("file:///opt/spark/logs/")
 ```
 ### 2. Com uso de RDD faça as seguintes operações
 a) Contar a quantidade de linhas
-```log.count()```
+```python
+log.count()
+```
 b) Visualizar a primeira linha
-```log.first()```
+```python
+log.first()
+```
 c) Visualizar todas as linhas
-```log.collect()```
+```python
+log.collect()
+```
 d) Contar a quantidade de palavras
 contar_palavras = log.flatMap(lambda palavra: palavra.split(" "))
 contar_palavras.count()
