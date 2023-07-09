@@ -43,19 +43,28 @@ palavra_1.take(3)
 ```
 h) Contar as palavras com o mesmo nome
 ```python
-palavra_reduce = palavra_1.reduceByKey(lambda key1, key2: key1 + key2)
-palavra_reduce.take(5)
+palavras_reduce = palavra_1.reduceByKey(lambda key1, key2: key1 + key2)
+palavras_reduce.take(5)
 ```
 i) Visualizar em ordem alfabética
-palavra_ordena = palavra_reduce.sortBy(lambda palavra: palavra[0], True)
-palavra_ordena.take(7)
+```python
+palavras_ordem = palavras_reduce.sortBy(lambda palavra: palavra[0], True)
+palavras_ordem.take(7)
+```
 j) Visualizar em ordem decrescente a quantidade de palavras
-palavra_ordena = palavra_reduce.sortBy(lambda palavra: -palavra[1])
-palavra_ordena.take(7)
+```python
+palavras_ordem_qtd = palavras_reduce.sortBy(lambda palavra: -palavra[1])
+palavras_ordem_qtd.take(7)
+```
 k) Remover as palavras, com a quantidade de palavras > 1
-filtro_palavras2 = minuscula.filter(lambda palavra: len(palavra) <= 1)
-filtro_palavras2.take(10)
+```python
+palavras_ordem_filtro = palavras_ordem_qtd.filter(lambda palavra: palavra[1] > 1)
+palavras_ordem_filtro.collect()
+```
 l) Salvar o RDD no diretorio do HDFS /user/<seu-nome>/logs_count_word
-palavra_ordena.saveAsTextFile("/user/marina/logs_count_word")
-
+```python
+palavras_ordem_filtro.saveAsTextFile("/user/marina/logs_count_word")
+!hdfs dfs -ls /user/marina/logs_count_word/
+```
+- O local padrão é hdfs://
 #### OBS: Se colocar 2 comandos como log.count() e log.first() numa mesma célula, só vai executar o último, exceto se for colocado um println() no primeiro [ex: println(log.count())]
