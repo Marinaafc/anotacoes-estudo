@@ -218,12 +218,16 @@ p_reduce.take(3)
 # Transformações de Ordenação
 ### Scala
 ```scala
-pOrdena = pReduce.sortBy(-_._2)
+val pOrdena = pReduce.sortBy(-_._2)
 //pOrdena: org.apache.spark.rdd.RDD[(String, Int)]
 
 pOrdena.take(4)
 //res25: Array[(String, Int)] = Array((hadoop,4), (semantix,3), (data,3), (2019,2))
 ```
+- _._ - ordena ou pelo 1º elemento ou pelo 2º elemento
+- _._1 - ordena pelo 1º elemento (string, ordena em ordem alfabética)
+- _._2 - ordena pelo 2º elemento (int, ordena em ordem crescente)
+- -_._2 - ordena pelo 2º elemento em ordem decrescente
 ```python
 p_ordena = p_reduce.sortBy(lambda palavra: palavra[1], False)
 
