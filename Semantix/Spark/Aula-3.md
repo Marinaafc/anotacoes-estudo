@@ -145,3 +145,40 @@ minuscula = palavras.map(Func)
 
 minuscula.collect()
 ```
+
+### Diferença entre map e flatMap
+```python
+rdd.take(2)
+# ['Big Data', 'Semantix SP']
+palavras = rdd.flatMap(lambda x: x.split(" "))
+palavras.collect()
+# ['Big',
+#  'Data',
+#  'Semantix',
+#  'SP']
+```
+```python
+palavras = rdd.map(lambda x: x.split(" "))
+palavras.collect()
+#[['Big', 'Data'],
+# ['Semantix', 'SP']]
+```
+- No "map", para cada valor separado, é criado um array, enquanto no flatMap é criada uma lista de palavras;
+- **flatMap** - para cada RDD aplicado, transforma no final em um único RDD; **map** - cria um array para cada RDD;
+- O map é usado quando não se tem a intenção de mexer com a estrutura, ao contrário do flatMap, que é usado quando se quer mexer com a estrutura
+
+### Transformações no Map
+```scala
+val pMinuscula = palavras.map(_.toLowerCase)
+val pMaiuscula = palavras.map(_.toUpperCase)
+val pChaveValor = pMinuscula.map((_,1))
+pChaveValor.take(4)
+//res1: Array[(String, Int)] = Array((big,1), (data,1), (2019,1), (semantix,1))
+```
+```python
+pMinuscula = palavras.map(lambda linha: linha.lower())
+pMaiuscula = palavras.map(lambda linha: linha.upper())
+pChaveValor = pMinuscula.map(lambda palavra: (palavra,1))
+pChaveValor.take(4)
+# [(big,1), (data,1), (2019,1), (semantix,1)]
+```
