@@ -34,5 +34,19 @@
 | 2, TI |
 | 3, RH |
 ```scala
-scala>
+scala> import org.apache.spark.sql.types._
+
+scala> val columnsList = List(StructField("id", IntegerType), StructField("setor", StringType))
+//É uma lista de campos e não uma estrutura
+
+scala> val setorSchema = StructType(columnsList)
+//Aqui é uma estrutura "StrucyType"
+
+scala> val setorDF = 
+//No schema, precisa passar um tipo de estrutura
+//"setorDF" é um dataFrame
 ```
+- O "_" pega todos os tipos de dados;
+- Lista, fila, etc são subclasses do seq;
+- Pode criar o cabeçalho no StructField também, se ele não existia;
+- O Schema é um StructType e dentro desse StructType tem uma lista de StructFields
