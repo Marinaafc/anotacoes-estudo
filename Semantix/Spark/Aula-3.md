@@ -215,3 +215,4 @@ p_reduce.take(3)
 # ('2019', 2),
 # ('hadoop', 4)]
 ```
+## Transformações de Ordenação
