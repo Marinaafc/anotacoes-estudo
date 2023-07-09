@@ -146,7 +146,7 @@ minuscula = palavras.map(Func)
 minuscula.collect()
 ```
 
-### Diferença entre map e flatMap
+## Diferença entre map e flatMap
 ```python
 rdd.take(2)
 # ['Big Data', 'Semantix SP']
@@ -176,9 +176,25 @@ pChaveValor.take(4)
 //res1: Array[(String, Int)] = Array((big,1), (data,1), (2019,1), (semantix,1))
 ```
 ```python
-pMinuscula = palavras.map(lambda linha: linha.lower())
-pMaiuscula = palavras.map(lambda linha: linha.upper())
-pChaveValor = pMinuscula.map(lambda palavra: (palavra,1))
-pChaveValor.take(4)
+p_minuscula = palavras.map(lambda linha: linha.lower())
+p_maiuscula = palavras.map(lambda linha: linha.upper())
+p_chave_valor = p_minuscula.map(lambda palavra: (palavra,1))
+p_chave_valor.take(4)
 # [(big,1), (data,1), (2019,1), (semantix,1)]
+```
+
+# Transformações de Filter e Reduce
+## Transformações de Filter
+- Remover dados do RDD;
+- Como RDD é imutável, cria um novo RDD
+### Scala
+```scala
+val filtroA = palavras.filter(_.startsWith("a"))
+val filtroTamanho = palavras.filter(_.lenght > 5)
+val numPar = numero.filter(_ % 2 == 0)
+```
+```python
+filtro_a = palavras.filter(lambda palavra: palavra.startswith("a"))
+filtro_tamanho = palavras.filter(lambda palavra: len(palavra)>5)
+num_par = numeros.filter(lambda numero: numero % 2 == 0)
 ```
