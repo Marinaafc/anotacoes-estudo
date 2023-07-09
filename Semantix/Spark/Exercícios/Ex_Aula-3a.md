@@ -22,20 +22,30 @@ c) Visualizar todas as linhas
 log.collect()
 ```
 d) Contar a quantidade de palavras
-contar_palavras = log.flatMap(lambda palavra: palavra.split(" "))
-contar_palavras.count()
+```python
+palavras = log.flatMap(lambda linha: linha.split(" "))
+palavras.count()
+```
 e) Converter todas as palavras em minúsculas
-minuscula = contar_palavras.map(lambda palavra: palavra.lower())
+```python
+minuscula = palavras.map(lambda palavra: palavra.lower())
 minuscula.take(5)
+```
 f) Remover as palavras de tamanho menor que 2
-filtro_palavras = minuscula.filter(lambda palavra: len(palavra) >= 2)
-filtro_palavras.take(10)
+```python
+minuscula_maior2 = minuscula.filter(lambda palavra: len(palavra) > 2)
+minuscula_maior2.count()
+```
 g) Atribuir o valor de 1 para cada palavra
-palavra_chave_valor = minuscula.map(lambda palavra: (palavra,1))
-palavra_chave_valor.take(3)
+```python
+palavra_1 = minuscula_maior2.map(lambda palavra: (palavra,1))
+palavra_1.take(3)
+```
 h) Contar as palavras com o mesmo nome
-palavra_reduce = palavra_chave_valor.reduceByKey(lambda key1, key2: key1 + key2)
+```python
+palavra_reduce = palavra_1.reduceByKey(lambda key1, key2: key1 + key2)
 palavra_reduce.take(5)
+```
 i) Visualizar em ordem alfabética
 palavra_ordena = palavra_reduce.sortBy(lambda palavra: palavra[0], True)
 palavra_ordena.take(7)
@@ -47,3 +57,5 @@ filtro_palavras2 = minuscula.filter(lambda palavra: len(palavra) <= 1)
 filtro_palavras2.take(10)
 l) Salvar o RDD no diretorio do HDFS /user/<seu-nome>/logs_count_word
 palavra_ordena.saveAsTextFile("/user/marina/logs_count_word")
+
+#### OBS: Se colocar 2 comandos como log.count() e log.first() numa mesma célula, só vai executar o último, exceto se for colocado um println() no primeiro [ex: println(log.count())]
