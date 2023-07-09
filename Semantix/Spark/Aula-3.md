@@ -215,4 +215,21 @@ p_reduce.take(3)
 # ('2019', 2),
 # ('hadoop', 4)]
 ```
-## Transformações de Ordenação
+# Transformações de Ordenação
+### Scala
+```scala
+pOrdena = pReduce.sortBy(-_._2)
+//pOrdena: org.apache.spark.rdd.RDD[(String, Int)]
+
+pOrdena.take(4)
+//res25: Array[(String, Int)] = Array((hadoop,4), (semantix,3), (data,3), (2019,2))
+```
+```python
+p_ordena = p_reduce.sortBy(lambda palavra: palavra[1], False)
+
+p_ordena.take(4)
+#[('hadoop', 4),
+# ('semantix', 3),
+# ('data', 3),
+# ('2019', 2)]
+```
