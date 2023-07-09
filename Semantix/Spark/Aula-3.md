@@ -198,3 +198,19 @@ filtro_a = palavras.filter(lambda palavra: palavra.startswith("a"))
 filtro_tamanho = palavras.filter(lambda palavra: len(palavra)>5)
 num_par = numeros.filter(lambda numero: numero % 2 == 0)
 ```
+- Lembrando: Pode-se utilizar .filter(argumentos).filter(argumentos), mas será salvo com as 2 filtragens em 1 único RDD
+## Transformações de Reduce
+```scala
+val pChaveValor = pMinuscula.map((_,1))
+pReduce = pChaveValor.reduceByKey(_+_)
+pReduce.take(3)
+//res4: Array[(String, Int)] = Array((big, 1), (2019, 2), (hadoop, 4))
+```
+```python
+p_chave_valor = p_minuscula.map(lambda palavra: (palavra,1))
+p_reduce = p_chave_valor.reduceByKey(lambda key1, key2: key1 + key2)
+p_reduce.take(3)
+#[('big', 1),
+# ('2019', 2),
+# ('hadoop', 4)]
+```
