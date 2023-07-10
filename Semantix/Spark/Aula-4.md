@@ -155,7 +155,7 @@ val regDS = regDF.as[Name]
 regDS.show
 
 //Forçar para inserir um schema com o Encoder
-import.org.apache.spark.sql.Encoders
+import org.apache.spark.sql.Encoders
 val schema = Encoders.product[Name].schema
 val regDS = spark.read.schema(schema).json("registros.json").as[Name]
 ```
