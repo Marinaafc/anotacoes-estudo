@@ -122,3 +122,52 @@ teste_df.printSchema()
   - RDD - 2011
   - Dataframe - 2013
   - Dataset - 2015
+# Criação de DataSet
+- Criar Dataset com case classes (Recomendada)
+  - ```case class <NomeClasse>(<Atributo>:<Tipo>,...,<Atributo>:<Tipo>)```
+- Exemplo:
+
+|id | name   |
+|---|-----   |
+| 1  | Rodrigo |
+| 2  | Augusto |
+
+```scala
+case class Name(id: Integer, name: String)
+val reg = Seq(Name(1,"Rodrigo"),Name(2,"Augusto"))
+val regDS = spark.createDataset(reg)
+regDS.show
+
+//Imprimir para cada linha só o name
+regDS.foreach(n => println(n.name))
+```
+## Criação de Dataset de DataFrame
+- Ler dados estruturados para um DataFrame
+- Criar um Dataset para ler os dados do DataFrame
+- Forçar para inserir um schema com o Encoder
+```scala
+case class Name(id: Integer, name: String)
+
+//Ler dados estruturados para um DataFrame
+val regDF = spark.read.json("registros.json")
+//Criar um Dataset para ler os dados do DataFrame
+val regDS = regDF.as[Name]
+regDS.show
+
+//Forçar para inserir um schema com o Encoder
+import.org.apache.spark.sql.Encoders
+val schema = Encoders.product[Name].schema
+val regDS = spark.read.schema(schema).json("registros.json").as[Name]
+```
+## Criação de Dataset de RDD
+- Ler dados não estruturados ou semi estruturados para um RDD
+- Criar um Dataset para ler os dados do RDD
+```scala
+case class
+latlon:
+val
+
+val pLatLonDS = 
+pLatLonDS.printSchema
+println(pLatLonDS.first)
+```
