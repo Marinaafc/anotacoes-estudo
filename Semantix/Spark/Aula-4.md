@@ -89,3 +89,36 @@ teste_df = spark.createDataFrame(data = dados_teste)
 
 teste_df.printSchema()
 ```
+# Dataset - Conceitos
+- Coleção distribuída de objetos de tipagem forte
+  - Tipos primitivos: Int ou String
+  - Tipos Complexos: Array ou listas
+  - Product objects (objeto criado pelo dataset)
+    - Scala - case classes (usado para criar a estrutura do objeto)
+    - Java - JavaBen objects
+ - Row objects
+- Mapeado para um schema relacional
+  - Schema é definido por um encoder
+  - Schema mapea objeto de propriedades para tipos de colunas
+- Otimizado pelo Catalyst (tem melhor performance do que RDD e Dataframe)
+  - Otimiza melhor as operações para determinados tipos, pois com o encoder o já fica tipado na leitura dos dados
+- Implementado apenas em Java e Scala
+  - Não existe Dataset em Python, pois ele é utilizado em linguagens fortemente tipadas
+ 
+## DataFrame x Dataset
+- DataFrames (Conjuntos de dados de Row objects _objeto de linha_)
+  - Representam dados tabulares (tabela)
+  - Transformações são não tipadas
+    - Linhas podem conter elementos de qualquer tipo
+    - Schemas definidos não são aplicados aos tipos de coluna até o tempo de execução
+    - O Schema só é definido nas ações, nas transformações não há importância com o tipo
+    - Então se tivesse um erro em relação ao tipo de objeto usado, ele não seria encontrado na transformação, somente na ação
+    - Como não especifica o tipo, consome mais memória
+- Datasets
+  - Representam dados tipados e orientados a objeto
+  - Transformações são tipadas (algumas transformações podem variar entre tipada ou não tipada)
+    - Propriedades do objeto são tipadas em tempo de compilação (ganha performance)
+- Representação dos dados
+  - RDD - 2011
+  - Dataframe - 2013
+  - Dataset - 2015
