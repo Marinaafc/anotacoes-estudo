@@ -34,4 +34,5 @@ names_ds.show(5)
 names_ds.write.parquet("/user/marina/names_us_parquet")
 //ou
 names_ds.write.save("/user/marina/names_us_parquet")
+spark.read.parquet("/user/marina/names_us_parquet").printSchema
 ```
