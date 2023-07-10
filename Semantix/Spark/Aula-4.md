@@ -163,11 +163,55 @@ val regDS = spark.read.schema(schema).json("registros.json").as[Name]
 - Ler dados não estruturados ou semi estruturados para um RDD
 - Criar um Dataset para ler os dados do RDD
 ```scala
-case class
-latlon:
-val
-
-val pLatLonDS = 
+case class PcodeLatLon(pcode: String, latlon: Tuple2[Double,Double])
+val pLatLonRDD = sc.textFile("latlon.tsv).map(_.split('\t')).map(fields =>(PcodeLatLon(fields(0),(fields(1).toFloat,fields(2).toFloat))))
+val pLatLonDS = spark.createDataset(pLatLonRDD)
 pLatLonDS.printSchema
 println(pLatLonDS.first)
+```
+# Transformações de Dataset
+- Transformações tipadas criam um novo Dataset
+  - Filter
+  - Limit
+  - Sort
+  - flatMap
+  - Map
+  - orderBy
+ 
+- Transformações não tipadas retornam DataFrames ou colunas não tipadas
+  - Join
+  - groupBy
+  - Col
+  - Drop
+  - Select (tem em tipado e não tipado)
+  - withColumn
+ 
+## Exemplo de transformações
+- Tipadas: Dataset
+- Não tipadas: DataFrame
+
+|id | name   |
+|---|-----   |
+| 1  | Rodrigo |
+| 2  | Augusto |
+
+```scala
+scala> val sortedDS = regDS.sort("name")
+//sortedDS: org.apache.spark.sql.Dataset[Name] = [id: int, name: string]
+
+scala> val nameDF = regDS.select("name")
+//nameDF: org.apache.spark.sql.DataFrame = [name:string]
+
+scala> val combineDF = regDS.sort("name").where("id > 10").select("name")
+//combineDF: org.apache.spark.sql.DataFrame = [name:string]
+```
+## Salvar Dataset
+- São salvos como DataFrames
+  - Dataset.write
+    - Retorna um DataFrameWriter
+  - Exemplo:
+```scala
+regDS.write.save("hdfs://localhost/user/cloudera/registros/")
+
+regDS.write.json("registros")
 ```
