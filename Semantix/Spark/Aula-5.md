@@ -20,3 +20,13 @@ data_frame.write.csv("/user/marina/teste_csv", mode="overwrite", header=true)
 #mode - "append" vai anexando arquivo e overwrite vai substituindo o arquivo ao salvar novamente
 ```
 ## Leitura de dados
+- Como só é leitura, não vai salvar o DataFrame em algum lugar
+```python
+spark.read.csv("/user/marina/teste_csv", header="true").show()
+#mesmo salvando com o "header=true", tem que colocar na hora de ler também, senão aparece sem cabeçalho
+```
+- Se colocar o sep na hora de salvar os dados, tem que colocar na leitura também, senão vai ficar tudo numa única coluna separado pelo sep
+- ```ignoreLeadingWhiteSpace="true"``` - vai ignorar os espaços em branco da esquerda (frente da palavra);
+- ```ignoreTrailingWhiteSpace="true"```- vai ignorar os espaços em branco da direita (atrás da palavra);
+- ```quote="\'"```- vai remover as aspas simples se estiver escrito por exemplo: "'Marina'" (na tabela ficaria 'Marina' e usando o quote removeria);
+- space - remove tudo o que está fora do quote
