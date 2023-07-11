@@ -29,4 +29,7 @@ spark.read.csv("/user/marina/teste_csv", header="true").show()
 - ```ignoreLeadingWhiteSpace="true"``` - vai ignorar os espaços em branco da esquerda (frente da palavra);
 - ```ignoreTrailingWhiteSpace="true"```- vai ignorar os espaços em branco da direita (atrás da palavra);
 - ```quote="\'"```- vai remover as aspas simples se estiver escrito por exemplo: "'Marina'" (na tabela ficaria 'Marina' e usando o quote removeria);
-- space - remove tudo o que está fora do quote
+- escape - remove tudo o que está fora do quote;
+- PERMISSIVE - campos em null quer dizer que o dado não está na estrutura definida;
+- DROPMALFORMED - vai ignorar os arquivos corrompidos;
+- FAILFAST - aplica uma execeção para registros corrompidos
