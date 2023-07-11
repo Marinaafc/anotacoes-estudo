@@ -34,7 +34,7 @@ spark.read.csv("/user/marina/teste_csv", header="true").show()
 - DROPMALFORMED - vai ignorar os arquivos corrompidos;
 - FAILFAST - aplica uma execeção para registros corrompidos
 
-# Comandos com WithColumn
+# Função WithColumn - Conceitos (Comandos com WithColumn)
 - WithColumn é muito utilizado em limpeza de dados, pois com ele é possível criar colunas e com essas colunas é possível editar muita coisa;
 - Serve parar Dataset e DataFrame;
 - WithColumn
