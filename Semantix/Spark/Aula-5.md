@@ -50,3 +50,20 @@ addColumn = data.withColumn("Novo Campo", col("id"))
 #cria uma coluna "novo campo" replicando a coluna id
 ```
 ## Acesso a coluna de DataFrame/DataSet
+### Scala
+- ```col("campo")``` - função
+- ```dataframe("campo")``` - outra forma de acessar a coluna, especificando o dataframe
+- ```$"campo"``` - outra forma de acessar a coluna (só é válida se estiver dentro de um dataframe e não tem autocomplete), $ - caractere coringa
+
+### Python
+- ```from pyspark.sql.functions import col```
+- ```col("campo")```
+- ```dataframe["campo"]```
+- ```dataframe.campo``` - forma mais vantajosa, porque se usar um "." + tab, vai mostrar todas as funções que podem ser utilizadas
+
+```python
+dataframe.select(*cols)
+#aceita receber string de um campo
+dataframe.withColumn(colName, col)
+#não aceita string, só type col (tem que usar uma das formas mostradas acima)
+```
