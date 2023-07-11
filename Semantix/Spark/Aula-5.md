@@ -67,3 +67,4 @@ dataframe.select(*cols)
 dataframe.withColumn(colName, col)
 #não aceita string, só type col (tem que usar uma das formas mostradas acima)
 ```
+# Função Timestamp
