@@ -6,7 +6,7 @@ data = spark.read.option("sep","|").option("header","true").option("quote","\"")
 #quote = aspas - caracter que está separando os textos (\" padrão)
 #DROPMALFORMED - tudo que não estiver formatado de acordo com a leitura vai ser ignorado
 ```
-- Por padrão, todo arquivo CSV vem com aspas, mas às vezes essas aspas vêm com um caractere diferente (ex: aspas simples: ')
+- Por padrão, todo arquivo CSV vem com aspas, mas às vezes essas aspas vêm com um caractere diferente (ex: aspas simples: \')
 - Em Python não é recomendado usar tantos "option" e sim colocar as especificações dentro do CSV
 ## Criação de DataFrame para ser usado como exemplo
 ```python
@@ -39,8 +39,14 @@ spark.read.csv("/user/marina/teste_csv", header="true").show()
 - Serve parar Dataset e DataFrame;
 - WithColumn
   - Criar Colunas
-  - Sintaxe: <dataframe>.withColumn("<nomeColuna>", <Coluna>)
+  - Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", <Coluna>)```
+  - Se o nome da coluna já existe, ela vai ser substituída
+  - ```<Coluna>``` - Especificar uma coluna que quer que seja replicada. Também pode-se utilizar funções
+  - A forma mais fácil de se editar os dados é adicionando colunas e editando colunas já existentes, por isso cai muito em certificações
 ```python
-data = spark.read.option("sep","|").option("header","true").option("quote","\").option("mode","DROPMALFORMED").csv("hdfs:///user/teste/")
+data = spark.read.option("sep","|").option("header","true").option("quote","\'").option("mode","DROPMALFORMED").csv("hdfs:///user/teste/")
 addColumn = data.withColumn("Novo Campo", col("id"))
+#"col("id")" replica a coluna id
+#cria uma coluna "novo campo" replicando a coluna id
 ```
+## Acesso a coluna de DataFrame/DataSet
