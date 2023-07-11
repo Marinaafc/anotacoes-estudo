@@ -164,7 +164,7 @@ val regDS = spark.read.schema(schema).json("registros.json").as[Name]
 - Criar um Dataset para ler os dados do RDD
 ```scala
 case class PcodeLatLon(pcode: String, latlon: Tuple2[Double,Double])
-val pLatLonRDD = sc.textFile("latlon.tsv).map(_.split('\t')).map(fields =>(PcodeLatLon(fields(0),(fields(1).toFloat,fields(2).toFloat))))
+val pLatLonRDD = sc.textFile("latlon.tsv").map(_.split('\t')).map(fields =>(PcodeLatLon(fields(0),(fields(1).toFloat,fields(2).toFloat))))
 val pLatLonDS = spark.createDataset(pLatLonRDD)
 pLatLonDS.printSchema
 println(pLatLonDS.first)
