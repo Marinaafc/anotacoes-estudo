@@ -33,3 +33,14 @@ spark.read.csv("/user/marina/teste_csv", header="true").show()
 - PERMISSIVE - campos em null quer dizer que o dado não está na estrutura definida;
 - DROPMALFORMED - vai ignorar os arquivos corrompidos;
 - FAILFAST - aplica uma execeção para registros corrompidos
+
+# Comandos com WithColumn
+- WithColumn é muito utilizado em limpeza de dados, pois com ele é possível criar colunas e com essas colunas é possível editar muita coisa;
+- Serve parar Dataset e DataFrame;
+- WithColumn
+  - Criar Colunas
+  - Sintaxe: <dataframe>.withColumn("<nomeColuna>", <Coluna>)
+```python
+data = spark.read.option("sep","|").option("header","true").option("quote","\").option("mode","DROPMALFORMED").csv("hdfs:///user/teste/")
+addColumn = data.withColumn("Novo Campo", col("id"))
+```
