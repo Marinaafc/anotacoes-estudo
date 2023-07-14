@@ -84,3 +84,22 @@ convUnixData = convUnix.withColumn("new data", from_unixtime("timestamp", "MM-dd
 
 convDataDireto = formato.withColumn("mes-dia-ano", from_unixtime(unix_timestamp(col("data"), "yyyy/MM/dd"), "MM-dd-yyyy"))
 ```
+# Função Substring
+## WithColumn - Trabalhando com Substring
+- Extrair dados de uma coluna de acordo com uma posição
+- Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", substring("<Coluna>", <posicaoInicial>, <tamanho>)
+- Muito usado com concat para concatenar as colunas e strings
+
+```python
+formato = data.select("data").show(1) #data = 2020/10/25
+mes = formato.withColumn("mes", substring(col("data"),6,2)) #mes = 10
+
+codsDF = data.select("codigo") #codigo = AA150000CCS
+resumoCod = codsDF.withColumn("pedido", concat(substring(col("codigo"), 1, 2), lit("-"), substring(col("codigo"), 9, 3)) #pedido = AA-CCS
+```
+- Também é possível fazer o exemplo do código com o uso de regex. Porém, regex é custoso, por isso é bom sempre dar preferência a outras formas;
+- No entanto, se, por exemplo, a quantidade de dígitos do código não fosse sempre a mesma, teria que usar o Regex;
+- Para concatenar um texto tem que usar o literal: lit("");
+- Concat pode concatenar qualquer coisa não só literais e substrings, por exemplo: função de timestamp também
+
+# Função Split
