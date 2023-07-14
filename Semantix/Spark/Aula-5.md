@@ -103,3 +103,20 @@ resumoCod = codsDF.withColumn("pedido", concat(substring(col("codigo"), 1, 2), l
 - Concat pode concatenar qualquer coisa não só literais e substrings, por exemplo: função de timestamp também
 
 # Função Split
+## WithColumn - Trabalhando com Split
+- Split
+  - Criar um array de acordo com um delimitador;
+  - Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", split("<Coluna>", "<delimitador>"))
+  - Seria como o flatMap do RDD
+ 
+```python
+nomesDF = data.select("nome").show(1) #nome = Rodrigo Augusto Rebouças
+sepNomesDF = nomesDF.withColumn("sepNome", split(col("nome"), " "))
+sepNomesDF.printSchema()
+|-- nome: string (nullable = true)
+|-- sepNome: array (nullable = true)
+#Array com a posição 0 (Rodrigo), 1 (Augusto) e 2 (Rebouças)
+valpNome = sepNomesDF.withColumn("pNome", col("sepNome").getItem(0)).drop("sepNome")
+#Para pegar apenas 1 dos itens que separou
+#Poderia fazer concat getitem(0) e getitem(2)
+```
