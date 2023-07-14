@@ -106,7 +106,7 @@ resumoCod = codsDF.withColumn("pedido", concat(substring(col("codigo"), 1, 2), l
 ## WithColumn - Trabalhando com Split
 - Split
   - Criar um array de acordo com um delimitador;
-  - Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", split("<Coluna>", "<delimitador>"))
+  - Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", split("<Coluna>", "<delimitador>"))```
   - Seria como o flatMap do RDD
  
 ```python
