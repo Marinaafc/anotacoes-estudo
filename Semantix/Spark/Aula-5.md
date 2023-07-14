@@ -68,3 +68,19 @@ dataframe.withColumn(colName, col)
 #não aceita string, só type col (tem que usar uma das formas mostradas acima)
 ```
 # Função Timestamp
+## WithColumn - Trabalhando com Timestamp
+- Apesar de ser possível alterar na leitura do arquivo csv o formatDate, há algumas exceções. Por exemplo, se estiver em um formato de unix_timestamp e quiser converter para dia/mês/ano não é possível fazer isso na leitura;
+- Quando se está trabalhando com data e se quer mudar o formato dela, é preciso converter primeiro para um formato universal para timestamp (unix_timestamp) com o formato que "atualmente" estaria a data;
+- Converter Coluna para timestamp
+  - ```unix_timestamp(col("<ColString>"), "<FormatoAtual"),```
+- Alterar formato de coluna de timestamp
+  - ```from_unixtime(<ColTimestamp>, <FormatoConversão>))```
+ 
+```python
+from pyspark.sql.functions import unix_timestamp, from_unixtime
+formato = data.select("data").show(1) #formato = 2020/10/25
+convUnix = formato.withColumn("timestamp", unix_timestamp(col("data"), "yyyy/MM/dd"))
+convUnixData = convUnix.withColumn("new data", from_unixtime("timestamp", "MM-dd-yyyy"))
+
+convDataDireto = formato.withColumn("mes-dia-ano", from_unixtime(unix_timestamp(col("data"), "yyyy/MM/dd"), "MM-dd-yyyy"))
+```
