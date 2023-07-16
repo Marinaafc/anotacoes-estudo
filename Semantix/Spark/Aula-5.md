@@ -87,7 +87,7 @@ convDataDireto = formato.withColumn("mes-dia-ano", from_unixtime(unix_timestamp(
 # Função Substring
 ## WithColumn - Trabalhando com Substring
 - Extrair dados de uma coluna de acordo com uma posição
-- Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", substring("<Coluna>", <posicaoInicial>, <tamanho>)
+- Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", substring("<Coluna>", <posicaoInicial>, <tamanho>)```
 - Muito usado com concat para concatenar as colunas e strings
 
 ```python
