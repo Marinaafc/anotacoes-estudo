@@ -160,3 +160,25 @@ remover_zeros = codigos.withColumn("cod_sem_0", when(length(col("cod")) > 4, sub
 # cod = {AABB, ACBB, ABCC, AACC, BBCC}
 ```
 # Agregações
+```<dataframe>.groupBy(<coluna>).agg(<f_agg>)```
+- count
+- avg
+- sum
+- min
+- max
+- first
+- last
+- countDistinct
+- approx_count_distinct (contagem aproximada, mais rápido)
+- stddev
+- var_sample
+- var_pop
+- covar_samp
+- covar_pop
+- corr
+```python
+peopleDF.groupBy("setor").sum("gastos).sort(desc("gastos))
+#sem o agg não dá para fazer mais de uma operação
+peopleDF.groupBy("setor").agg(avg("gastos"),sum("gastos").alias("total_gastos"))
+#alias muda o nome que geraria automaticamente "sum_gastos" para "total_gastos"
+```
