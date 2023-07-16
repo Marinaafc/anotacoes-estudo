@@ -127,6 +127,7 @@ valpNome = sepNomesDF.withColumn("pNome", col("sepNome").getItem(0)).drop("sepNo
 - Alterar as casas decimais: ```format_number("<coluna>", <numeroCasasDecimais>)```
 ```python
 medida = data.select("total").show(1) #total = 1000.00 (String)
+
 from pyspark.sql.types import *
 converter = medida.withColumn("Total real", col("total").cast(FloatType()))
 converter2c = converter.withColumn("Total real", format_number(col("Total real").cast(FloatType()), 2)
@@ -147,4 +148,15 @@ converter = medidaR.withColumn("Total real", col("total").cast(FloatType()))
 #total = 1000.00 (Float)
 ```
 # Função When
+## WithColumn - Trabalhando com When
+- When
+  - Responsável por fazer condicional em colunas
+  - Sintaxe: ```<dataframe>.withColumn("<nomeColuna>", when(<condição>, <valorVerdadeiro>).otherwise(<valorFalso>))```
+```python
+codigos = data.select("cod").take(5)
+# cod = {AABB, ACBB, 00ABCC, AACC, 00BBCC}
+
+remover_zeros = codigos.withColumn("cod_sem_0", when(length(col("cod")) > 4, substring(col("cod"), 3, 6)).otherwise(col("cod")))
+# cod = {AABB, ACBB, ABCC, AACC, BBCC}
+```
 # Agregações
