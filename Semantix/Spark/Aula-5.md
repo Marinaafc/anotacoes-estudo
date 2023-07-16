@@ -169,16 +169,16 @@ remover_zeros = codigos.withColumn("cod_sem_0", when(length(col("cod")) > 4, sub
 - first
 - last
 - countDistinct
-- approx_count_distinct (contagem aproximada, mais rápido)
-- stddev
-- var_sample
+- approx_count_distinct - (contagem aproximada, mais rápido)
+- stddev - (desvio padrão)
+- var_sample - (variância)
 - var_pop
-- covar_samp
+- covar_samp - (covariância)
 - covar_pop
-- corr
+- corr - (correlação)
 ```python
 peopleDF.groupBy("setor").sum("gastos").sort(desc("gastos"))
-#sem o agg não dá para fazer mais de uma operação
+#sem o agg não dá para fazer mais de uma agregação
 peopleDF.groupBy("setor").agg(avg("gastos"),sum("gastos").alias("total_gastos"))
 #alias muda o nome que geraria automaticamente "sum_gastos" para "total_gastos"
 ```
