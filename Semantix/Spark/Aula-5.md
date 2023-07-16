@@ -120,3 +120,31 @@ valpNome = sepNomesDF.withColumn("pNome", col("sepNome").getItem(0)).drop("sepNo
 #Para pegar apenas 1 dos itens que separou
 #Poderia fazer concat getitem(0) e getitem(2)
 ```
+# Função Cast e Regexp_replace
+## WithColumn - Trabalhando com Cast
+- Cast: Alterar o tipo do dado
+  - Sintaxe: ```<dataframe>.withColumn("<nomeColuna>",<coluna>.cast("Tipo"))```
+- Alterar as casas decimais: ```format_number("<coluna>", <numeroCasasDecimais>)```
+```python
+medida = data.select("total").show(1) #total = 1000.00 (String)
+from pyspark.sql.types import *
+converter = medida.withColumn("Total real", col("total").cast(FloatType()))
+converter2c = converter.withColumn("Total real", format_number(col("Total real").cast(FloatType()), 2)
+```
+## WithColumn - Trabalhando com Regexp_replace
+- Regexp
+  - Alterar um padrão com uso de regex
+  - ```regexp_replace("<coluna>", "<padrão_atual>", "<novo_padrão>")```
+- Usado para fazer cast de decimais para substituir , por .
+```python
+medida = data.select("total").show(1) #total = 1.000,00 (String)
+medidaR = medida.withColumn("total", regexp_replace(col("total"), "\.", ""))
+#total = 1000,00 (String)
+medidaR = medidaR.withColumn("total", regexp_replace(col("total"), "\,", "."))
+#total = 1000.00 (String)
+from pyspark.sql.types import *
+converter = medidaR.withColumn("Total real", col("total").cast(FloatType()))
+#total = 1000.00 (Float)
+```
+# Função When
+# Agregações
