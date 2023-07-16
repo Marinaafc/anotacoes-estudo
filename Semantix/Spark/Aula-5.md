@@ -156,7 +156,7 @@ converter = medidaR.withColumn("Total real", col("total").cast(FloatType()))
 codigos = data.select("cod").take(5)
 # cod = {AABB, ACBB, 00ABCC, AACC, 00BBCC}
 
-remover_zeros = codigos.withColumn("cod_sem_0", when(length(col("cod")) > 4, substring(col("cod"), 3, 6)).otherwise(col("cod")))
+remover_zeros = codigos.withColumn("cod_sem_0", when(length(col("cod")) > 4, substring(col("cod"), 3, 4)).otherwise(col("cod")))
 # cod = {AABB, ACBB, ABCC, AACC, BBCC}
 ```
 # Agregações
