@@ -177,7 +177,7 @@ remover_zeros = codigos.withColumn("cod_sem_0", when(length(col("cod")) > 4, sub
 - covar_pop
 - corr
 ```python
-peopleDF.groupBy("setor").sum("gastos).sort(desc("gastos))
+peopleDF.groupBy("setor").sum("gastos").sort(desc("gastos"))
 #sem o agg não dá para fazer mais de uma operação
 peopleDF.groupBy("setor").agg(avg("gastos"),sum("gastos").alias("total_gastos"))
 #alias muda o nome que geraria automaticamente "sum_gastos" para "total_gastos"
