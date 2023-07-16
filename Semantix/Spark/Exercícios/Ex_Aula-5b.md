@@ -9,4 +9,4 @@ Anual | MesesValor | médioValor | MínimoValor | Máximo
 2017 | 12 | 00.00 | 00.00 | 00.00
 ... | ... | 00.00 | 00.00 | 00.00 
 1986 | 2 | 00.00 | 00.00 | 00.00
-### Salvar no hdfs:///user/<nome>/relatorioAnual com compressão zlib e formato orc
+### 3. Salvar no hdfs:///user/<nome>/relatorioAnual com compressão zlib e formato orc
