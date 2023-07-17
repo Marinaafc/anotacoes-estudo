@@ -25,3 +25,20 @@
 ### 3. Estudar e aprender com bons profissionais em texto, blog, etc
 - ex:
   - S.O.L.I.D. - método para melhorar a legibilidade do código.
+
+# Deploy
+### Entregas
+- Os artefatos que são gerados para os clientes normalmente são divididos em 4 tipos de arquivos:
+  - Scripts
+  - JAR
+  - Zip
+  - .egg
+ 
+- Agendamento
+  - crontab, control-M, ferramentas na nuvem, no cloudera (apache oozie), apache airflow
+ 
+- Deploy
+  - de arquivos: de uma máquina pra outra;
+  - abrir chamados: GMUD;
+  - devops bem estruturado: pipeline, validando o que fez.
+  - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/1df6685f-8399-40b5-a797-a6318581c667)
