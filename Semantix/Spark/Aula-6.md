@@ -54,3 +54,33 @@
 - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f9971755-08aa-417e-9a1e-9a8cead87768)
 - modelo baseado no ciclo de vida do dado (fluxo das zonas mostrado acima *tem regras de negócios):
 - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f864c5d3-be53-4747-ae82-9a603d3ebdb1)
+
+# Spark Application - Introdução
+## Spark shell x Spark applications
+- Spark shell
+  - Exploração e manipulação dos dados (visualiza os dados)
+  - Usado para estudo
+
+- Spark applications
+  - Usado para rodar programas no cluster
+  - Rodar os programas de forma independente
+  - Aplicações para rodar em vários nós
+  - Jobs para ETL e streaming (foi visto apenas in batch, vai ser visto em stream)
+  - Criação de objetos
+    - SparkSession - spark. (spark SQL)
+    - SparkContext - sc.
+   
+## Rodar uma Spark application (02:30)
+- ```spark-submit --class NameList MyJarFile.jar people.json namelist/```
+- Opções submit
+  - master: local, yarn, mesos ou spark standalone
+  - jars: adicionar arquivos jar
+  - py-files: lista de arquivos em .py, .zip ou .egg
+  - driver-java-options: parâmetros para o driver JVM
+  - deploy-mode: client ou cluster
+  - driver-memory: Memória alocada para o spark driver (1G)
+  - executor-memory: Memória alocada para a aplicação
+  - num-executors: Número de executores para iniciar com a aplicação
+  - driver-cores: Número de cores alocados para o spark driver
+  - queue: Rodar na fila do Yarn
+  - help
