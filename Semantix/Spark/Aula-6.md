@@ -44,9 +44,13 @@
   - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/1df6685f-8399-40b5-a797-a6318581c667)
 
 # Templates
+- Baixar modelo de template da aula;
 - Camada Raw - dados sem tratamento (do jeito que o arquivo veio);
 - Transformações;
-- Modelo baseado em serviços (carregar e gravar o dado no data lake):
+![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/6b672354-0f3c-47e9-ba33-f1dea7931564)
+![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/c6296049-4d98-4a75-8a8e-77b801c5a283)
+
+- Modelo baseado em serviços (carregar e gravar o dado no data lake *tem regras de negócios):
 - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f9971755-08aa-417e-9a1e-9a8cead87768)
-- modelo baseado no ciclo de vida do dado (fluxo das zonas mostrado acima):
+- modelo baseado no ciclo de vida do dado (fluxo das zonas mostrado acima *tem regras de negócios):
 - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f864c5d3-be53-4747-ae82-9a603d3ebdb1)
