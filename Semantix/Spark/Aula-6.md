@@ -42,3 +42,11 @@
   - abrir chamados: GMUD;
   - devops bem estruturado: pipeline, validando o que fez.
   - ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/1df6685f-8399-40b5-a797-a6318581c667)
+
+# Templates
+- Camada Raw - dados sem tratamento (do jeito que o arquivo veio);
+- Transformações;
+- Modelo baseado em serviços (carregar e gravar o dado no data lake):
+- ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f9971755-08aa-417e-9a1e-9a8cead87768)
+- modelo baseado no ciclo de vida do dado (fluxo das zonas mostrado acima):
+- ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/f864c5d3-be53-4747-ae82-9a603d3ebdb1)
