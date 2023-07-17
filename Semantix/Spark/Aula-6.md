@@ -65,7 +65,7 @@
   - Usado para rodar programas no cluster
   - Rodar os programas de forma independente
   - Aplicações para rodar em vários nós
-  - Jobs para ETL e streaming (foi visto apenas in batch, vai ser visto em stream)
+  - Jobs para ETL e streaming (foi visto apenas in batch, vai ser visto in stream)
   - Criação de objetos
     - SparkSession - spark. (spark SQL)
     - SparkContext - sc.
