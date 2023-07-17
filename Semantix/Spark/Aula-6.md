@@ -11,17 +11,17 @@
   - Colocar "a", "b", "c" ou "x", "y" não fica legível para manutenção de código;
   - Importante ter documentação do que o método faz para que as pessoas não fiquem muito tempo tentando entender o código.
  
-## 1. Entender a história da linguagem e suas convenções
+### 1. Entender a história da linguagem e suas convenções
 - ex:
   - java, scala: variavelEmJava (camel case)/ métodos com primeira letra maiúscula;
   - python variavel_em_python (snake case)/ métodos em snake case;
   - formatação (ferramenta para verificar a formatação): Java: checkstyle; Python:pep8.
    
-## 2. Entender as características da linguagem
+### 2. Entender as características da linguagem
 - ex:
   - Java, Scala: orientação a objeto para aproveitar o máximo do java;
   - Python, Scala: linguagem funcional (método, função anônima, etc).
  
-## 3. Estudar e aprender com bons profissionais em texto, blog, etc
+### 3. Estudar e aprender com bons profissionais em texto, blog, etc
 - ex:
   - S.O.L.I.D. - método para melhorar a legibilidade do código.
