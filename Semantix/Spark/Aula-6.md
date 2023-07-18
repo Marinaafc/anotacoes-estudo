@@ -70,7 +70,7 @@
     - SparkSession - spark. (spark SQL)
     - SparkContext - sc.
    
-## Rodar uma Spark application (02:30)
+## Rodar uma Spark application
 - ```spark-submit --class NameList MyJarFile.jar people.json namelist/```
 - Colocar no nó master;
 - Class só funciona para Java e Scala;
