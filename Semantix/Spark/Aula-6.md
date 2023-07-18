@@ -72,15 +72,18 @@
    
 ## Rodar uma Spark application (02:30)
 - ```spark-submit --class NameList MyJarFile.jar people.json namelist/```
+- Colocar no nó master;
+- Class só funciona para Java e Scala;
+- Compactou o projeto no .jar
 - Opções submit
-  - master: local, yarn, mesos ou spark standalone
+  - master: local, yarn, mesos ou spark standalone (como vai rodar o projeto)
   - jars: adicionar arquivos jar
   - py-files: lista de arquivos em .py, .zip ou .egg
-  - driver-java-options: parâmetros para o driver JVM
-  - deploy-mode: client ou cluster
-  - driver-memory: Memória alocada para o spark driver (1G)
-  - executor-memory: Memória alocada para a aplicação
+  - driver-java-options: parâmetros para o driver JVM (Java e Scala)
+  - deploy-mode: client (vai executar na máquina que está enviando) ou cluster (vai enviar para vários nós do cluster e fazer o processamento e paralelo)
+  - driver-memory: Memória alocada para o spark driver (padrão: 1G, recomendável que não passe de 8G)
+  - executor-memory: Memória alocada para a aplicação (limite: qtd de memória do cluster)
   - num-executors: Número de executores para iniciar com a aplicação
   - driver-cores: Número de cores alocados para o spark driver
-  - queue: Rodar na fila do Yarn
-  - help
+  - queue: Rodar na fila do Yarn (fila de aplicações + ou - críticas, ou que utilizam + ou - recursos)
+  - help (mostrar as opções)
