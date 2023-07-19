@@ -100,5 +100,45 @@ $ nc -lp 9999
 #vai pedir para digitar as informações depois de usar o comando
 ```
 # Spark Streaming - Operações
+- Vai ter as mesmas operações de um RDD;
+- Ação: Retorna um valor
+  - Count
+  - CountByValue
+  - Reduce
+  - Print
+  - ForeachRDD
+ 
+- Transformação: Retorna um DStream
+  - Map
+  - Filter
+  - FlatMap
+  - ReduceByKey
 
+- FlatMap
+```python
+from pyspark.streaming import StreamingContext
+ssc = StreamingContext(sc, 2)
+readStr = ssc.socketTextStream("localhost", 9999)
+palavras = readStr.flatMap(lambda linha: linha.split(" "))
+palavras.saveAsTextFiles("hdfs://localhost/linha")
+#não precisa especificar o hdfs porque já está configurado como padrão
+#vai criar um arquivo "linha_" e o código hexadecimal da data
+#a cada 2 segundos vai criando um novo diretório e esse diretório pode estar particionado
+ssc.start()
+#só vai salvar no arquivo quando der o start
+```
+- Transformações de Map
+
+```python
+pMinuscula = palavras.map(lambda palavra: palavra.lower())
+pMaiuscula = palavras.map(lambda palavra: palavra.upper())
+pChaveValor = pMinuscula.map(lambda palavra: (palavra,1))
+```
+- Filtrar dados
+
+```python
+filtro_a = palavras.filter(lambda palavra: palavra.startswith("a"))
+filtro_tamanho = palavras.filter(lambda palavra: len(palavra)>5)
+num_par = numeros.filter(lambda numero: numero % 2 == 0)
+```
 # Spark Streaming - Exemplo de Contar Palavras
