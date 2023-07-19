@@ -22,4 +22,4 @@ ssc.start()
 sleep(20)
 ssc.stop()
 ```
-- Dicas: Restart & Run All Cells no Kernel para executar o processo novamente
+- Dicas: "Restart & Run All Cells" no Kernel para executar o processo novamente
