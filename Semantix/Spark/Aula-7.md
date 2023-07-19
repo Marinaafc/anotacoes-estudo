@@ -142,3 +142,20 @@ filtro_tamanho = palavras.filter(lambda palavra: len(palavra)>5)
 num_par = numeros.filter(lambda numero: numero % 2 == 0)
 ```
 # Spark Streaming - Exemplo de Contar Palavras
+
+- Exemplo de contar palavras dos dados na porta 9999 no localhost
+```python
+from pyspark.streaming import StreamingContext
+ssc = StreamingContext(sc, 1)
+readStr = ssc.socketTextStream("localhost", 9999)
+palavras = readStr.flatMap(lambda linha: linha.split(" "))
+pMinuscula = palavras.map(lambda palavra: palavra.lower())
+pChaveValor = pMinuscula.map(lambda palavra: (palavra,1))
+pReduce = pChaveValor.reduceByKey(lambda key1, key2: key1 + key2)
+pReduce.pprint()
+#lembrar de colocar o comando antes do start no terminal
+ssc.start()
+```
+- Processa por lotes, faz stream processando em micro batches. Ou seja, as operações também serão por lotes
+- Spark Streaming não é a única forma de se trabalhar com Stream de dados, existe uma outra forma que é a Struct Stream, que é muito parecida com DataFrame e Dataset
+- Dificilmente na prática se fará leitura de dados de só uma porta, mas fará de uma aplicação. Portanto, usa-se mais o Kafka
