@@ -39,7 +39,66 @@
 ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/e1400723-162a-401e-9363-cc3f39531d4d)
 
 # Spark Streaming - Leitura de Dados
+## Dstream - Leitura Básica
+- O Spark Stream é um outro formato de dados, diferentemente do DataFrame e do Dataset;
+- Por conta disso, será preciso criar um novo contexto chamado StreamingContext;
+- sc = Spark Context; ssc = Spark Streaming Context
 
+### Scala
+- Criar um contexto com intervalo de 2 segundos
+
+```scala
+//IDE: import org.apache.spark._
+import org.apache.spark.streaming._
+//IDE: val conf = new SparkConf().setMaster("local")
+//IDE: val sc = new SparkContext(conf)
+val ssc = new StreamingContext(sc, Seconds(2))
+//parâmentros do Streaming Context:
+//sc - contexto do Spark atual
+//Seconds() - de quantos em quantos segundos vai ter esse contexto (pegar os dados para fazer o processamento)
+```
+- Criar um Dstream para captura dos dados relativos a sessão da porta 9999 *(Dizer o que vai fazer, se vai ler os dados do Kafka ou de uma porta, por exemplo)*
+
+```scala
+val dstr = ssc.socketTextStream("localhost", 9999)
+//vai ser em formato de texto um socket que precisa ser definido (no caso, é a porta 9999)
+```
+### Python 
+- Criar um contexto com intervalo de 2 segundos
+
+```python
+#IDE: from pyspark import SparkContext
+from pyspark.streaming import StreamingContext
+#IDE: conf = SparkConf().setMaster("local")
+#IDE: sc = SparkContext.getOrCreate(conf)
+ssc = StreamingContext(sc, 2)
+```
+- Criar um Dstream para captura dos dados relativos a sessão da porta 9999
+
+```python
+dstr = ssc.socketTextStream("localhost", 9999)
+```
+## Dstream - Ex. Leitura e Exibição de uma Porta
+- Exemplo de leitura na porta 9999 no localhost
+
+```python
+from pyspark.streaming import StreamingContext
+ssc = StreamingContext(sc, 2)
+readStr = ssc.socketTextStream("localhost", 9999)
+readStr.pprint()
+ssc.start()
+#precisa inicializar o streaming context para mostrar os dados
+#nunca vai parar de enviar
+```
+- Usar Netcat para enviar dados na porta 9999
+
+```python
+$ nc -lp 9999
+#precisa usar esse comando antes de dar o ssc.start()
+#comando precisa ser executado dentro do terminal do container de spark, porque é no localhost
+#lp = listen port
+#vai pedir para digitar as informações depois de usar o comando
+```
 # Spark Streaming - Operações
 
 # Spark Streaming - Exemplo de Contar Palavras
