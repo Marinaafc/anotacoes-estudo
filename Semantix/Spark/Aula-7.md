@@ -36,6 +36,7 @@
 - Trata os dados em stream no formato de micro batches, então vai fazer processamento em pequenas partes do dado sem parar
 - Vai entrar informação sempre, essa informação vai ser coletada de tempo em tempo, que pode ser definido, consegue também definir a janela em que vai ser feito o processamento e o este vai sendo salvo
 - Se definir o tempo como 1 segundo, de 1 em 1 segundo vai ter um novo arquivo
+![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/e1400723-162a-401e-9363-cc3f39531d4d)
 
 # Spark Streaming - Leitura de Dados
 
