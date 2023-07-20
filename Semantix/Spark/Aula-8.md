@@ -78,7 +78,7 @@ Dynamic Topic Subscription | No | Yes
 - Exemplo:
   - $ kafka-topics -version (para ver a versão do kafka, é para ser executado no container de kafka)
   - 2.3.0 (saída)
-    - Link:
+    - Link (para ver as versões de outras ferramentas compatíveis com a versão do kafka): https://docs.confluent.io/current/installation/versions-interoperability.html
     - Confluent Platform: 5.3x (Ex: 5.3.1-css) - quando aparece isso é porque está utilizando no cluster o kafka pela confluent e não o kafka puro
     - Apache Kafka: 2.3x
   - $ spark-shell (é para ser executado no container de spark)
