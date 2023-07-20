@@ -71,6 +71,23 @@ Dynamic Topic Subscription | No | Yes
   - **kafka-console-producer --broker-list kafka:9092 --topic topicTeste --property parse.key=true --property key.separator=: < file.log**
 
 # Dependências do Spark Streaming com Kafka 0.10
+- Para o Spark Streaming fazer a comunicação com o Kafka, é preciso importar as dependências do kafka;
+- Adicionar pacote do Kafka (no spark-shell)
+  - ```--packages org.apache.spark:spark-streaming-kafka-0-10_<versãoScala>:<versãoSpark>```
+  - Dependendo da versão do Scala e Spark pode ter funções a mais ou a menos
+- Exemplo:
+  - $ kafka-topics -version (para ver a versão do kafka, é para ser executado no container de kafka)
+  - 2.3.0 (saída)
+    - Link:
+    - Confluent Platform: 5.3x (Ex: 5.3.1-css) - quando aparece isso é porque está utilizando no cluster o kafka pela confluent e não o kafka puro
+    - Apache Kafka: 2.3x
+  - $ spark-shell (é para ser executado no container de spark)
+    - Scala: 2.11.12
+    - Spark: 2.4.1
+- $ spark-shell --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.4.1
+- IntelliJ com SBT:
+- libraryDependencies += "org.apache.spark" % "spark-streaming-kafka-0-10" % "2.4.1"
+  - também precisa adicionar o pacote usando -- spark-submit
 
 # Scala - Estrutura do código e importações
 
