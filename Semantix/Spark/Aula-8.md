@@ -95,7 +95,7 @@ Dynamic Topic Subscription | No | Yes
 ```scala
 scala> import...
 scala> val ssc = new StreamingContext(...)
-scala> val kafkaParams = Map(String, Object)(...)//chave, valor (String, Object)
+scala> val kafkaParams = Map[String, Object](...)//chave, valor (String, Object)
 scala> val dstream = KafkaUtils.createDirectStream[String, String](...)//chave, valor (String, String)
 scala> dstream.map(...) //dstream é um dataframe, então é possível utilizar as operações do RDD nele
 ssc.start()
@@ -114,5 +114,22 @@ scala> import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsi
 scala> import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 ```
 # Scala - Parâmetros do Kafka
+- Usar API Kafka para configuração dos parâmetros
 
+```scala
+scala> val kafkaParams = Map[String, Object](
+  "bootstrap.servers" -> "localhost:9092",
+  "key.deserializer" -> classOf[StringDeserializer],
+  "value.deserializer" -> classOf[StringDeserializer],
+  "group.id" -> "app-teste",
+  "auto.offset.reset" -> "earliest",
+  "enable.auto.commit" -> (false: java.lang.Boolean)
+)
+//tudo que está dentro dos parênteses vai ser String, Object;
+//poderia ser kafka:9092 também no cluster que está sendo utilizado no curso
+//a chave e o valor vem por padrão em um formato string e para o kafka fazer leitura precisa deserializar essas strings
+//quando for produzir, precisa deserializar novamente
+```
+- "auto.offset.reset" -> "earliest" - vai pegar os dados desde o início
+- O padrão é sempre pegar os dados na posição atual
 # Scala - Criação e Visualização do DStream
