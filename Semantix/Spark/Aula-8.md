@@ -32,13 +32,43 @@ Dynamic Topic Subscription | No | Yes
     - Versão >= Spark 1.2
     - Versão <= Spark 2.3
    
-- Receber dados de um ou mais tópicos do Kafka
-  - Configurar os parâmetros do StreamContext
+- Para receber dados de um ou mais tópicos do Kafka (leitura no Spark), precisa:
+  - Configurar os parâmetros do StreamContext (segundos para processar os dados, nome da aplicação, modo, etc)
   - Configurar os parâmetros do Kafka
   - Configurar o DStreams para leitura dos tópicos
 
-
 # Revisão de comandos do Kafka
+## Exemplos da comandos no Kafka
+- Acessar o container do Kafka
+  - docker exec --it kafka bash
+ 
+- Criação de tópico
+  - **kafka-topics --bootstrap-server kafka:9092 --topic topicTeste --create --partitions 1 --replication-factor 1**
+    - Dependendo de como está se utilizando pode ter um .sh do executável após "kafka-topics"
+    - --help mostra todas as operações disponíveis
+    - --replication-factor tem que ser 1 porque no cluster do curso só tem 1 nó
+   
+- Criação do produtor
+  - **kafka-console-producer --broker-list kafka:9092 --topic topicTeste**
+ 
+- Criação do consumidor
+  - **kafka-console-consumer --bootstrap-server kafka:9092 --topic topicTeste**
+    - Pode consumir pelo kafka-console-consumer ou pelo próprio Spark
+    - É bom utilizar o kafka-console-consumer para testar se a comunicação está funcionando, porque, se não estiver, também não vai funcionar no Spark
+    - Com o teste, por mais que já tenha consumido pelo kafka-console-consumer, tem a opção de consumir tudo de novo no Spark
+   
+- Criação do produtor com Chave/Valor
+  - **kafka-console-producer --broker-list kafka:9092 --topic topicTeste --property parse.key=true --property key.separator=,**
+    - parse.key - habilita para ser chave/valor;
+    - vai aceitar uma chave e quando estiver consumindo pelo kafka-console-consumer vai retornar apenas o valor e não a chave;
+    - key.separator=, - vai separar a chave do valor pela vírgula;
+    - o padrão é ler apenas o valor, mas pode ser configurado (na leitura) para ler só a chave ou a chave e o valor ou até a chave, o valor e a partição
+   
+- Criação do produtor enviando um arquivo
+  - **kafka-console-producer --broker-list kafka:9092 --topic topicTeste < file.log**
+   
+- Criação do produtor enviando um arquivo com Chave/Valor
+  - **kafka-console-producer --broker-list kafka:9092 --topic topicTeste --property parse.key=true --property key.separator=: < file.log**
 
 # Dependências do Spark Streaming com Kafka 0.10
 
