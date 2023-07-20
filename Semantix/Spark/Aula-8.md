@@ -96,7 +96,7 @@ Dynamic Topic Subscription | No | Yes
 scala> import...
 scala> val ssc = new StreamingContext(...)
 scala> val kafkaParams = Map(String, Object)(...)//chave, valor (String, Object)
-scala> val dstream = KafkaUtils.createDirectStream[String, String](...)// chave, valor (String, String)
+scala> val dstream = KafkaUtils.createDirectStream[String, String](...)//chave, valor (String, String)
 scala> dstream.map(...)
 ssc.start()
 ```
