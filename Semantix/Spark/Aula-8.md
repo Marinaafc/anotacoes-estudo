@@ -100,7 +100,19 @@ scala> val dstream = KafkaUtils.createDirectStream[String, String](...)//chave, 
 scala> dstream.map(...) //dstream é um dataframe, então é possível utilizar as operações do RDD nele
 ssc.start()
 ```
+- Como Stream nunca para, não é interessante usar muito desempenho do cluster
+## Importar packages
+- Packages do Kafka 010 e Streaming
 
+```scala
+scala> import org.apache.kafka.clients.consumer.ConsumerRecord
+//Para poder gravar os dados do consumidor
+scala> import org.apache.kafka.common.serialization.StringDeserializer
+scala> import org.apache.spark.streaming.{Seconds, StreamingContext}
+scala> import org.apache.spark.streaming.kafka010._
+scala> import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
+scala> import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
+```
 # Scala - Parâmetros do Kafka
 
 # Scala - Criação e Visualização do DStream
