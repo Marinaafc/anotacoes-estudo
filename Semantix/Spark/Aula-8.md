@@ -97,7 +97,7 @@ scala> import...
 scala> val ssc = new StreamingContext(...)
 scala> val kafkaParams = Map(String, Object)(...)//chave, valor (String, Object)
 scala> val dstream = KafkaUtils.createDirectStream[String, String](...)//chave, valor (String, String)
-scala> dstream.map(...)
+scala> dstream.map(...) //dstream é um dataframe, então é possível utilizar as operações do RDD nele
 ssc.start()
 ```
 
