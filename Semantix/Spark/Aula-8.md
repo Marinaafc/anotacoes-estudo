@@ -90,6 +90,16 @@ Dynamic Topic Subscription | No | Yes
   - também precisa adicionar o pacote usando -- spark-submit
 
 # Scala - Estrutura do código e importações
+## Spark Streaming com Kafka
+- Processos básicos para leitura de dados do Kafka
+```scala
+scala> import...
+scala> val ssc = new StreamingContext(...)
+scala> val kafkaParams = Map(String, Object)(...)
+scala> val dstream = KafkaUtils.createDirectStream[String, String](...)
+scala> dstream.map(...)
+ssc.start()
+```
 
 # Scala - Parâmetros do Kafka
 
