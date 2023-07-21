@@ -150,3 +150,27 @@ scala> val kafkaParams = Map[String, Object](
     - Use um regex para especificar tópicos de interesse
   - Assign
     - Especificar uma coleção fixa de partições
+## Criação do Dstream para o tópico do Kafka
+- Usar estratégia do Kafka
+```scala
+scala> val ssc = new StreamingContext(sc,Seconds(10))
+scala> val topics = Array("topicA") //poderia ter mais de 1 tópico para ler porque é um array
+scala> val dstream = KafkaUtils.createDirectStream[String, String](
+  ssc,
+  LocationStrategies.PreferConsistent,
+  ConsumerStrategies.Subscribe[String, String](topics, kafkaParams) //está usando o próprio tópico (variável topics)
+//vai pegar os parâmetros do kafka, aplicar ao tópico e seguir a estratégia, tudo isso dentro do ssc
+)
+```
+## Visualizar DStream
+- Mapear a estrutura do Tópico
+```scala
+scala> val info_dstream = dstream.map(record => (
+        record.topic,
+        record.partition,
+        record.key,
+        record.value
+      ))
+scala> info_dstream.print()
+//info_dstream é um RDD
+```
