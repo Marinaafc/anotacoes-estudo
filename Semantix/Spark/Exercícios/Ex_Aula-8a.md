@@ -6,9 +6,9 @@ a) Criar o tópico “topic-spark” com 1 partição e o fator de replicação 
 
 b) Inserir as seguintes mensagens no tópico:
 
-o Msg1
+o Msg1  
 
-o Msg2
+o Msg2  
 
 o Msg3
 
@@ -20,7 +20,7 @@ c) Criar um consumidor no Kafka para ler o “topic-spark”
 
 ### 2. Visualizar o tópico com as seguintes informações
 
-Nome do tópico
-Partição
+Nome do tópico  
+Partição  
 Valor
 ### 3. Salvar o tópico no diretório hdfs://namenode:8020/user/<nome>/kafka/dstream
