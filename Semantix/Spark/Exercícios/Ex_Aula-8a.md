@@ -52,7 +52,14 @@ Nome do tópico
 Partição  
 Valor
 ```scala
+scala> val info_dstream = dstream.map(record => (
+        record.topic,
+        record.partition,
+        record.value
+      ))
+scala> info_dstream.print()
 ```
 ### 3. Salvar o tópico no diretório hdfs://namenode:8020/user/<nome>/kafka/dstream
 ```scala
+info_dstream.saveAsTextFiles("hdfs://namenode:8020/user/<nome>/kafka/dstream")
 ```
