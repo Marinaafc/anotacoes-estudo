@@ -83,6 +83,17 @@ kafka_df = spark\
 ```
 # Struct Streaming com Kafka - Visualização e Escrita
 ## Visualizar dados do Kafka em Batch
+- Para visualizar a Chave e valor e necessário fazer cast
+```python
+```
 ## Visualizar dados do Kafka em Stream
+- Para visualizar a Chave e valor e necessário fazer cast
+```python
+```
 ## Enviar dados Stream para o Kafka
+- Fazer uso do **Continuous Processing** (Experimental)
+  - Registrar o progresso da consulta a cada x tempo com o Trigger Continuos
+  - O número de tarefas exigidas pela consulta depende de quantas partições a consulta pode ler das fontes em paralelo (Núcleos >= Partições)
 ## Enviar dados Batch para o Kafka
+- Obrigatório ter o campo value
+- Opcional ter o campo key
