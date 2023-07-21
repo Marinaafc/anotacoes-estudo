@@ -133,3 +133,20 @@ scala> val kafkaParams = Map[String, Object](
 - "auto.offset.reset" -> "earliest" - vai pegar os dados desde o início
 - O padrão é sempre pegar os dados na posição atual
 # Scala - Criação e Visualização do DStream
+## Spark Streaming com Kafka 0.10
+- Location Strategies
+  - PreferConsistent
+    - Distribuir partições uniformemente entre os executores disponíveis
+      - Ex: Colocou para executar 5 executores e tem 10 partições = vai colocar 2 partições para cada executor
+  - PreferBrokers
+    - Se seus executores estiverem nos mesmos hosts que seus corretores Kafka
+      - Vai executar exatamente se os hosts estiverem no mesmo local dos brokers do Kafka
+  - PreferFixed
+    - Especifique um mapeamento explícito de partições para hosts
+- Consumer Strategies
+  - Subscribe
+    - Inscrever-se em uma coleção fixa de tópicos
+  - SubscribePattern
+    - Use um regex para especificar tópicos de interesse
+  - Assign
+    - Especificar uma coleção fixa de partições
