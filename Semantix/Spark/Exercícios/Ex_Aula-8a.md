@@ -15,11 +15,11 @@ o Msg2
 
 o Msg3
 ```
-kafka-console-producer --broker-list kafka:9092 --topic topic-spark
+kafka-console-producer.sh --broker-list kafka:9092 --topic topic-spark
 ```
 c) Criar um consumidor no Kafka para ler o “topic-spark”
 ```
-kafka-console-consumer --bootstrap-server kafka:9092 --topic topic-spark
+kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic topic-spark
 ```
 ## Spark
 
