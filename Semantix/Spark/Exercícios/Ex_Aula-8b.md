@@ -37,10 +37,10 @@ scala> import org.apache.spark.streaming.kafka010._
 scala> import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 scala> import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 scala> val kafkaParams = Map[String, Object](
-  "bootstrap.servers" -> "localhost:9092",
+  "bootstrap.servers" -> "kafka:9092",
   "key.deserializer" -> classOf[StringDeserializer],
   "value.deserializer" -> classOf[StringDeserializer],
-  "group.id" -> "app-teste",
+  "group.id" -> "aplicacao2",
   "auto.offset.reset" -> "earliest",
   "enable.auto.commit" -> (false: java.lang.Boolean)
 )
