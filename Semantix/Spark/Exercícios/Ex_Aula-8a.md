@@ -25,6 +25,7 @@ kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic topic-spark
 
 ### 1. Criar um consumidor em Scala usando Spark Streaming para ler o “topic-spark” no cluster Kafka ”kafka:9092”
 ```scala
+spark-shell --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.4.1 //em jupyter-spark
 scala> import org.apache.kafka.clients.consumer.ConsumerRecord
 scala> import org.apache.kafka.common.serialization.StringDeserializer
 scala> import org.apache.spark.streaming.{Seconds, StreamingContext}
