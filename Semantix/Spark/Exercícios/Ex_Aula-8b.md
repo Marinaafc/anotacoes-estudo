@@ -44,7 +44,7 @@ scala> val kafkaParams = Map[String, Object](
   "auto.offset.reset" -> "earliest",
   "enable.auto.commit" -> (false: java.lang.Boolean)
 )
-scala> val ssc = new StreamingContext(sc,Seconds(10))
+scala> val ssc = new StreamingContext(sc,Seconds(5))
 scala> val topics = Array("topic-kvspark")
 scala> val dstream = KafkaUtils.createDirectStream[String, String](
   ssc,
