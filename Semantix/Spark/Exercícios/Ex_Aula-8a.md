@@ -5,6 +5,7 @@
 a) Criar o tópico “topic-spark” com 1 partição e o fator de replicação = 1
 ```
 kafka-topics.sh --bootstrap-server kafka:9092 --topic topic-spark --create --partitions 1 --replication-factor 1
+kafka-topics.sh --bootstrap-server kafka:9092 --list
 ```
 b) Inserir as seguintes mensagens no tópico:
 
