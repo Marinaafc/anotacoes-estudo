@@ -70,6 +70,12 @@ scala> info_dstream.print()
 ```
 ### 3. Salvar o tópico no diretório hdfs://namenode:8020/user/<nome>/kafka/dstreamkv
 ```scala
-!hdfs dfs -mkdir /user/marina/kafka/dstreamkv
-info_dstream.saveAsTextFiles("hdfs://namenode:8020/user/marina/kafka/dstreamkv")
+info_dstream.saveAsTextFiles("/user/marina/kafka/dstreamkv")
+ssc.start()
+hdfs dfs -ls /user/marina/kafka
+hdfs dfs -ls /user/marina/kafka/dstreamkv-1690043665000
+hdfs dfs -cat /user/marina/kafka/dstreamkv-1690043665000/part-00001
+hdfs dfs -cat /user/marina/kafka/dstreamkv-1690043665000/part-00000
 ```
+- As mensagens não são mostradas por ordem de envio, porque está dividido em partições e é feita por ordem da partição que estiver mais próxima para leitura;
+- Cada chave vai ficar sempre em uma partição específica, por exemplo, mensagem da chave 1 fica sempre na partição 1
