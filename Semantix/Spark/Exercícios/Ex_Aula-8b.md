@@ -4,7 +4,7 @@
 
 a) Criar o tópico “topic-kvspark” com 2 partições e o fator de replicação = 1
 ```
-kafka-topics --bootstrap-server kafka:9092 --topic topic-kvspark --create --partitions 2 --replication-factor 1
+kafka-topics.sh --bootstrap-server kafka:9092 --topic topic-kvspark --create --partitions 2 --replication-factor 1
 ```
 
 b) Inserir as seguintes mensagens no tópico (Chave, Valor):
@@ -16,13 +16,13 @@ o 2, Msg2
 o 3, Msg3
 
 ```
-kafka-console-producer --broker-list kafka:9092 --topic topic-kvspark --property parse.key=true --property key.separator=,
+kafka-console-producer.sh --broker-list kafka:9092 --topic topic-kvspark --property parse.key=true --property key.separator=,
 ```
 
 c) Criar um consumidor no Kafka para ler o “topic-kvspark”
 
 ```
-kafka-console-consumer --bootstrap-server kafka:9092 --topic topic-kvspark
+kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic topic-kvspark
 ```
 
 ## Spark
