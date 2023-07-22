@@ -41,7 +41,7 @@ scala> val kafkaParams = Map[String, Object](
   "enable.auto.commit" -> (false: java.lang.Boolean)
 )
 //latest para não ver os anteriores
-scala> val ssc = new StreamingContext(sc,Seconds(10))
+scala> val ssc = new StreamingContext(sc,Seconds(5))
 scala> val topic = Array("topic-spark")
 scala> val stream = KafkaUtils.createDirectStream[String, String](
   ssc,
