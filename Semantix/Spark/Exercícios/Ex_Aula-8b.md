@@ -45,11 +45,11 @@ scala> val kafkaParams = Map[String, Object](
   "enable.auto.commit" -> (false: java.lang.Boolean)
 )
 scala> val ssc = new StreamingContext(sc,Seconds(5))
-scala> val topics = Array("topic-kvspark")
-scala> val dstream = KafkaUtils.createDirectStream[String, String](
+scala> val topic = Array("topic-kvspark")
+scala> val stream = KafkaUtils.createDirectStream[String, String](
   ssc,
   LocationStrategies.PreferConsistent,
-  ConsumerStrategies.Subscribe[String, String](topics, kafkaParams)
+  ConsumerStrategies.Subscribe[String, String](topic, kafkaParams)
 )
 ```
 
@@ -60,13 +60,13 @@ Partição
 Chave
 Valor
 ```scala
-scala> val info_dstream = dstream.map(record => (
+scala> val info_stream = stream.map(record => (
         record.topic,
         record.partition,
         record.key,
         record.value
       ))
-scala> info_dstream.print()
+scala> info_stream.print()
 ```
 ### 3. Salvar o tópico no diretório hdfs://namenode:8020/user/<nome>/kafka/dstreamkv
 ```scala
