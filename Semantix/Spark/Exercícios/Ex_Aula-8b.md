@@ -60,13 +60,13 @@ Partição
 Chave
 Valor
 ```scala
-scala> val info_stream = stream.map(record => (
+scala> val info_dstream = stream.map(record => (
         record.topic,
         record.partition,
         record.key,
         record.value
       ))
-scala> info_stream.print()
+scala> info_dstream.print()
 ```
 ### 3. Salvar o tópico no diretório hdfs://namenode:8020/user/<nome>/kafka/dstreamkv
 ```scala
