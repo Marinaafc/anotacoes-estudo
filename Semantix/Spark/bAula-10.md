@@ -40,6 +40,9 @@ broadcastVar.destroy
 ```
 ## Accumulators
 - Acumuladores são variáveis ​que são apenas “adicionadas” a uma operação associativa e comutativa
+- Em Scala e Java dá para definir um tipo e um nome pro acumulador
+- Em Python não é possível definir um nome
+- Se não definir um nome, não é possível visualizar na interface gráfica (localhost:4040)
   - Paralelismo eficiente
   - Podem ser usados ​para implementar contadores
   - Suporta acumuladores de tipos numéricos, e podem adicionar outros
