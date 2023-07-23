@@ -1,19 +1,21 @@
 ### 1. Ler o tópico do kafka “topic-kvspark” em modo batch
 ```python
-kafka_df = spark.read.format("kafka").option("kafka.bootstrap.servers", "kafka":9092).option("subscribe", "topic-kvspark").load()
+from pyspark.sql.functions import *
+topic_read = spark.read.format("kafka").option("kafka.bootstrap.servers", "kafka:9092").option("subscribe", "topic-kvspark").load()
+#não pode colocar localhost porque está no container do jupyter-spark e não do kafka
 ```
 ### 2. Visualizar o schema do tópico
 ```python
-kafka_df.printSchema
+topic_read.printSchema
 ```
 ### 3. Visualizar o tópico com o campo key e value convertidos em string
 ```python
 from pyspark.sql.types import *
-kafka_df.select(col("key").cast(StringType), col("value").cast(StringType)).show()
+topic_read.select(col("key").cast(StringType), col("value").cast(StringType)).show()
 ```
 ### 4. Ler o tópico do kafka “topic-kvspark” em modo streaming
 ```python
-kafka_stream = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "kafka":9092).option("subscribe", "topic-kvspark").option("startingOffsets", "earliest").load()
+kafka_stream = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "kafka:9092").option("subscribe", "topic-kvspark").option("startingOffsets", "earliest").load()
 ```
 ### 5. Visualizar o schema do tópico em streaming
 ```python
