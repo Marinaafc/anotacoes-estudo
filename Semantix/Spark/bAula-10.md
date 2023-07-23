@@ -1,38 +1,41 @@
 # Variáveis Compartilhadas
-- Quando uma função é passada para o Spark, a operação é executada em um nó de cluster 
-remoto
+- Sempre quando uma função é passada para o Spark, a operação é executada em um nó de cluster remoto
   - Trabalha em cópias separadas de todas as variáveis ​usadas na função
-  - As variáveis ​são copiadas para cada máquina e nenhuma atualização nas variáveis ​na 
-máquina remota é propagada de volta ao programa do driver
+    - Vai ter uma cópia para tudo em cada nó
+  - As variáveis não se comunicam, ​são copiadas para cada máquina e nenhuma atualização nas variáveis ​na máquina remota é propagada de volta ao programa do driver
   - A leitura e gravação entre tarefas é ineficiente
+ 
+- Uma forma de melhorar isso é trabalhar com varáveis compartilhadas, não vai precisar manter as cópias em todas as tarefas
+- Pode escolher o que quer que carregue em cache, porque é necessário e o resto não
 - O Spark fornece dois tipos limitados de variáveis ​compartilhadas
   - Broadcast
   - Accumulators
  
 ## Broadcast
-- Para cada máquina no cluster terá uma variável somente para leitura em cache
+- Para cada máquina no cluster terá somente uma variável para leitura em cache
   - Não é necessário enviar uma cópia dela para as tarefas
+  - As várias tarefas do executor utilizam a mesma variável
 - Variáveis ​de broadcast é útil quando
   - Tarefas em vários estágios precisam dos mesmos dados
   - Importância de armazenar em cache os dados na forma desserializada
 ![image](https://github.com/Marinaafc/anotacoes-estudo/assets/107056644/6a5dde1d-6b41-4cee-b999-caa826671c6a)
  
 ## Broadcast - Métodos
-- Id - Identificador único
-- Value – Valor
-- Unpersist - Exclui assincronamente cópias em cache da variável broadcast nos executores
-- Destroy - Destrói todos os dados e metadados relacionados a variável de broadcast
-- toString - Representação de string
+- .Id - Identificador único
+- .Value – Valor
+- .Unpersist - Exclui assincronamente cópias em cache da variável broadcast nos executores
+- .Destroy - Destrói todos os dados e metadados relacionados a variável de broadcast
+- .toString - Representação de string
 
 ## Broadcast - Exemplo
 - Sintaxe
 - ```<variavelBroadcast> = sc.broadcast(<valor>)```
-```scala
-broadcastVar = sc.broadcast( [1, 2, 3])
+```python
+broadcastVar = sc.broadcast([1, 2, 3])
 type(broadcastVar)
-//pyspark.broadcast.Broadcast
+#pyspark.broadcast.Broadcast
 broadcastVar.value
-//[1, 2, 3]
+#[1, 2, 3]
 broadcastVar.destroy
 ```
 ## Accumulators
