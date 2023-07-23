@@ -23,10 +23,14 @@
 ## Struct Streaming – Exemplo Socket
 - Exemplo de leitura na porta 9999 no localhost
 ```python
-read_str = spark.readStream.format("socket").
-option("host", "localhost").option("port", 9999).load()
+read_str = spark.readStream.format("socket").option("host", "localhost").option("port", 9999).load()
+#vai ler uma porta, socket
+#o host é o localhost
 ...
 write_str = readStr.writeStream.format("console").start()
+#usar take, show não funciona, pois só mostra as informações quando dá start
+#formato console é muito utilizado para fazer teste
+#não tem como usar console pelo jupyter notebook
 ```
 ## Struct Streaming – Exemplo CSV
 - Leitura de um arquivo csv
@@ -36,7 +40,8 @@ write_str = readStr.writeStream.format("console").start()
 user_schema = StructType().add(“nome", "string").add("idade", "integer")
 read_csv_df = spark.readStream
   .schema(user_schema)
-  .csv("/user/nomes/") 
+  .csv("/user/nomes/")
+#precisa ser um diretório
 read_csv_df.printSchema()
 ```
 - Salvar dados
@@ -46,9 +51,10 @@ read_csv_df.printSchema()
   - Parquet
 ```python
 read_csv_df.writeStream
-  .format("csv")
+  .format("csv") #obrigatório
   .option("checkpointLocation", "/tmp/checkpoint")
-  .option("path", "/home/data")
+#vai ter informação de metadados, verifica se realmente foi ou não foi o envio
+  .option("path", "/home/data") #obrigatório
   .start()
 ```
 # Struct Streaming com Kafka - Conceitos
