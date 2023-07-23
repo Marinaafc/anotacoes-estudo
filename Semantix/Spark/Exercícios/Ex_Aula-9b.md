@@ -6,31 +6,38 @@ topic_read = spark.read.format("kafka").option("kafka.bootstrap.servers", "kafka
 ```
 ### 2. Visualizar o schema do tópico
 ```python
-topic_read.printSchema
+topic_read.printSchema()
 ```
 ### 3. Visualizar o tópico com o campo key e value convertidos em string
 ```python
-from pyspark.sql.types import *
-topic_read.select(col("key").cast(StringType), col("value").cast(StringType)).show()
+topic_string = topic_read.select(col("key").cast("string"), col("value").cast("string"))
+topic_string.show()
+#usando "string" no lugar de StringType não precisa importar os tipos
 ```
+- Se der erro, pode usar o comando ```kafka-topics.sh --bootstrap-server kafka:9092 --list``` no container do Kafka para saber se o tópico existe
 ### 4. Ler o tópico do kafka “topic-kvspark” em modo streaming
 ```python
-kafka_stream = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "kafka:9092").option("subscribe", "topic-kvspark").option("startingOffsets", "earliest").load()
+topic_read_stream = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "kafka:9092").option("subscribe", "topic-kvspark").option("startingOffsets", "earliest").load()
 ```
 ### 5. Visualizar o schema do tópico em streaming
 ```python
-kafka_stream.printSchema
+kafka_stream.printSchema()
 ```
 ### 6. Alterar o tópico em streaming com o campo key e value convertidos para string
 ```python
-kafka_stream.select(col("key").cast(StringType), col("value").cast(StringType))
-kafka_stream.start()
+topic_string_stream = topic_read_stream.select(col("key").cast("string"), col("value").cast("string"))
 ```
 ### 7. Salvar o tópico em streaming no tópico topic-kvspark-output a cada 5 segundos
 ```python
-kafka_output = kafka_stream.writeStream.format("kafka").option("kafka.bootstrap.servers", "kafka":9092).option("topic", "topic-kvspark-output").trigger(Trigger.Continuous("5 seconds")).start()
+topic_string_stream_output = topic_string_stream.writeStream.format("kafka").option("kafka.bootstrap.servers", "kafka:9092").option("topic", "topic-kvspark-output").option("checkpointLocation","/user/marina/kafka_checkpoint").trigger(continuous="5 second").start()
+#o tópico não vai ser criado no kafka até que seja enviada alguma informação pelo producer
 ```
+- Por default, esse tópico vai ser criado com apenas 1 partição
 ### 8. Salvar o tópico na pasta hdfs://namenode:8020/user/<nome>/Kafka/topic-kvspark-output
 ```python
-kafka_output.writeStream.format("kafka").option("path", "/user/marina/Kafka/topic-kvspark-output").start()
+topic_string_stream_output = topic_string_stream.writeStream.format("csv").option("path", "/user/marina/kafka/topic-kvspark-output").option("checkpointLocation","/user/marina/kafka_checkpoint1").start()
+#como está salvando em csv, não precisa falar quem é o broker e o tópico
+#tem que colocar um diretório do checkpoint diferente do que foiusado antes para não acusar erro
+!hdfs dfs -ls /user/marina/kafka/topic-kvspark-output
+!hdfs dfs -cat /user/marina/kafka/topic-kvspark-output/part-00000-f2d65bfc-c99e-4c90-ab77-8d9b5e5ad51b-c000.csv
 ```
