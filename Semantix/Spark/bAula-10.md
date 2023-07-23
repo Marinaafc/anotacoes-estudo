@@ -79,12 +79,11 @@ broadcast(spark.table("src")).join(spark.table("records"), "key").show()
 spark.catalog.uncacheTable("src")
 ```
 # UDF
-- User defined Function para Spark SQL
+- User defined Function (Funções Definidas pelo Usuário) para Spark SQL
   - Registrar função como UDF
   - Comando:
     - ```spark.udf.register(“<nomeUDF>”, <UserDefinedFunction>)```
    
- 
 ```scala
 scala> val quadrado = ((s: Long) => s * s)
 ```
@@ -94,6 +93,8 @@ python> quadrado = (lambda s: s * s)
 ```
 spark.udf.register(“fQuad", quadrado)
 spark.range(1, 20).registerTempTable("test")
+#.range - cria um range com um campo chamado id de números de 1 a 20
+#bom para teste. .registerTempTable - tabela temporária
 spark.sql("select id, fQuad(id) as id_quad from test")
 ```
 ## UDF
@@ -117,9 +118,9 @@ spark.range(1, 20).select(col(“id”), fDfQuad(col("id")))
 ```
 ## UDF
 - Realmente é necessário criar?
-  - Otimização
-  - Desempenho
-  - Documentação
+  - Otimização - As UDFs não passam pelo catalyst (otimizador do Spark), então não são otimizadas da melhor forma
+  - Desempenho - Como não usa o otimizador do Spark, provavelmente vai perder desempenho com as UDFs
+  - Documentação - Antes de criar uma função, verificar se realmente não existe na documentação
     - https://spark.apache.org/docs/latest/api/sql/ 
 # Tunning
 ## Deploy com alocação dinâmica
