@@ -17,26 +17,36 @@ porta_saida = porta_leitura.writeStream.format("console").start()
 - class string
 
 ```python
-user_schema = StructType().add("sepal_length", "float").add("sepal_width", "float").add("petal_length","float").add("petal_width","float").add("class","string")
-read_csv_df = spark.readStream.schema(user_schema).csv("/user/marina/data/iris/*.data")
+from pyspark.sql.types import StructType
+iris_schema = StructType().add("sepal_length", "float").add("sepal_width", "float").add("petal_length","float").add("petal_width","float").add("class","string")
+iris = spark.readStream.schema(iris_schema).csv("/user/marina/data/iris/*.data")
+#se der tudo certo em batch (usando só "read"), também vai dar certo com readStream
 ```
+
 
 3. Visualizar o schema das informações
 ```python
-read_csv_df.printSchema()
+iris.printSchema()
 ```
 4. Salvar os dados no diretório “hdfs://namenode:8020/user/<nome>/stream_iris/path” e o checkpoint em “hdfs://namenode:8020/user/<nome>/stream_iris/check”
 ```python
-read_csv_df.writeStream.format("csv").option("checkpointLocation", "/user/marina/stream_iris/check").option("path", "/user/marina/stream_iris/path").start()
+iris_saida = iris.writeStream.format("csv").option("checkpointLocation", "/user/marina/stream_iris/check").option("path", "/user/marina/stream_iris/path").start()
+#dependendo do formato que estiver trabalhando pode precisar o checkpoint ou não
 ```
 5. Verificar a saida no hdfs e entender como os dados foram salvos
 ```scala
-hdfs dfs -ls /user/marina/stream_iris/path
+!hdfs dfs -ls /user/marina/stream_iris/path
 ```
-6. Bônus: Contar as palavras do exercício 1.
+6. Bônus: Contar as palavras do exercício 1. (ele não resolveu na aula, tentar depois)
 ```python
-val read_str = spark.readStream.format("socket").option("host", "localhost").option("port", 9999).load()
-
-nc...
-val write_str = readStr.writeStream.format("console").start()
+!hdfs dfs -ls /user/marina/data/iris/*.data
+iris_batch = spark.read.csv("/user/marina/data/iris/bezdekIris.data")
+iris_batch.count()
+iris_batch = spark.read.csv("/user/marina/data/iris/iris.data")
+iris_batch.count()
+spark.read.csv("/user/marina/stream_iris/path/part-00000-5bbc76e9-d576-4443-88c1-1025439caab4-c000.csv").count()
+spark.read.csv("/user/marina/stream_iris/path/part-00001-7247296c-b20e-46d6-bab6-bfb0cc47774f-c000.csv").count()
 ```
+- Para parar o iris_saida, precisa clicar em "Kernel" e depois em "Restart & Clear Outout" ou desligar o cluster;
+- Para verificar se funcionou, basta acessar o localhost:4040 e ver se tem jobs ativos ou ver pelo iris_saida.status;
+- Pararia também se usasse o sleep
