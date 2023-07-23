@@ -93,15 +93,61 @@ kafka_df = spark\
 ## Visualizar dados do Kafka em Batch
 - Para visualizar a Chave e valor e necessário fazer cast
 ```python
+kafka_df.printSchema 
+root 
+|-- key: binary (nullable = true)
+|-- value: binary (nullable = true) 
+|-- topic: string (nullable = true) 
+|-- partition: integer (nullable = true) 
+|-- offset: long (nullable = true)
+|-- timestamp: timestamp (nullable = true) 
+|-- timestampType: integer (nullable = true) 
+kafka_df.select(col("key").cast(StringType), col("value").cast(StringType)).show()
+#está fazendo cast para transformar o que está em binário em string, porque binário não dá para ver no console
 ```
 ## Visualizar dados do Kafka em Stream
 - Para visualizar a Chave e valor e necessário fazer cast
 ```python
+kafka_df.printSchema 
+root 
+|-- key: binary (nullable = true)
+|-- value: binary (nullable = true) 
+|-- topic: string (nullable = true) 
+|-- partition: integer (nullable = true) 
+|-- offset: long (nullable = true)
+|-- timestamp: timestamp (nullable = true) 
+|-- timestampType: integer (nullable = true) 
+kafka_df.select(col("key").cast(StringType), col("value").cast(StringType))
+kafka_df.writeStream.format("console").start
+#o show não funciona em stream, porque stream não mostra só a informação e pronto, ele fica mostrando as informações sem parar
 ```
 ## Enviar dados Stream para o Kafka
 - Fazer uso do **Continuous Processing** (Experimental)
   - Registrar o progresso da consulta a cada x tempo com o Trigger Continuos
   - O número de tarefas exigidas pela consulta depende de quantas partições a consulta pode ler das fontes em paralelo (Núcleos >= Partições)
+ 
+```python
+kafka_df.writeStream\
+        .format("kafka")\
+        .option("kafka.bootstrap.servers", "host1:port1,host2:port2")\
+        .option("topic", "topic_teste2")\
+        .trigger(Trigger.Continuous("1 second"))\
+        .start()
+#trigger - controla o tempo de fazer a transformação e enviar os dados
+```
+- Vai fazer as tarefas seguindo o tempo do trigger dependendo de quantas partições a consulta pode ler em fontes em paralelo;
+- Ou seja, o número de núcleos (cores) tem que ser maior ou igual ao número de partições para que cada core seja responsável por uma partição do kafka
 ## Enviar dados Batch para o Kafka
 - Obrigatório ter o campo value
 - Opcional ter o campo key
+```python
+dataframe\
+      .withColumnRenamed(“id”, “key”)\
+      .withColumnRenamed(“nome”, “value”)
+#renomeando o campo id para key, e nome para value
+dataframe.write\
+      .format("kafka")\
+      .option("kafka.bootstrap.servers", "host1:port1,host2:port2")\
+      .option("topic", "topic_teste2")\
+      .save()
+```
