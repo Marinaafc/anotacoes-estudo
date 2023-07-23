@@ -124,6 +124,7 @@ spark.range(1, 20).select(col(“id”), fDfQuad(col("id")))
     - https://spark.apache.org/docs/latest/api/sql/ 
 # Tunning
 ## Deploy com alocação dinâmica
+- Modo client executa no nó que foi enviado
 - Parâmetros para utilizar os recursos do cluster
   - --master $YARN
     - Executar o log local: $YARN = local
@@ -142,12 +143,12 @@ spark.range(1, 20).select(col(“id”), fDfQuad(col("id")))
     - Executar o log local: $YARN = local
     - Executar no cluster: $YARN = yarn
   - --deploy-mode cluster
-  - --dirver-memory = 8G (recomendável)
-  - --executor-memory = int( (Memória total-10%) / num-executors)
+  - --driver-memory = 8G (recomendável)
+  - --executor-memory = int((Memória total-10%) / num-executors)
   - --conf spark.yarn.driver.memoryOverhead = 10% de memoria
   - --conf spark.yarn.executor.memoryOverhead = 10% dos executors
   - --executors-core = 4 ou 5 no máximo, (mais que isso fica pesado)
-  - --num-executors = int ( (Cores total-10%) / executors-core)
+  - --num-executors = int ((Cores total-10%) / executors-core)
 # Spark Connector
 - Jdbc
   - https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
